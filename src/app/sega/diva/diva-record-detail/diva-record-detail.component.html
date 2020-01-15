@@ -1,0 +1,127 @@
+<div *ngIf="record">
+
+  <mat-card>
+    <mat-card-title>
+      <div
+        class="title">{{record.songInfo != null ? record.songInfo.song_name : 'pvId:' + record.records[0].pvId}}</div>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="song-info">
+        <span
+          class="info">{{record.songInfo != null ? 'Lyric: ' + record.songInfo.lyrics + ' Song: ' + record.songInfo.music : ''}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngFor="let item of record.records" routerLink="{{item.pvId}}">
+    <mat-card-title>
+      <div class="level">
+        {{item.edition === 1 ? edition[item.edition] : ''}}
+        {{difficulty[item.difficulty]}}
+      </div>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="song-info">
+        <span
+          class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+      </div>
+      <div class="result-content">
+        <div class="left">
+          Achievement:<br>
+          <span class="achievement-value">{{item.maxAttain|divaDecimal}}%</span>
+        </div>
+        <div class="left">
+          Score:<br>
+          <span class="score-value">{{item.maxScore}}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!isEdit">
+    <mat-card-title>
+      <div class="title">Per PV Customize</div>
+      <button (click)="isEdit = true" mat-flat-button>Edit</button>
+    </mat-card-title>
+    <mat-card-content>
+      <table class="zebra">
+        <tr>
+          <th>Module:</th>
+          <td>{{record.customize.module}}</td>
+        </tr>
+        <tr>
+          <th>Customize:</th>
+          <td>{{record.customize.customize}}</td>
+        </tr>
+        <tr>
+          <th>Customize Flag:</th>
+          <td>{{record.customize.customizeFlag}}</td>
+        </tr>
+        <tr>
+          <th>Skin ID:</th>
+          <td>{{record.customize.skin}}</td>
+        </tr>
+        <tr>
+          <th>Button SE ID:</th>
+          <td>{{record.customize.buttonSe}}</td>
+        </tr>
+        <tr>
+          <th>Chain Slide SE ID:</th>
+          <td>{{record.customize.chainSlideSe}}</td>
+        </tr>
+        <tr>
+          <th>Slide SE ID:</th>
+          <td>{{record.customize.slideSe}}</td>
+        </tr>
+        <tr>
+          <th>Slider Touch SE ID:</th>
+          <td>{{record.customize.sliderTouchSe}}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="isEdit">
+    <mat-card-title>
+      <div class="title">Per PV Customize Edit</div>
+    </mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" [formGroup]="customizeForm">
+        <mat-form-field class="full-width">
+          <mat-label>Module</mat-label>
+          <input formControlName="module" matInput required type="text">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Customize</mat-label>
+          <input formControlName="customize" matInput required type="text">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Customize Flag</mat-label>
+          <input formControlName="customizeFlag" matInput required type="text">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Skin ID</mat-label>
+          <input formControlName="skin" matInput required type="number">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Button SE ID</mat-label>
+          <input formControlName="buttonSe" matInput required type="number">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Chain Slide SE ID</mat-label>
+          <input formControlName="chainSlideSe" matInput required type="number">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Slide SE ID</mat-label>
+          <input formControlName="slideSe" matInput required type="number">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Slider Touch SE ID</mat-label>
+          <input formControlName="sliderTouchSe" matInput required type="number">
+        </mat-form-field>
+        <button [disabled]="!customizeForm.valid" mat-flat-button type="submit">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,66 @@
+<div *ngIf="playLogList">
+  <mat-card *ngFor="let item of playLogList" routerLink="/diva/record/{{item.pvId}}">
+    <mat-card-title>{{item.dateTime}}</mat-card-title>
+    <mat-card-content>
+      <div class="song-info">
+        <span class="title">{{item.songInfo != null ? item.songInfo.song_name : 'pvId:' + item.pvId}}</span><br>
+        <span
+          class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+      </div>
+      <div class="result-content">
+        <div class="left">
+          Achievement:<br>
+          <span class="achievement-value">{{item.attainPoint|divaDecimal}}%</span>
+          <br>
+          <br>Score:<br>
+          <span class="score-value">{{item.score}}</span>
+        </div>
+        <table class="zebra">
+          <tr>
+            <th>Cool</th>
+            <td>{{item.coolCount}}</td>
+            <td>{{item.coolPercent|divaDecimal}}%</td>
+          </tr>
+          <tr>
+            <th>Fine</th>
+            <td>{{item.fineCount}}</td>
+            <td>{{item.finePercent|divaDecimal}}%</td>
+          </tr>
+          <tr>
+            <th>Safe</th>
+            <td>{{item.safeCount}}</td>
+            <td>{{item.safePercent|divaDecimal}}%</td>
+          </tr>
+          <tr>
+            <th>Sad</th>
+            <td>{{item.sadCount}}</td>
+            <td>{{item.sadPercent|divaDecimal}}%</td>
+          </tr>
+          <tr>
+            <th>Worst/Wrong</th>
+            <td>{{item.wrongCount}}</td>
+            <td>{{item.wrongPercent|divaDecimal}}%</td>
+          </tr>
+          <tr>
+            <th>Combo</th>
+            <td></td>
+            <td>{{item.maxCombo}}</td>
+          </tr>
+          <tr>
+            <th>Challenge Time</th>
+            <td></td>
+            <td>{{item.chanceTime}}</td>
+          </tr>
+          <tr>
+            <th>Hold</th>
+            <td></td>
+            <td>{{item.holdScore}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <button (click)="load()" mat-flat-button>Load More</button>
+
+</div>

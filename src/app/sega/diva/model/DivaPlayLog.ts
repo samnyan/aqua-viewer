@@ -1,0 +1,43 @@
+import {DivaPv} from './DivaPv';
+
+export interface DivaPlayLog {
+  id: number;
+  pvId: number;
+  songInfo?: DivaPv;
+  difficulty: number;
+  edition: number;
+  scriptVer: number;
+  score: number;
+  challengeKind: number;
+  challengeResult: number;
+  clearResult: number;
+  vp: number;
+  coolCount: number;
+  coolPercent: number;
+  fineCount: number;
+  finePercent: number;
+  safeCount: number;
+  safePercent: number;
+  sadCount: number;
+  sadPercent: number;
+  wrongCount: number;
+  wrongPercent: number;
+  maxCombo: number;
+  chanceTime: number;
+  holdScore: number;
+  attainPoint: number;
+  skinId: number;
+  buttonSe: number;
+  buttonSeVol: number;
+  sliderSe: number;
+  modules: string;
+  stageCompletion: number;
+  slideScore: number;
+  isVocalChange: number;
+  customizeItems: string;
+  rhythmGameOptions: string;
+  screenShotCount: number;
+  dateTime: Date;
+  chainSlideSe: number;
+  sliderTouchSe: number;
+}

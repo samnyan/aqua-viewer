@@ -1,0 +1,23 @@
+<mat-card *ngIf="profile">
+  <mat-card-title>Player Profile</mat-card-title>
+  <mat-card-content>
+    <table class="zebra">
+      <tr>
+        <th>Player Name</th>
+        <td>{{profile.playerName}}</td>
+      </tr>
+      <tr>
+        <th>Player Level</th>
+        <td>{{profile.level}}</td>
+      </tr>
+      <tr>
+        <th>Level Exp</th>
+        <td>{{profile.levelExp}}%</td>
+      </tr>
+      <tr>
+        <th>Player Title</th>
+        <td>{{profile.levelTitle}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

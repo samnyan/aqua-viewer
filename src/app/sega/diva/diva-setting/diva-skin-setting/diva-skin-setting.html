@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Change Skin</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Skin Id:</mat-label>
+    <input [(ngModel)]="data.skinId" matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()" mat-button>No Thanks</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+</div>

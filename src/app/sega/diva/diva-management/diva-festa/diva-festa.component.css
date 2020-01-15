@@ -1,0 +1,8 @@
+mat-card-title {
+  font-size: 1.2em;
+  display: flex;
+}
+
+mat-card-title button {
+  margin-left: auto;
+}

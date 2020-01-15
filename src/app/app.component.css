@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.sidenav {
+  flex: 1;
+  height: auto;
+}
+
+mat-sidenav {
+  min-width: 200px;
+}
+
+mat-toolbar {
+  z-index: 999;
+}
+
+.content {
+  background-origin: content-box;
+  height: auto;
+  overflow-y: visible;
+  width: 92%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  padding: 30px;
+  margin: auto;
+}
+
+.bg {
+  transition-duration: .218s;
+  transition-property: background;
+  transition-timing-function: ease-in;
+}
+
+.dark {
+  background-color: #202124;
+}
+
+@media only screen and (max-width: 599px) {
+  .content {
+    background-origin: content-box;
+    height: auto;
+    overflow-y: visible;
+    width: 96%;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: auto;
+  }
+}

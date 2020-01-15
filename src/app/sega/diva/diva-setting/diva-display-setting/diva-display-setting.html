@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Change Display Setting</h1>
+<mat-dialog-content>
+  <div>
+    <mat-checkbox [(ngModel)]="data.showInterimRanking">Show Ranking</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showClearStatus">Show Clear Status</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showClearBorder">Show Clear Border</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showRgoSetting">Show Rhythm Game Option</mat-checkbox>
+  </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()" mat-button>No Thanks</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+</div>

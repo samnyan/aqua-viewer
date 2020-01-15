@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-toolbar class="toolbar mat-elevation-z6" color="primary">
+    <button (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span>Aqua Viewer</span>
+    <span class="spacer-util"></span>
+
+    <button *ngIf="user" [matMenuTriggerFor]="userMenu" mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="User menu">face</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button (click)="logout()" mat-menu-item>Logout</button>
+    </mat-menu>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav">
+    <mat-sidenav #drawer [fixedInViewport]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 fixedTopGap="56">
+      <mat-nav-list *ngIf="user">
+        <a mat-list-item routerLink="/dashboard">Dashboard</a>
+        <mat-toolbar>Project DIVA AFT</mat-toolbar>
+        <a *ngFor="let item of divaMenus" mat-list-item routerLink="/{{item.url}}">{{item.name}}</a>
+        <mat-divider></mat-divider>
+        <mat-toolbar>CHUNITHM Amazon</mat-toolbar>
+        <a *ngFor="let item of amazonMenus" mat-list-item routerLink="/{{item.url}}">{{item.name}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+      <app-message></app-message>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

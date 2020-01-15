@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Change Plate</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Plate Id:</mat-label>
+    <input [(ngModel)]="data.plateId" matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Plate Effect Id:</mat-label>
+    <input [(ngModel)]="data.plateEffectId" matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()" mat-button>No Thanks</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+</div>

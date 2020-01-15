@@ -1,0 +1,95 @@
+<mat-card>
+  <mat-card-title>
+    <div class="title">Contest ID: {{f.id.value}}</div>
+  </mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contestForm">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput required type="text">
+      </mat-form-field>
+
+      <mat-checkbox class="full-width" formControlName="enable">Enabled</mat-checkbox>
+
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput required type="text"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Start Time</mat-label>
+        <input [matDatepicker]="startTime" formControlName="startTime" matInput placeholder="Choose a start date">
+        <mat-datepicker-toggle [for]="startTime" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #startTime></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>End Time</mat-label>
+        <input [matDatepicker]="endTime" formControlName="endTime" matInput placeholder="Choose a end date">
+        <mat-datepicker-toggle [for]="endTime" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #endTime></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>League</mat-label>
+        <mat-select formControlName="league">
+          <mat-option value="0">Beginner</mat-option>
+          <mat-option value="1">Intermediate</mat-option>
+          <mat-option value="2">Advanced</mat-option>
+          <mat-option value="3">Professional</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Stars</mat-label>
+        <input formControlName="stars" matInput required type="number">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>minComplexity</mat-label>
+        <input formControlName="minComplexity" matInput required type="number">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>maxComplexity</mat-label>
+        <input formControlName="maxComplexity" matInput required type="number">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Stages</mat-label>
+        <input formControlName="stages" matInput required type="number">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Stage Limit</mat-label>
+        <mat-select formControlName="stageLimit">
+          <mat-option value="0">Unlimited</mat-option>
+          <mat-option value="1">Limited</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Norma Type</mat-label>
+        <mat-select formControlName="normaType">
+          <mat-option value="0">Score</mat-option>
+          <mat-option value="1">Percentage</mat-option>
+          <mat-option value="2">Cool Percentage</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width">
+        <mat-label>bronzeBorders</mat-label>
+        <input formControlName="bronzeBorders" matInput required type="number">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>sliverBorders</mat-label>
+        <input formControlName="sliverBorders" matInput required type="number">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>goldBorders</mat-label>
+        <input formControlName="goldBorders" matInput required type="number">
+      </mat-form-field>
+      <button [disabled]="!contestForm.valid" mat-flat-button type="submit">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

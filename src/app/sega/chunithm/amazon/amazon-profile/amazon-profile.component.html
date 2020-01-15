@@ -1,0 +1,39 @@
+<mat-card *ngIf="profile">
+  <mat-card-title>Player Profile</mat-card-title>
+  <mat-card-content>
+    <table class="zebra">
+      <tr>
+        <th>Player Name</th>
+        <td>{{profile.userName}}</td>
+      </tr>
+      <tr>
+        <th>Player Rating</th>
+        <td>{{profile.playerRating / 100}}</td>
+      </tr>
+      <tr>
+        <th>Player Level</th>
+        <td>{{profile.level}}%</td>
+      </tr>
+      <tr>
+        <th>Total Play Count</th>
+        <td>{{profile.playCount}}</td>
+      </tr>
+      <tr>
+        <th>Name Plate Id</th>
+        <td>{{profile.nameplateId}}</td>
+      </tr>
+      <tr>
+        <th>Frame Id</th>
+        <td>{{profile.frameId}}</td>
+      </tr>
+      <tr>
+        <th>Character Id</th>
+        <td>{{profile.characterId}}</td>
+      </tr>
+      <tr>
+        <th>Last Play</th>
+        <td>{{profile.lastPlayDate}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>
