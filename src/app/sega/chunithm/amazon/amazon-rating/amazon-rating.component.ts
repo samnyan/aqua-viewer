@@ -11,10 +11,10 @@ import {AuthenticationService} from '../../../../auth/authentication.service';
 })
 export class AmazonRatingComponent implements OnInit {
 
-  private topRating: RatingItem[] = [];
-  private recentRating: RatingItem[] = [];
-  private topTotal = 0;
-  private recentTotal = 0;
+  topRating: RatingItem[] = [];
+  recentRating: RatingItem[] = [];
+  topTotal = 0;
+  recentTotal = 0;
 
   constructor(
     private api: ApiService,

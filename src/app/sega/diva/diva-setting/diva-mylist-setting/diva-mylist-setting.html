@@ -9,15 +9,15 @@
       <mat-option value="2">myList3</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field *ngIf="data.selector == 0">
+  <mat-form-field *ngIf="data.selector === '0'">
     <mat-label>myList1</mat-label>
     <textarea [(ngModel)]="data.myList0" matInput></textarea>
   </mat-form-field>
-  <mat-form-field *ngIf="data.selector == 1">
+  <mat-form-field *ngIf="data.selector === '1'">
     <mat-label>myList2</mat-label>
     <textarea [(ngModel)]="data.myList1" matInput></textarea>
   </mat-form-field>
-  <mat-form-field *ngIf="data.selector == 2">
+  <mat-form-field *ngIf="data.selector === '2'">
     <mat-label>myList3</mat-label>
     <textarea [(ngModel)]="data.myList2" matInput></textarea>
   </mat-form-field>
