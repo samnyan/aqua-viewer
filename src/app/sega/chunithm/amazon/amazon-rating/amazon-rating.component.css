@@ -18,6 +18,14 @@ td {
   max-width: 130px;
 }
 
+thead th {
+  text-align: center;
+}
+
+tr * {
+  padding: 10px 0;
+}
+
 @media only screen and (max-width: 599px) {
   .skill-card table {
     width: 100%;
