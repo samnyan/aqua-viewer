@@ -18,7 +18,7 @@
   <mat-sidenav-container class="sidenav">
     <mat-sidenav #drawer [fixedInViewport]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
                  fixedTopGap="56">
-      <mat-nav-list *ngIf="user">
+      <mat-nav-list>
         <a mat-list-item routerLink="/dashboard">Dashboard</a>
         <mat-toolbar>Project DIVA AFT</mat-toolbar>
         <a *ngFor="let item of divaMenus" mat-list-item routerLink="/{{item.url}}">{{item.name}}</a>
