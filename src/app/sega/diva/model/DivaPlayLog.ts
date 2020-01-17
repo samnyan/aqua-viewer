@@ -1,16 +1,18 @@
 import {DivaPv} from './DivaPv';
+import {Difficulty, Edition, Result} from './DivaPvRecord';
+import {DivaModule} from './DivaModule';
 
 export interface DivaPlayLog {
   id: number;
   pvId: number;
   songInfo?: DivaPv;
-  difficulty: number;
-  edition: number;
+  difficulty: Difficulty;
+  edition: Edition;
   scriptVer: number;
   score: number;
   challengeKind: number;
   challengeResult: number;
-  clearResult: number;
+  clearResult: Result;
   vp: number;
   coolCount: number;
   coolPercent: number;
@@ -31,6 +33,7 @@ export interface DivaPlayLog {
   buttonSeVol: number;
   sliderSe: number;
   modules: string;
+  modulesInfo?: [DivaModule, DivaModule, DivaModule];
   stageCompletion: number;
   slideScore: number;
   isVocalChange: number;

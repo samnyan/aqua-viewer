@@ -8,6 +8,7 @@ import {HttpParams} from '@angular/common/http';
 import {DivaRecordDetail} from '../model/DivaRecordDetail';
 import {Difficulty, Edition} from '../model/DivaPvRecord';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DivaModuleDbService} from '../diva-module-db.service';
 
 @Component({
   selector: 'app-diva-record-detail',
@@ -32,6 +33,7 @@ export class DivaRecordDetailComponent implements OnInit {
     private messageService: MessageService,
     private musicDb: DivaMusicDbService,
     private fb: FormBuilder,
+    private moduleDb: DivaModuleDbService
   ) {
   }
 
@@ -60,6 +62,12 @@ export class DivaRecordDetailComponent implements OnInit {
             sliderTouchSe: -1
           };
         }
+        const modules = this.record.customize.module.split(',');
+        this.record.customize.modulesInfo = [
+          this.moduleDb.getModule(Number(modules[0])),
+          this.moduleDb.getModule(Number(modules[1])),
+          this.moduleDb.getModule(Number(modules[2]))
+        ];
         this.customizeForm = this.fb.group({
           module: [this.record.customize.module, Validators.required],
           customize: [this.record.customize.customize, Validators.required],

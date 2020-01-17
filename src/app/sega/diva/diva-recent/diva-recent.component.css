@@ -3,6 +3,15 @@ mat-card-title {
   text-align: right;
 }
 
+.song-header {
+  display: flex;
+}
+
+.song-header .level {
+  margin-left: auto;
+  font-size: 1.2em;
+}
+
 .song-info .title {
   font-size: 1.2em;
 }
@@ -16,15 +25,35 @@ mat-card-title {
 }
 
 .result-content .left {
-  min-width: 30%;
+  min-width: 40%;
   text-align: center;
   margin: auto;
 }
 
+.rank {
+  font-size: 1rem;
+}
+
 .achievement-value {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .score-value {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+}
+
+.result-head {
+  word-break: break-word;
+}
+
+.result-table tr th {
+  width: 50%;
+}
+
+.result-table tr td:first-of-type {
+  width: 20%;
+}
+
+.result-table tr td:last-of-type {
+  width: 30%;
 }

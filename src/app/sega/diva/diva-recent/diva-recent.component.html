@@ -2,20 +2,43 @@
   <mat-card *ngFor="let item of playLogList" routerLink="/diva/record/{{item.pvId}}">
     <mat-card-title>{{item.dateTime}}</mat-card-title>
     <mat-card-content>
-      <div class="song-info">
-        <span class="title">{{item.songInfo != null ? item.songInfo.song_name : 'pvId:' + item.pvId}}</span><br>
-        <span
-          class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+      <div class="song-header">
+        <div class="song-info">
+          <span class="title">{{item.songInfo != null ? item.songInfo.song_name : 'pvId:' + item.pvId}}</span><br>
+          <span
+            class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+        </div>
+        <div class="level">
+          {{item.edition === 1 ? edition[item.edition] : ''}}
+          {{difficulty[item.difficulty]}}
+        </div>
       </div>
       <div class="result-content">
         <div class="left">
-          Achievement:<br>
+          Rank:<br>
+          <span class="rank">{{result[item.clearResult]}}</span>
+          <br>
+          <br>Achievement:<br>
           <span class="achievement-value">{{item.attainPoint|divaDecimal}}%</span>
           <br>
           <br>Score:<br>
-          <span class="score-value">{{item.score}}</span>
+          <span class="score-value">{{item.score}}</span><br><br>
+          <table>
+            <tr>
+              <th>Module</th>
+            </tr>
+            <tr>
+              <td><span class="module1">{{item.modulesInfo[0].name}}</span></td>
+            </tr>
+            <tr>
+              <span class="module1">{{item.modulesInfo[1].name}}</span>
+            </tr>
+            <tr>
+              <td><span class="module1">{{item.modulesInfo[2].name}}</span></td>
+            </tr>
+          </table>
         </div>
-        <table class="zebra">
+        <table class="zebra result-table">
           <tr>
             <th>Cool</th>
             <td>{{item.coolCount}}</td>
@@ -37,24 +60,21 @@
             <td>{{item.sadPercent|divaDecimal}}%</td>
           </tr>
           <tr>
-            <th>Worst/Wrong</th>
+            <th class="result-head">Worst / Wrong</th>
             <td>{{item.wrongCount}}</td>
             <td>{{item.wrongPercent|divaDecimal}}%</td>
           </tr>
           <tr>
             <th>Combo</th>
-            <td></td>
-            <td>{{item.maxCombo}}</td>
+            <td colspan="2">{{item.maxCombo}}</td>
           </tr>
           <tr>
-            <th>Challenge Time</th>
-            <td></td>
-            <td>{{item.chanceTime}}</td>
+            <th class="result-head">Challenge Time</th>
+            <td colspan="2">{{item.chanceTime}}</td>
           </tr>
           <tr>
             <th>Hold</th>
-            <td></td>
-            <td>{{item.holdScore}}</td>
+            <td colspan="2">{{item.holdScore}}</td>
           </tr>
         </table>
       </div>

@@ -1,5 +1,6 @@
 import {DivaPvRecord} from './DivaPvRecord';
 import {DivaPv} from './DivaPv';
+import {DivaModule} from './DivaModule';
 
 export interface DivaRecordDetail {
   songInfo?: DivaPv;
@@ -10,6 +11,7 @@ export interface DivaRecordDetail {
 export interface DivaPvCustomize {
   pvId: number;
   module: string;
+  modulesInfo?: [DivaModule, DivaModule, DivaModule];
   customize: string;
   customizeFlag: string;
   skin: number;

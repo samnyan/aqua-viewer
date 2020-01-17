@@ -5,6 +5,8 @@ import {MessageService} from '../../../message.service';
 import {HttpParams} from '@angular/common/http';
 import {DivaPlayLog} from '../model/DivaPlayLog';
 import {DivaMusicDbService} from '../diva-music-db.service';
+import {Difficulty, Edition, Result} from '../model/DivaPvRecord';
+import {DivaModuleDbService} from '../diva-module-db.service';
 
 @Component({
   selector: 'app-diva-recent',
@@ -12,6 +14,10 @@ import {DivaMusicDbService} from '../diva-music-db.service';
   styleUrls: ['./diva-recent.component.css']
 })
 export class DivaRecentComponent implements OnInit {
+
+  edition = Edition;
+  difficulty = Difficulty;
+  result = Result;
 
   playLogList: DivaPlayLog[] = [];
 
@@ -22,7 +28,8 @@ export class DivaRecentComponent implements OnInit {
     private api: ApiService,
     private auth: AuthenticationService,
     private messageService: MessageService,
-    private musicDb: DivaMusicDbService
+    private musicDb: DivaMusicDbService,
+    private moduleDb: DivaModuleDbService
   ) {
   }
 
@@ -43,6 +50,14 @@ export class DivaRecentComponent implements OnInit {
         this.totalPages = data.totalPages;
         data.content.forEach(x => {
           x.songInfo = this.musicDb.getMusicDb().get(x.pvId);
+          x.modules = x.modules === '0,0,0' ? '0,-1,-1' : x.modules;
+          const moduleIds = x.modules.split(',');
+          console.log(moduleIds);
+          x.modulesInfo = [
+            this.moduleDb.getModule(Number(moduleIds[0])),
+            this.moduleDb.getModule(Number(moduleIds[1])),
+            this.moduleDb.getModule(Number(moduleIds[2]))
+          ];
           this.playLogList.push(x);
         });
       },

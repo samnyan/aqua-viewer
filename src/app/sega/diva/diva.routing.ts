@@ -9,6 +9,7 @@ import {DivaFestaComponent} from './diva-management/diva-festa/diva-festa.compon
 import {DivaFestaEditComponent} from './diva-management/diva-festa/diva-festa-edit/diva-festa-edit.component';
 import {DivaContestComponent} from './diva-management/diva-contest/diva-contest.component';
 import {DivaContestEditComponent} from './diva-management/diva-contest/diva-contest-edit/diva-contest-edit.component';
+import {DivaModulesComponent} from './diva-modules/diva-modules.component';
 
 const routes: Routes = [
   {path: 'profile', component: DivaProfileComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'management/festa/edit', component: DivaFestaEditComponent},
   {path: 'management/contest', component: DivaContestComponent},
   {path: 'management/contest/edit', component: DivaContestEditComponent},
+  {path: 'modules', component: DivaModulesComponent},
 ];
 
 export const DivaRoutes = RouterModule.forChild(routes);

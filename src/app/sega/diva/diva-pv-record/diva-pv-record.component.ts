@@ -4,7 +4,7 @@ import {AuthenticationService} from '../../../auth/authentication.service';
 import {MessageService} from '../../../message.service';
 import {HttpParams} from '@angular/common/http';
 import {DivaMusicDbService} from '../diva-music-db.service';
-import {Difficulty, DivaPvRecord, Edition} from '../model/DivaPvRecord';
+import {Difficulty, DivaPvRecord, Edition, Result} from '../model/DivaPvRecord';
 
 @Component({
   selector: 'app-diva-pv-record',
@@ -15,6 +15,7 @@ export class DivaPvRecordComponent implements OnInit {
 
   edition = Edition;
   difficulty = Difficulty;
+  result = Result;
 
   pvRecords: DivaPvRecord[] = [];
 

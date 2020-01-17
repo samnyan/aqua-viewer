@@ -43,6 +43,11 @@ export class AppComponent implements OnChanges, OnDestroy {
       name: 'Management',
       url: 'diva/management'
     },
+    {
+      id: 5,
+      name: 'Modules',
+      url: 'diva/modules'
+    },
   ];
 
   amazonMenus: Menu[] = [
@@ -87,6 +92,7 @@ export class AppComponent implements OnChanges, OnDestroy {
 
   logout() {
     this.authenticationService.logout();
+    location.reload(true);
   }
 }
 

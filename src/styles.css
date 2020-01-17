@@ -38,8 +38,12 @@ table {
   background-color: #595959;
 }
 
-.zebra tr * {
+.zebra tr th {
   padding: 10px;
+}
+
+.zebra tr td {
+  padding: 10px 2px;
 }
 
 .zebra th {
