@@ -37,6 +37,8 @@ import {DivaFestaEditComponent} from './diva-management/diva-festa/diva-festa-ed
 import {DivaContestComponent} from './diva-management/diva-contest/diva-contest.component';
 import {DivaContestEditComponent} from './diva-management/diva-contest/diva-contest-edit/diva-contest-edit.component';
 import {DivaModulesComponent} from './diva-modules/diva-modules.component';
+import {DivaNewsComponent} from './diva-management/diva-news/diva-news.component';
+import {DivaCustomizeComponent} from './diva-customize/diva-customize.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import {DivaModulesComponent} from './diva-modules/diva-modules.component';
     DivaContestComponent,
     DivaContestEditComponent,
     DivaModulesComponent,
+    DivaNewsComponent,
+    DivaCustomizeComponent,
   ],
   imports: [
     CommonModule,

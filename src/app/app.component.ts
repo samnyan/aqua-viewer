@@ -48,6 +48,11 @@ export class AppComponent implements OnChanges, OnDestroy {
       name: 'Modules',
       url: 'diva/modules'
     },
+    {
+      id: 6,
+      name: 'Customizes',
+      url: 'diva/customizes'
+    },
   ];
 
   amazonMenus: Menu[] = [

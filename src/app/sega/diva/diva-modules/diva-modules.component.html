@@ -1,0 +1,9 @@
+<div *ngIf="modules">
+  <mat-card *ngFor="let item of modules">
+    <mat-card-content>
+      <span>Module ID: {{item.id}}</span><br><br>
+      <span>Name: {{item.name}}</span><br>
+      <span>Price: {{item.price}} VP</span>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -10,6 +10,8 @@ import {DivaFestaEditComponent} from './diva-management/diva-festa/diva-festa-ed
 import {DivaContestComponent} from './diva-management/diva-contest/diva-contest.component';
 import {DivaContestEditComponent} from './diva-management/diva-contest/diva-contest-edit/diva-contest-edit.component';
 import {DivaModulesComponent} from './diva-modules/diva-modules.component';
+import {DivaNewsComponent} from './diva-management/diva-news/diva-news.component';
+import {DivaCustomizeComponent} from './diva-customize/diva-customize.component';
 
 const routes: Routes = [
   {path: 'profile', component: DivaProfileComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'management/festa/edit', component: DivaFestaEditComponent},
   {path: 'management/contest', component: DivaContestComponent},
   {path: 'management/contest/edit', component: DivaContestEditComponent},
+  {path: 'management/news', component: DivaNewsComponent},
   {path: 'modules', component: DivaModulesComponent},
+  {path: 'customizes', component: DivaCustomizeComponent},
 ];
 
 export const DivaRoutes = RouterModule.forChild(routes);
