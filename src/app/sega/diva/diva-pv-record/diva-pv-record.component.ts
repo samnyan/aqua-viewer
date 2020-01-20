@@ -50,7 +50,7 @@ export class DivaPvRecordComponent implements OnInit {
           this.pvRecords.push(x);
         });
       },
-      error => this.messageService.notice(error)
+      error => this.messageService.notice(error.statusText)
     );
   }
 

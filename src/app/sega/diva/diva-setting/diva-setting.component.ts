@@ -37,7 +37,7 @@ export class DivaSettingComponent implements OnInit {
     const param = new HttpParams().set('pdId', pdId);
     this.api.get('api/game/diva/playerInfo', param).subscribe(
       data => this.profile = data,
-      error => this.messageService.notice(error)
+      error => this.messageService.notice(error.statusText)
     );
   }
 
@@ -53,7 +53,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -71,7 +71,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -96,7 +96,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -119,7 +119,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -146,7 +146,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -175,7 +175,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
@@ -204,7 +204,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error)
+          }, error => this.messageService.notice(error.statusText)
         );
       }
     });
