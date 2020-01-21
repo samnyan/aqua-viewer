@@ -9,6 +9,7 @@ import {DivaRecordDetail} from '../model/DivaRecordDetail';
 import {Difficulty, Edition} from '../model/DivaPvRecord';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DivaModuleDbService} from '../diva-module-db.service';
+import {DivaRankingRecord} from '../model/DivaRankingRecord';
 
 @Component({
   selector: 'app-diva-record-detail',
@@ -24,6 +25,17 @@ export class DivaRecordDetailComponent implements OnInit {
   customizeForm: FormGroup;
   pvId: number;
   pdId: number;
+
+  easyRanking: DivaRankingRecord[] = [];
+  easyPage = 0;
+  normalRanking: DivaRankingRecord[] = [];
+  normalPage = 0;
+  hardRanking: DivaRankingRecord[] = [];
+  hardPage = 0;
+  extremeRanking: DivaRankingRecord[] = [];
+  extremePage = 0;
+  extraExtremeRanking: DivaRankingRecord[] = [];
+  extraExtremePage = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -81,6 +93,11 @@ export class DivaRecordDetailComponent implements OnInit {
       },
       error => this.messageService.notice(error)
     );
+    this.getRank('EASY');
+    this.getRank('NORMAL');
+    this.getRank('HARD');
+    this.getRank('EXTREME');
+    this.getRank('EXTRA_EXTREME');
   }
 
   onSubmit() {
@@ -107,4 +124,82 @@ export class DivaRecordDetailComponent implements OnInit {
     );
   }
 
+  addRival(recordId: number) {
+    this.api.put('api/game/diva/playerInfo/rival/byRecord', {
+      pdId: this.pdId,
+      recordId
+    }).subscribe(
+      data => this.messageService.notice('OK'),
+      error => this.messageService.notice(error.statusText)
+    );
+  }
+
+  getRank(diff: string) {
+    let param = null;
+    switch (diff) {
+      case 'EASY' :
+        param = new HttpParams().set('page', String(this.easyPage));
+        break;
+      case 'NORMAL' :
+        param = new HttpParams().set('page', String(this.normalPage));
+        break;
+      case 'HARD' :
+        param = new HttpParams().set('page', String(this.hardPage));
+        break;
+      case 'EXTREME' :
+        param = new HttpParams().set('page', String(this.extremePage));
+        break;
+      case 'EXTRA_EXTREME' :
+        param = new HttpParams().set('page', String(this.extraExtremePage));
+        break;
+    }
+    if (param == null) {
+      return;
+    }
+
+    this.api.get('api/game/diva/pvRecord/' + this.pvId + '/ranking/' + diff, param).subscribe(
+      data => {
+        switch (diff) {
+          case 'EASY' :
+            data.content.forEach(x => this.easyRanking.push(x));
+            break;
+          case 'NORMAL' :
+            data.content.forEach(x => this.normalRanking.push(x));
+            break;
+          case 'HARD' :
+            data.content.forEach(x => this.hardRanking.push(x));
+            break;
+          case 'EXTREME' :
+            data.content.forEach(x => this.extremeRanking.push(x));
+            break;
+          case 'EXTRA_EXTREME' :
+            data.content.forEach(x => this.extraExtremeRanking.push(x));
+            break;
+        }
+        if (data.page >= data.totalPages) {
+          this.messageService.notice('No more record');
+        } else {
+          switch (diff) {
+            case 'EASY' :
+              this.easyPage += 1;
+              break;
+            case 'NORMAL' :
+              this.normalPage += 1;
+              break;
+            case 'HARD' :
+              this.hardPage += 1;
+              break;
+            case 'EXTREME' :
+              this.extremePage += 1;
+              break;
+            case 'EXTRA_EXTREME' :
+              this.extraExtremePage += 1;
+              break;
+          }
+        }
+        console.log(this.hardRanking);
+        console.log(this.hardPage);
+      }, error => this.messageService.notice(error.statusText)
+    );
+  }
 }

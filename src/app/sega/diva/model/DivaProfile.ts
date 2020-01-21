@@ -31,7 +31,9 @@ export interface DivaProfile {
   sortMode: number;
   showInterimRanking: boolean;
   showClearStatus: boolean;
-  showClearBorder: boolean;
+  showGreatBorder: boolean;
+  showExcellentBorder: boolean;
+  showRivalBorder: boolean;
   showRgoSetting: boolean;
   myList0: string;
   myList1: string;

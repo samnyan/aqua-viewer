@@ -87,11 +87,24 @@
     <div class="content">
       Show Ranking: {{profile.showInterimRanking}}<br>
       Show Clear Status: {{profile.showClearStatus}}<br>
-      Show Clear Border: {{profile.showClearBorder}}<br>
+      Show Great Border: {{profile.showGreatBorder}}<br>
+      Show Rival Border: {{profile.showRivalBorder}}<br>
       Show Rhythm Game Option: {{profile.showRgoSetting}}<br>
     </div>
     <div class="action">
       <button (click)="display()" mat-button>Edit</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="rival">
+  <mat-card-title>Rival</mat-card-title>
+  <mat-card-content>
+    <div class="content">
+      Rival Name: {{rival}}<br>
+    </div>
+    <div class="action">
+      <button (click)="setRival()" mat-button>Edit</button>
     </div>
   </mat-card-content>
 </mat-card>

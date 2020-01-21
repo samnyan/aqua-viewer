@@ -128,4 +128,79 @@
     </mat-card-content>
   </mat-card>
 
+  <mat-card>
+    <mat-card-title>Ranking</mat-card-title>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Easy</mat-card-title>
+    <mat-card-content>
+      <table class="zebra" *ngIf="easyRanking.length > 0;else empty_easy">
+        <tr *ngFor="let item of easyRanking; index as i">
+          <td>{{i+1}}. {{item.playerName}}</td>
+          <td>{{item.score}}</td>
+          <td>{{item.attain/100}}%</td>
+          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+        </tr>
+      </table>
+      <ng-template #empty_easy>Nobody play this.</ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Normal</mat-card-title>
+    <mat-card-content>
+      <table class="zebra" *ngIf="normalRanking.length > 0;else empty_easy">
+        <tr *ngFor="let item of normalRanking; index as i">
+          <td>{{i+1}}. {{item.playerName}}</td>
+          <td>{{item.score}}</td>
+          <td>{{item.attain/100}}%</td>
+          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+        </tr>
+      </table>
+      <ng-template #empty_easy>Nobody play this.</ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Hard</mat-card-title>
+    <mat-card-content>
+      <table class="zebra" *ngIf="hardRanking.length > 0;else empty_easy">
+        <tr *ngFor="let item of hardRanking; index as i">
+          <td>{{i+1}}. {{item.playerName}}</td>
+          <td>{{item.score}}</td>
+          <td>{{item.attain/100}}%</td>
+          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+        </tr>
+      </table>
+      <ng-template #empty_easy>Nobody play this.</ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Extreme</mat-card-title>
+    <mat-card-content>
+      <table class="zebra" *ngIf="extremeRanking.length > 0;else empty_easy">
+        <tr *ngFor="let item of extremeRanking; index as i">
+          <td>{{i+1}}. {{item.playerName}}</td>
+          <td>{{item.score}}</td>
+          <td>{{item.attain/100}}%</td>
+          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+        </tr>
+      </table>
+      <ng-template #empty_easy>Nobody play this.</ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Extra Extreme</mat-card-title>
+    <mat-card-content>
+      <table class="zebra" *ngIf="extraExtremeRanking.length > 0;else empty_easy">
+        <tr *ngFor="let item of extraExtremeRanking; index as i">
+          <td>{{i+1}}. {{item.playerName}}</td>
+          <td>{{item.score}}</td>
+          <td>{{item.attain/100}}%</td>
+          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+        </tr>
+      </table>
+      <ng-template #empty_easy>Nobody play this.</ng-template>
+    </mat-card-content>
+  </mat-card>
+
 </div>

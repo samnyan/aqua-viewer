@@ -23,6 +23,8 @@ export class DivaDisplaySettingDialog {
 export interface DivaDisplaySettingData {
   showInterimRanking: boolean;
   showClearStatus: boolean;
-  showClearBorder: boolean;
+  showGreatBorder: boolean;
+  showExcellentBorder: boolean;
+  showRivalBorder: boolean;
   showRgoSetting: boolean;
 }

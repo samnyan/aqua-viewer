@@ -12,6 +12,7 @@ import {DivaMylistSettingDialog} from './diva-mylist-setting/diva-mylist-setting
 import {DivaSeSettingDialog} from './diva-se-setting/diva-se-setting.dialog';
 import {DivaDisplaySettingDialog} from './diva-display-setting/diva-display-setting.dialog';
 import {DivaSkinSettingDialog} from './diva-skin-setting/diva-skin-setting.dialog';
+import {DivaRivalSettingDialog} from './diva-rival-setting/diva-rival-setting.dialog';
 
 @Component({
   selector: 'app-diva-setting',
@@ -22,7 +23,9 @@ export class DivaSettingComponent implements OnInit {
 
   profile: DivaProfile;
 
-  pdId: number = this.auth.currentUserValue.extId;
+  pdId: number;
+
+  rival = 'Loading...';
 
   constructor(
     private api: ApiService,
@@ -33,10 +36,19 @@ export class DivaSettingComponent implements OnInit {
   }
 
   ngOnInit() {
-    const pdId = String(this.auth.currentUserValue.extId);
-    const param = new HttpParams().set('pdId', pdId);
+    this.pdId = this.auth.currentUserValue.extId;
+    const param = new HttpParams().set('pdId', String(this.pdId));
     this.api.get('api/game/diva/playerInfo', param).subscribe(
       data => this.profile = data,
+      error => this.messageService.notice(error.statusText)
+    );
+    this.loadRival();
+  }
+
+  loadRival() {
+    const param = new HttpParams().set('pdId', String(this.pdId));
+    this.api.get('api/game/diva/playerInfo/rival', param).subscribe(
+      data => this.rival = data.rival,
       error => this.messageService.notice(error.statusText)
     );
   }
@@ -187,7 +199,9 @@ export class DivaSettingComponent implements OnInit {
       data: {
         showInterimRanking: this.profile.showInterimRanking,
         showClearStatus: this.profile.showClearStatus,
-        showClearBorder: this.profile.showClearBorder,
+        showGreatBorder: this.profile.showGreatBorder,
+        showExcellentBorder: this.profile.showExcellentBorder,
+        showRivalBorder: this.profile.showRivalBorder,
         showRgoSetting: this.profile.showRgoSetting,
       }
     });
@@ -198,11 +212,37 @@ export class DivaSettingComponent implements OnInit {
           pdId: this.pdId,
           showInterimRanking: data.showInterimRanking,
           showClearStatus: data.showClearStatus,
-          showClearBorder: data.showClearBorder,
+          showClearBorder: data.showGreatBorder, // TODO: when server update next version should fix this
+          showExcellentBorder: data.showExcellentBorder,
+          showRivalBorder: data.showRivalBorder,
           showRgoSetting: data.showRgoSetting,
         }).subscribe(
           x => {
             this.profile = x;
+            this.messageService.notice('OK');
+          }, error => this.messageService.notice(error.statusText)
+        );
+      }
+    });
+  }
+
+  setRival(): void {
+    const dialogRef = this.dialog.open(DivaRivalSettingDialog, {
+      width: '250px',
+      data: {
+        rival: -1,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        this.api.put('api/game/diva/playerInfo/rival', {
+          pdId: this.pdId,
+          rivalId: data.rivalId
+        }).subscribe(
+          x => {
+            this.profile = x;
+            this.loadRival();
             this.messageService.notice('OK');
           }, error => this.messageService.notice(error.statusText)
         );

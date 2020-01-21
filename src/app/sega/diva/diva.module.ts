@@ -39,6 +39,7 @@ import {DivaContestEditComponent} from './diva-management/diva-contest/diva-cont
 import {DivaModulesComponent} from './diva-modules/diva-modules.component';
 import {DivaNewsComponent} from './diva-management/diva-news/diva-news.component';
 import {DivaCustomizeComponent} from './diva-customize/diva-customize.component';
+import {DivaRivalSettingDialog} from './diva-setting/diva-rival-setting/diva-rival-setting.dialog';
 
 
 @NgModule({
@@ -57,6 +58,8 @@ import {DivaCustomizeComponent} from './diva-customize/diva-customize.component'
     DivaMylistSettingDialog,
     DivaSeSettingDialog,
     DivaDisplaySettingDialog,
+    DivaRivalSettingDialog,
+
     DivaManagementComponent,
     DivaFestaComponent,
     DivaFestaEditComponent,
@@ -97,7 +100,8 @@ import {DivaCustomizeComponent} from './diva-customize/diva-customize.component'
     DivaSkinSettingDialog,
     DivaMylistSettingDialog,
     DivaSeSettingDialog,
-    DivaDisplaySettingDialog
+    DivaDisplaySettingDialog,
+    DivaRivalSettingDialog
   ]
 })
 export class DivaModule {
