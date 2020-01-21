@@ -41,7 +41,16 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.authenticationService.login(this.f.accessCode.value, this.f.apiServer.value).pipe(first())
+    let server: string = this.f.apiServer.value;
+    if (!server.startsWith('http')) {
+      server = 'http://' + server;
+    }
+
+    if (server.endsWith('/')) {
+      server = server.substring(0, server.length - 1);
+    }
+
+    this.authenticationService.login(this.f.accessCode.value, server).pipe(first())
       .subscribe(
         data => {
           if (data != null) {
