@@ -212,7 +212,7 @@ export class DivaSettingComponent implements OnInit {
           pdId: this.pdId,
           showInterimRanking: data.showInterimRanking,
           showClearStatus: data.showClearStatus,
-          showClearBorder: data.showGreatBorder, // TODO: when server update next version should fix this
+          showGreatBorder: data.showGreatBorder,
           showExcellentBorder: data.showExcellentBorder,
           showRivalBorder: data.showRivalBorder,
           showRgoSetting: data.showRgoSetting,
