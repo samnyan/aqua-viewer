@@ -21,11 +21,11 @@ export class DivaNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.get('api/game/diva/manage/news').subscribe(
+    this.api.get('api/manage/diva/news').subscribe(
       data => this.createNews(data),
       error => this.messageService.notice(error.statusText)
     );
-    this.api.get('api/game/diva/manage/warning').subscribe(
+    this.api.get('api/manage/diva/warning').subscribe(
       data => this.createWarning(data),
       error => this.messageService.notice(error.statusText)
     );

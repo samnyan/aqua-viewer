@@ -30,14 +30,14 @@ export class DivaContestComponent implements OnInit {
   }
 
   load() {
-    this.api.get('api/game/diva/manage/contest').subscribe(
+    this.api.get('api/manage/diva/contest').subscribe(
       data => this.contests = data,
       error => this.messageService.notice(error)
     );
   }
 
   delete(id) {
-    this.api.delete('api/game/diva/manage/contest/' + id).subscribe(
+    this.api.delete('api/manage/diva/contest/' + id).subscribe(
       () => {
         this.messageService.notice('OK');
         this.load();

@@ -30,14 +30,14 @@ export class DivaFestaComponent implements OnInit {
   }
 
   load() {
-    this.api.get('api/game/diva/manage/festa').subscribe(
+    this.api.get('api/manage/diva/festa').subscribe(
       data => this.festas = data,
       error => this.messageService.notice(error)
     );
   }
 
   delete(id) {
-    this.api.delete('api/game/diva/manage/festa/' + id).subscribe(
+    this.api.delete('api/manage/diva/festa/' + id).subscribe(
       () => {
         this.messageService.notice('OK');
         this.load();
