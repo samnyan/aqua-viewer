@@ -4,7 +4,8 @@ import {AuthenticationService} from '../../../../auth/authentication.service';
 import {MessageService} from '../../../../message.service';
 import {HttpParams} from '@angular/common/http';
 import {AmazonPlayLog} from '../model/AmazonPlayLog';
-import {ChuniMusicDbService} from '../chuni-music-db.service';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {ChuniMusic} from '../model/ChuniMusic';
 
 @Component({
   selector: 'app-amazon-recent',
@@ -19,7 +20,7 @@ export class AmazonRecentComponent implements OnInit {
     private api: ApiService,
     private auth: AuthenticationService,
     private messageService: MessageService,
-    private musicDb: ChuniMusicDbService
+    private dbService: NgxIndexedDBService
   ) {
   }
 
@@ -29,8 +30,12 @@ export class AmazonRecentComponent implements OnInit {
     this.api.get('api/game/chuni/amazon/recent', param).subscribe(
       data => {
         data.forEach(x => {
-          x.songInfo = this.musicDb.getMusicDb().get(x.musicId);
           this.recent.push(x);
+        });
+        this.recent.forEach(x => {
+          this.dbService.getByID<ChuniMusic>('chuniMusic', x.musicId).then(
+            m => x.songInfo = m
+          );
         });
       },
       error => this.messageService.notice(error.statusText)

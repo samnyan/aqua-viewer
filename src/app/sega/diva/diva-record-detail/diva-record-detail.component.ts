@@ -3,13 +3,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ApiService} from '../../../api.service';
 import {AuthenticationService} from '../../../auth/authentication.service';
 import {MessageService} from '../../../message.service';
-import {DivaMusicDbService} from '../diva-music-db.service';
 import {HttpParams} from '@angular/common/http';
 import {DivaRecordDetail} from '../model/DivaRecordDetail';
 import {Difficulty, Edition} from '../model/DivaPvRecord';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DivaModuleDbService} from '../diva-module-db.service';
 import {DivaRankingRecord} from '../model/DivaRankingRecord';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {DivaPv} from '../model/DivaPv';
+import {DivaModule} from '../model/DivaModule';
 
 @Component({
   selector: 'app-diva-record-detail',
@@ -25,6 +26,8 @@ export class DivaRecordDetailComponent implements OnInit {
   customizeForm: FormGroup;
   pvId: number;
   pdId: number;
+
+  moduleLoadFlag = 0;
 
   easyRanking: DivaRankingRecord[] = [];
   easyPage = 0;
@@ -43,9 +46,8 @@ export class DivaRecordDetailComponent implements OnInit {
     private api: ApiService,
     private auth: AuthenticationService,
     private messageService: MessageService,
-    private musicDb: DivaMusicDbService,
     private fb: FormBuilder,
-    private moduleDb: DivaModuleDbService
+    private dbService: NgxIndexedDBService
   ) {
   }
 
@@ -60,7 +62,7 @@ export class DivaRecordDetailComponent implements OnInit {
     this.api.get('api/game/diva/pvRecord/' + this.pvId, param).subscribe(
       data => {
         this.record = data;
-        this.record.songInfo = this.musicDb.getMusicDb().get(this.pvId);
+        this.dbService.getByID<DivaPv>('divaPv', this.pvId).then(x => this.record.songInfo = x);
         if (!this.record.customize) {
           this.record.customize = {
             pvId: this.pvId,
@@ -74,12 +76,11 @@ export class DivaRecordDetailComponent implements OnInit {
             sliderTouchSe: -1
           };
         }
-        const modules = this.record.customize.module.split(',');
-        this.record.customize.modulesInfo = [
-          this.moduleDb.getModule(Number(modules[0])),
-          this.moduleDb.getModule(Number(modules[1])),
-          this.moduleDb.getModule(Number(modules[2]))
-        ];
+        const moduleIds = this.record.customize.module.split(',');
+        this.record.customize.modulesInfo = [];
+        this.setModule(moduleIds, 0);
+        this.setModule(moduleIds, 1);
+        this.setModule(moduleIds, 2);
         this.customizeForm = this.fb.group({
           module: [this.record.customize.module, Validators.required],
           customize: [this.record.customize.customize, Validators.required],
@@ -98,6 +99,23 @@ export class DivaRecordDetailComponent implements OnInit {
     this.getRank('HARD');
     this.getRank('EXTREME');
     this.getRank('EXTRA_EXTREME');
+  }
+
+  setModule(moduleIds, i) {
+    if (moduleIds[i] === '-999' || moduleIds[i] === '-1') {
+      this.record.customize.modulesInfo[i] = {
+        id: -999,
+        name: 'Not Set',
+        price: 0
+      };
+      this.moduleLoadFlag++;
+    } else if (moduleIds[i] >= 0) {
+      this.dbService.getByID<DivaModule>('divaModule', moduleIds[i]).then(y => {
+          this.record.customize.modulesInfo[i] = y;
+          this.moduleLoadFlag++;
+        }
+      );
+    }
   }
 
   onSubmit() {
@@ -197,8 +215,6 @@ export class DivaRecordDetailComponent implements OnInit {
               break;
           }
         }
-        console.log(this.hardRanking);
-        console.log(this.hardPage);
       }, error => this.messageService.notice(error.statusText)
     );
   }

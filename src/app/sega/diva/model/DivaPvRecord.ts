@@ -1,6 +1,7 @@
 import {DivaPv} from './DivaPv';
 
 export interface DivaPvRecord {
+    x: unknown;
   pvId: number;
   songInfo?: DivaPv;
   edition: Edition;

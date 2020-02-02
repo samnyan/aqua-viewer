@@ -4,7 +4,7 @@
     <mat-card-content>
       <div class="song-header">
         <div class="song-info">
-          <span class="title">{{item.songInfo != null ? item.songInfo.song_name : 'pvId:' + item.pvId}}</span><br>
+          <span class="title">{{item.songInfo != null ? item.songInfo.songName : 'pvId:' + item.pvId}}</span><br>
           <span
             class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
         </div>
@@ -23,18 +23,24 @@
           <br>
           <br>Score:<br>
           <span class="score-value">{{item.score}}</span><br><br>
-          <table>
+          <table *ngIf="item.modulesInfo">
             <tr>
               <th>Module</th>
             </tr>
             <tr>
-              <td><span class="module1">{{item.modulesInfo[0].name}}</span></td>
+              <td *ngIf="item.modulesInfo[0]">
+                <span class="module1">{{item.modulesInfo[0].name}}</span>
+              </td>
             </tr>
             <tr>
-              <span class="module1">{{item.modulesInfo[1].name}}</span>
+              <td *ngIf="item.modulesInfo[1]">
+                <span class="module1">{{item.modulesInfo[1].name}}</span>
+              </td>
             </tr>
             <tr>
-              <td><span class="module1">{{item.modulesInfo[2].name}}</span></td>
+              <td *ngIf="item.modulesInfo[2]">
+                <span class="module1">{{item.modulesInfo[2].name}}</span>
+              </td>
             </tr>
           </table>
         </div>

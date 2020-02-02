@@ -4,9 +4,10 @@ import {AuthenticationService} from '../../../auth/authentication.service';
 import {MessageService} from '../../../message.service';
 import {HttpParams} from '@angular/common/http';
 import {DivaPlayLog} from '../model/DivaPlayLog';
-import {DivaMusicDbService} from '../diva-music-db.service';
 import {Difficulty, Edition, Result} from '../model/DivaPvRecord';
-import {DivaModuleDbService} from '../diva-module-db.service';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {DivaPv} from '../model/DivaPv';
+import {DivaModule} from '../model/DivaModule';
 
 @Component({
   selector: 'app-diva-recent',
@@ -28,8 +29,7 @@ export class DivaRecentComponent implements OnInit {
     private api: ApiService,
     private auth: AuthenticationService,
     private messageService: MessageService,
-    private musicDb: DivaMusicDbService,
-    private moduleDb: DivaModuleDbService
+    private dbService: NgxIndexedDBService
   ) {
   }
 
@@ -49,16 +49,27 @@ export class DivaRecentComponent implements OnInit {
         this.currentPage = data.page + 1;
         this.totalPages = data.totalPages;
         data.content.forEach(x => {
-          x.songInfo = this.musicDb.getMusicDb().get(x.pvId);
-          x.modules = x.modules === '0,0,0' ? '0,-1,-1' : x.modules;
-          const moduleIds = x.modules.split(',');
-          console.log(moduleIds);
-          x.modulesInfo = [
-            this.moduleDb.getModule(Number(moduleIds[0])),
-            this.moduleDb.getModule(Number(moduleIds[1])),
-            this.moduleDb.getModule(Number(moduleIds[2]))
-          ];
           this.playLogList.push(x);
+        });
+
+        this.playLogList.forEach(x => {
+          if (!x.songInfo) {
+            this.dbService.getByID<DivaPv>('divaPv', x.pvId).then(y => {
+              x.songInfo = y;
+              const p = x.songInfo.performerNumber;
+              const moduleIds = x.modules.split(',');
+              x.modulesInfo = [];
+              if (p > 0) {
+                this.dbService.getByID<DivaModule>('divaModule', moduleIds[0]).then(y => x.modulesInfo[0] = y);
+              }
+              if (p > 1) {
+                this.dbService.getByID<DivaModule>('divaModule', moduleIds[1]).then(y => x.modulesInfo[1] = y);
+              }
+              if (p > 2) {
+                this.dbService.getByID<DivaModule>('divaModule', moduleIds[2]).then(y => x.modulesInfo[2] = y);
+              }
+            });
+          }
         });
       },
       error => this.messageService.notice(error)

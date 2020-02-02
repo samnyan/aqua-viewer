@@ -1,5 +1,5 @@
 <div *ngIf="modules">
-  <mat-card *ngFor="let item of modules">
+  <mat-card *ngFor="let item of modules | paginate: {itemsPerPage: 15, currentPage: p}">
     <mat-card-content>
       <span>Module ID: {{item.id}}</span><br><br>
       <span>Name: {{item.name}}</span><br>
@@ -7,3 +7,14 @@
     </mat-card-content>
   </mat-card>
 </div>
+<pagination-controls class="pagination" maxSize="9"
+                     (pageChange)="p = $event"
+                     directionLinks="true"
+                     autoHide="true"
+                     responsive="true"
+                     previousLabel="Previous"
+                     nextLabel="Next"
+                     screenReaderPaginationLabel="Pagination"
+                     screenReaderPageLabel="page"
+                     screenReaderCurrentLabel="You're on page">
+</pagination-controls>

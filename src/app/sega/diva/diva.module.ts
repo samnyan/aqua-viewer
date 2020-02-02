@@ -40,6 +40,8 @@ import {DivaModulesComponent} from './diva-modules/diva-modules.component';
 import {DivaNewsComponent} from './diva-management/diva-news/diva-news.component';
 import {DivaCustomizeComponent} from './diva-customize/diva-customize.component';
 import {DivaRivalSettingDialog} from './diva-setting/diva-rival-setting/diva-rival-setting.dialog';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { DivaPvlistComponent } from './diva-pvlist/diva-pvlist.component';
 
 
 @NgModule({
@@ -68,31 +70,33 @@ import {DivaRivalSettingDialog} from './diva-setting/diva-rival-setting/diva-riv
     DivaModulesComponent,
     DivaNewsComponent,
     DivaCustomizeComponent,
+    DivaPvlistComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    DivaRoutes,
+    imports: [
+        CommonModule,
+        FormsModule,
+        DivaRoutes,
 
-    MatFormFieldModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatMenuModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatCheckboxModule,
-    MatDatepickerModule
-  ],
+        MatFormFieldModule,
+        MatCardModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatMenuModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        NgxPaginationModule
+    ],
   entryComponents: [
     DivaNameSettingDialog,
     DivaTitleSettingDialog,

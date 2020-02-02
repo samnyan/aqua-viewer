@@ -11,7 +11,7 @@ export interface DivaRecordDetail {
 export interface DivaPvCustomize {
   pvId: number;
   module: string;
-  modulesInfo?: [DivaModule, DivaModule, DivaModule];
+  modulesInfo?: DivaModule[];
   customize: string;
   customizeFlag: string;
   skin: number;

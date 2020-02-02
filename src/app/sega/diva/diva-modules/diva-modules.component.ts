@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DivaModuleDbService} from '../diva-module-db.service';
 import {DivaModule} from '../model/DivaModule';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-diva-modules',
@@ -9,13 +9,16 @@ import {DivaModule} from '../model/DivaModule';
 })
 export class DivaModulesComponent implements OnInit {
 
+  p = 0;
   modules: DivaModule[] = [];
 
-  constructor(private moduleDb: DivaModuleDbService) {
+  constructor(private dbService: NgxIndexedDBService) {
   }
 
   ngOnInit() {
-    this.modules = Array.from(this.moduleDb.getAll());
+    this.dbService.getAll<DivaModule>('divaModule').then(
+      x => x.forEach(y => this.modules.push(y))
+    );
   }
 
 }

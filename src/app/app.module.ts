@@ -21,6 +21,8 @@ import {LoginModule} from './login/login.module';
 import {HttpClientModule} from '@angular/common/http';
 import {DivaModule} from './sega/diva/diva.module';
 import {AmazonModule} from './sega/chunithm/amazon/amazon.module';
+import {DatabaseModule} from './database/database.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,9 @@ import {AmazonModule} from './sega/chunithm/amazon/amazon.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
+    NgxPaginationModule,
+    DatabaseModule,
 
     MessageModule,
     AppRoutingModule,

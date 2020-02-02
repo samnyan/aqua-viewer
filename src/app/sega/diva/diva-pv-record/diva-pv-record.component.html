@@ -1,7 +1,7 @@
 <div *ngIf="pvRecords">
   <mat-card *ngFor="let item of pvRecords" routerLink="{{item.pvId}}">
     <mat-card-title>
-      <div class="title">{{item.songInfo != null ? item.songInfo.song_name : 'pvId:' + item.pvId}}</div>
+      <div class="title">{{item.songInfo != null ? item.songInfo.songName : 'pvId:' + item.pvId}}</div>
       <div class="level">
         {{item.edition === 1 ? edition[item.edition] : ''}}
         {{difficulty[item.difficulty]}}

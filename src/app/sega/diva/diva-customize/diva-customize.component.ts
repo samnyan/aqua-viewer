@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DivaCustomizeDbService} from '../diva-customize-db.service';
 import {DivaCustomize} from '../model/DivaCustomize';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-diva-customize',
@@ -9,13 +9,16 @@ import {DivaCustomize} from '../model/DivaCustomize';
 })
 export class DivaCustomizeComponent implements OnInit {
 
-  customizes: DivaCustomize[];
+  p = 0;
+  customizes: DivaCustomize[] = [];
 
-  constructor(private customizeDb: DivaCustomizeDbService) {
+  constructor(private dbService: NgxIndexedDBService) {
   }
 
   ngOnInit() {
-    this.customizes = Array.from(this.customizeDb.getAll());
+    this.dbService.getAll<DivaCustomize>('divaCustomize').then(
+      x => x.forEach(y => this.customizes.push(y))
+    );
   }
 
 }

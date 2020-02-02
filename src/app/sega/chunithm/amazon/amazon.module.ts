@@ -26,6 +26,8 @@ import {RatingClass} from './util/rating-class.pipe';
 import {CourceIdToClassPipe} from './util/cource-id-to-class.pipe';
 import {AmazonRecentComponent} from './amazon-recent/amazon-recent.component';
 import {ToRankPipe} from './util/to-rank.pipe';
+import { AmazonSettingComponent } from './amazon-setting/amazon-setting.component';
+import {AmazonNameSettingDialog} from './amazon-setting/amazon-name-setting/amazon-name-setting.dialog';
 
 @NgModule({
   imports: [
@@ -60,9 +62,13 @@ import {ToRankPipe} from './util/to-rank.pipe';
     RatingClass,
     CourceIdToClassPipe,
     AmazonRecentComponent,
-    ToRankPipe
+    ToRankPipe,
+    AmazonSettingComponent,
+    AmazonNameSettingDialog
   ],
-  entryComponents: [],
+  entryComponents: [
+    AmazonNameSettingDialog
+  ],
   exports: []
 })
 export class AmazonModule {

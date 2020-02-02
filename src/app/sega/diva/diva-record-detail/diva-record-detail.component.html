@@ -3,7 +3,7 @@
   <mat-card>
     <mat-card-title>
       <div
-        class="title">{{record.songInfo != null ? record.songInfo.song_name : 'pvId:' + record.records[0].pvId}}</div>
+        class="title">{{record.songInfo != null ? record.songInfo.songName : 'pvId:' + pvId}}</div>
     </mat-card-title>
     <mat-card-content>
       <div class="song-info">
@@ -47,11 +47,17 @@
       <table class="zebra">
         <tr>
           <th>Module:</th>
-          <td>
+          <td *ngIf="moduleLoadFlag == 3; else moduleString">
             {{record.customize.modulesInfo[0].name}} ,
             {{record.customize.modulesInfo[1].name}} ,
             {{record.customize.modulesInfo[2].name}}
           </td>
+          <ng-template #moduleString>
+            <td>
+              {{record.customize.module}}
+            </td>
+          </ng-template>
+
         </tr>
         <tr>
           <th>Customize:</th>

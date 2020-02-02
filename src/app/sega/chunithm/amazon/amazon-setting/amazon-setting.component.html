@@ -1,0 +1,9 @@
+<mat-card *ngIf="profile">
+  <mat-card-title>Username</mat-card-title>
+  <mat-card-content>
+    <div class="content">{{profile.userName}}</div>
+    <div class="action">
+      <button (click)="userName()" mat-button>Edit</button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -51,6 +51,18 @@ table {
   font-weight: normal;
 }
 
+.pagination /deep/ .ngx-pagination .current {
+  background: #424242;
+}
+
+.pagination /deep/ .ngx-pagination a, .ngx-pagination button {
+  color: #fff;
+}
+
+.pagination /deep/ .ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #606060;
+}
+
 
 /* color style from http://gsv.fun/ */
 .lv0, .lv1 {

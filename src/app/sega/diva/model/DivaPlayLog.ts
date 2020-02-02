@@ -33,7 +33,7 @@ export interface DivaPlayLog {
   buttonSeVol: number;
   sliderSe: number;
   modules: string;
-  modulesInfo?: [DivaModule, DivaModule, DivaModule];
+  modulesInfo?: DivaModule[];
   stageCompletion: number;
   slideScore: number;
   isVocalChange: number;

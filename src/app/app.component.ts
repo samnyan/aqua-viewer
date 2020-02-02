@@ -1,14 +1,15 @@
-import {ChangeDetectorRef, Component, OnChanges, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {AuthenticationService, User} from './auth/authentication.service';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
+import {PreloadService} from './database/preload.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges, OnDestroy {
+export class AppComponent implements OnInit, OnChanges, OnDestroy {
   title = 'aqua-viewer';
 
   user: User;
@@ -25,31 +26,36 @@ export class AppComponent implements OnChanges, OnDestroy {
     },
     {
       id: 1,
-      name: 'PvRecord',
+      name: 'Pv Record',
       url: 'diva/record'
     },
     {
       id: 2,
+      name: 'Pv List',
+      url: 'diva/pv'
+    },
+    {
+      id: 3,
       name: 'Recent Play',
       url: 'diva/recent'
     },
     {
-      id: 3,
+      id: 4,
       name: 'Setting',
       url: 'diva/setting'
     },
     {
-      id: 4,
+      id: 5,
       name: 'Management',
       url: 'diva/management'
     },
     {
-      id: 5,
+      id: 6,
       name: 'Modules',
       url: 'diva/modules'
     },
     {
-      id: 6,
+      id: 7,
       name: 'Customizes',
       url: 'diva/customizes'
     },
@@ -70,6 +76,11 @@ export class AppComponent implements OnChanges, OnDestroy {
       id: 2,
       name: 'Recent Play',
       url: 'amazon/recent'
+    },
+    {
+      id: 3,
+      name: 'Setting',
+      url: 'amazon/setting'
     }
   ];
 
@@ -79,12 +90,17 @@ export class AppComponent implements OnChanges, OnDestroy {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     private authenticationService: AuthenticationService,
-    private route: Router
+    private route: Router,
+    private preLoad: PreloadService
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.user = authenticationService.currentUserValue;
+  }
+
+  ngOnInit(): void {
+    this.preLoad.load();
   }
 
   ngOnChanges(): void {

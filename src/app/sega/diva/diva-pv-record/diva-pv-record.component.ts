@@ -3,8 +3,9 @@ import {ApiService} from '../../../api.service';
 import {AuthenticationService} from '../../../auth/authentication.service';
 import {MessageService} from '../../../message.service';
 import {HttpParams} from '@angular/common/http';
-import {DivaMusicDbService} from '../diva-music-db.service';
 import {Difficulty, DivaPvRecord, Edition, Result} from '../model/DivaPvRecord';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {DivaPv} from '../model/DivaPv';
 
 @Component({
   selector: 'app-diva-pv-record',
@@ -26,7 +27,7 @@ export class DivaPvRecordComponent implements OnInit {
     private api: ApiService,
     private auth: AuthenticationService,
     private messageService: MessageService,
-    private musicDb: DivaMusicDbService
+    private dbService: NgxIndexedDBService
   ) {
   }
 
@@ -46,8 +47,14 @@ export class DivaPvRecordComponent implements OnInit {
         this.currentPage = data.page + 1;
         this.totalPages = data.totalPages;
         data.content.forEach(x => {
-          x.songInfo = this.musicDb.getMusicDb().get(x.pvId);
           this.pvRecords.push(x);
+        });
+        this.pvRecords.forEach(x => {
+          if (!x.songInfo) {
+            this.dbService.getByID<DivaPv>('divaPv', x.pvId).then(
+              m => x.songInfo = m
+            );
+          }
         });
       },
       error => this.messageService.notice(error.statusText)

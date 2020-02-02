@@ -2,14 +2,15 @@ export interface DivaPv {
   pvId: number;
   bpm: number;
   date: string;
-  is_old_pv?: number;
-  song_name: string;
-  song_name_reading?: string;
+  songName: string;
+  songNameEng?: string;
+  songNameReading?: string;
   arranger?: string;
   illustrator?: string;
   lyrics?: string;
   music?: string;
   difficulty?: DivaPvDiffSet;
+  performerNumber: number;
 }
 
 export interface DivaDifficulty {
