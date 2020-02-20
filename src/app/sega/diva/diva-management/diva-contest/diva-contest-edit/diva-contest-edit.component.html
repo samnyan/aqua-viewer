@@ -53,6 +53,7 @@
         <mat-label>maxComplexity</mat-label>
         <input formControlName="maxComplexity" matInput required type="number">
       </mat-form-field>
+      <p>Complexity: Chart Level(Stars) × 2. eg: 9.5 starts is 19. max:20, min:1. </p>
 
       <mat-form-field class="full-width">
         <mat-label>Stages</mat-label>
@@ -89,6 +90,40 @@
         <mat-label>goldBorders</mat-label>
         <input formControlName="goldBorders" matInput required type="number">
       </mat-form-field>
+
+      <p>Please set the value below carefully, or it will break contest loading and stage saving. Leave it empty if you doesn't know what that means.</p>
+      <p>Pv List Format: "pv_id_start:pv_id_end,pv_id_start:pv_id_end,pv_id_start:pv_id_end". <br>
+        Max allowed length is 20. Use -1 as range end if you only need a single PV.</p>
+
+      <mat-form-field class="full-width">
+        <mat-label>Pv Difficulty List</mat-label>
+        <input formControlName="pvDiffList" matInput type="text" placeholder="pv_difficulty:min_complexity:max_complexity...">
+      </mat-form-field>
+      <p>Pv Difficulty List Format: "pv_difficulty:min_complexity:max_complexity,...". Use it to control the difficulty of Pv List. <br>
+        pv_difficulty: -1 is unrestricted, 0 is easy, 1 is normal. But it seems not work with 2 and 3 so leave it -1 and set the complexity. <br>
+        complexity: format same as above. </p>
+      <mat-form-field class="full-width">
+        <mat-label>Bronze Contest Reward</mat-label>
+        <input formControlName="bronzeContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Silver Contest Reward</mat-label>
+        <input formControlName="sliverContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Gold Contest Reward</mat-label>
+        <input formControlName="goldContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Contest Entry Reward</mat-label>
+        <input formControlName="contestEntryReward" matInput type="text">
+      </mat-form-field>
+
+      <p>Contest Reward Format: "rewardType:rewardId:string1:string2" string1 and 2 should be urlencoded and must exist. use *** aka %2A%2A%2A as placeholder <br>
+        Reward Type: (-1 None, 0 VP, 1 Skin, 2 Callsign, 3 Customize)</p>
       <button [disabled]="!contestForm.valid" mat-flat-button type="submit">Submit</button>
     </form>
   </mat-card-content>

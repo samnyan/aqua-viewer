@@ -28,7 +28,13 @@ export class DivaContestService {
       normaType: ContestNormaType.Percentage,
       bronzeBorders: 16000,
       sliverBorders: 28000,
-      goldBorders: 32000
+      goldBorders: 32000,
+      pvList: '',
+      pvDiffList: '',
+      bronzeContestReward: '',
+      sliverContestReward: '',
+      goldContestReward: '',
+      contestEntryReward: ''
     } : this.currentContest;
   }
 

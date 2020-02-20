@@ -15,6 +15,12 @@ export interface Contest {
   bronzeBorders: number;
   sliverBorders: number;
   goldBorders: number;
+  pvList?: string;
+  pvDiffList?: string;
+  bronzeContestReward?: string;
+  sliverContestReward?: string;
+  goldContestReward?: string;
+  contestEntryReward?: string;
 }
 
 export enum ContestLeague {

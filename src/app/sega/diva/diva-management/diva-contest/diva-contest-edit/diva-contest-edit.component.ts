@@ -48,6 +48,12 @@ export class DivaContestEditComponent implements OnInit {
       bronzeBorders: [this.contest.bronzeBorders, Validators.required],
       sliverBorders: [this.contest.sliverBorders, Validators.required],
       goldBorders: [this.contest.goldBorders, Validators.required],
+      pvList: [this.contest.pvList],
+      pvDiffList: [this.contest.pvDiffList],
+      bronzeContestReward: [this.contest.bronzeContestReward],
+      sliverContestReward: [this.contest.sliverContestReward],
+      goldContestReward: [this.contest.goldContestReward],
+      contestEntryReward: [this.contest.contestEntryReward]
     });
   }
 
