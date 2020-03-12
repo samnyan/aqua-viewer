@@ -48,7 +48,7 @@ export class DivaFestaEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.api.put('api/game/diva/manage/festa', this.festaForm.value).subscribe(
+    this.api.put('api/manage/diva/festa', this.festaForm.value).subscribe(
       data => {
         console.log(data);
         this.router.navigateByUrl('/diva/management/festa');

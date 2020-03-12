@@ -46,14 +46,14 @@ export class DivaNewsComponent implements OnInit {
   }
 
   submitNews() {
-    this.api.put('api/game/diva/manage/news', this.newsForm.value).subscribe(
+    this.api.put('api/manage/diva/news', this.newsForm.value).subscribe(
       data => this.createNews(data),
       error => this.messageService.notice(error.statusText)
     );
   }
 
   submitWarning() {
-    this.api.put('api/game/diva/manage/warning', this.newsForm.value).subscribe(
+    this.api.put('api/manage/diva/warning', this.newsForm.value).subscribe(
       data => this.createWarning(data),
       error => this.messageService.notice(error.statusText)
     );

@@ -91,16 +91,25 @@
         <input formControlName="goldBorders" matInput required type="number">
       </mat-form-field>
 
-      <p>Please set the value below carefully, or it will break contest loading and stage saving. Leave it empty if you doesn't know what that means.</p>
+      <p>Please set the value below carefully, or it will break contest loading and stage saving. Leave it empty if you
+        doesn't know what that means.</p>
+
+      <mat-form-field class="full-width">
+        <mat-label>Pv List</mat-label>
+        <input formControlName="pvList" matInput placeholder="pv_id_start:pv_id_end..." type="text">
+      </mat-form-field>
       <p>Pv List Format: "pv_id_start:pv_id_end,pv_id_start:pv_id_end,pv_id_start:pv_id_end". <br>
         Max allowed length is 20. Use -1 as range end if you only need a single PV.</p>
 
       <mat-form-field class="full-width">
         <mat-label>Pv Difficulty List</mat-label>
-        <input formControlName="pvDiffList" matInput type="text" placeholder="pv_difficulty:min_complexity:max_complexity...">
+        <input formControlName="pvDiffList" matInput type="text"
+               placeholder="pv_difficulty:min_complexity:max_complexity...">
       </mat-form-field>
-      <p>Pv Difficulty List Format: "pv_difficulty:min_complexity:max_complexity,...". Use it to control the difficulty of Pv List. <br>
-        pv_difficulty: -1 is unrestricted, 0 is easy, 1 is normal. But it seems not work with 2 and 3 so leave it -1 and set the complexity. <br>
+      <p>Pv Difficulty List Format: "pv_difficulty:min_complexity:max_complexity,...". Use it to control the difficulty
+        of Pv List. <br>
+        pv_difficulty: -1 is unrestricted, 0 is easy, 1 is normal. But it seems not work with 2 and 3 so leave it -1 and
+        set the complexity. <br>
         complexity: format same as above. </p>
       <mat-form-field class="full-width">
         <mat-label>Bronze Contest Reward</mat-label>

@@ -58,7 +58,7 @@ export class DivaContestEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.api.put('api/game/diva/manage/contest', this.contestForm.value).subscribe(
+    this.api.put('api/manage/diva/contest', this.contestForm.value).subscribe(
       data => {
         console.log(data);
         this.router.navigateByUrl('/diva/management/contest');
