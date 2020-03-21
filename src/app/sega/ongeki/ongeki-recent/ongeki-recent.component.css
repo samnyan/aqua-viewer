@@ -34,8 +34,8 @@
 }
 
 .result-content .left {
-  min-width: 40%;
-  margin: auto;
+  min-width: 30%;
+  margin: auto 10px auto auto;
 }
 
 .result-content .right {
@@ -43,16 +43,13 @@
 }
 
 .score-area {
-  display: flex;
+  display: grid;
   width: 100%;
+  grid-template-columns: 2fr 1fr;
+}
+
+.score-area .score-element {
   text-align: right;
-}
-
-.score-area .score-left {
-  width: 55%;
-}
-
-.score-area .score-right {
   margin: auto;
 }
 
@@ -82,6 +79,10 @@
   margin-bottom: 10px;
 }
 
+.player-card {
+  margin: 0 auto;
+}
+
 .player-card .player-card-header {
   display: flex;
   padding: 0 10px;
@@ -93,4 +94,16 @@
 
 .player-card-image img {
   width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .score-area {
+    text-align: center;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+  }
+
+  .score-area .score-element {
+    margin-bottom: 10px;
+  }
 }

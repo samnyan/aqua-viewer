@@ -31,7 +31,7 @@ mat-card {
 table {
   width: 100%;
   border-spacing: 0;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .zebra tr:nth-child(odd) {
@@ -51,16 +51,25 @@ table {
   font-weight: normal;
 }
 
-.pagination /deep/ .ngx-pagination .current {
-  background: #424242;
+pagination-template {
+  display: flex !important;
 }
 
-.pagination /deep/ .ngx-pagination a, .ngx-pagination button {
-  color: #fff;
+.ngx-pagination {
+  margin: 0 auto 1rem auto !important;
+  padding: 0 !important;
 }
 
-.pagination /deep/ .ngx-pagination a:hover, .ngx-pagination button:hover {
-  background: #606060;
+.ngx-pagination .current {
+  background: #424242 !important;
+}
+
+.ngx-pagination a, .ngx-pagination button {
+  color: #fff !important;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #606060 !important;
 }
 
 
