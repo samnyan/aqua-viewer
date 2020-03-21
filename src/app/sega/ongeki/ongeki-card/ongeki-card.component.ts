@@ -70,4 +70,16 @@ export class OngekiCardComponent implements OnInit {
     );
   }
 
+  kaika(cardId: number, type: string) {
+    const aimeId = String(this.auth.currentUserValue.extId);
+    const param = new HttpParams().set('aimeId', aimeId);
+    this.api.post('api/game/ongeki/card/' + cardId + '/' + type, param).subscribe(
+      data => {
+        this.messageService.notice('Successful');
+        this.load(this.currentPage);
+      },
+      error => this.messageService.notice(error)
+    );
+  }
+
 }

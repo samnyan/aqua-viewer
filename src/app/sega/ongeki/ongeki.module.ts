@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {OngekiRoutes} from './ongeki.routing';
 import {OngekiProfileComponent} from './ongeki-profile/ongeki-profile.component';
-import {MatButtonModule, MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatTableModule} from '@angular/material';
 import {OngekiCardComponent} from './ongeki-card/ongeki-card.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {OngekiCardListComponent} from './ongeki-card-list/ongeki-card-list.component';
@@ -11,18 +11,32 @@ import {OngekiRecentComponent} from './ongeki-recent/ongeki-recent.component';
 import {ToolsModule} from '../../util/tools.module';
 import {ToAttributeClassPipe} from './util/to-attribute-class.pipe';
 import {OngekiSongListComponent} from './ongeki-song-list/ongeki-song-list.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
-  declarations: [OngekiProfileComponent, OngekiCardComponent, OngekiCardListComponent, OngekiRecentComponent, ToAttributeClassPipe, OngekiSongListComponent],
+  declarations: [
+    OngekiProfileComponent,
+    OngekiCardComponent,
+    OngekiCardListComponent,
+    OngekiRecentComponent,
+    ToAttributeClassPipe,
+    OngekiSongListComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     OngekiRoutes,
+
     MatCardModule,
     NgxPaginationModule,
     MatButtonModule,
-    ToolsModule
+    ToolsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    FlexLayoutModule
   ]
 })
 export class OngekiModule {

@@ -59,6 +59,10 @@
       </div>
     </div>
   </mat-card-content>
+  <mat-card-actions>
+    <div fxFlex></div>
+    <button (click)="insertCard(item.id)" mat-button>I want it!!</button>
+  </mat-card-actions>
 </mat-card>
 <div class="pagination">
   <pagination-controls (pageChange)="p = $event" id="card"></pagination-controls>

@@ -1,10 +1,17 @@
 <mat-card>
   <mat-card-title>My Card List</mat-card-title>
   <mat-card-content>
+    <p class="hint">
+      Hint: <br>
+      Every card has base Lv.10 Max. After Kaika, max level will plus 40. (Means 10 + 40)<br>
+      Every Star larger than 1 will add 5 levels to max level. And R,SR,SSR card can get max 5 stars, N card can get max
+      10 stars.<br>
+      Means max level for N card is 100, for R,SR,SSR card is 70.<br>
+      Star level can be increase by getting the same card or use item in game.
+    </p>
     <div class="action">
-      <button mat-button routerLink="all">Show All</button>
+      <button mat-button routerLink="all">Show All Cards</button>
       <!--      <button mat-button>Gacha</button>-->
-      <!--      <button mat-button>Cheat</button>-->
     </div>
   </mat-card-content>
 </mat-card>
@@ -36,6 +43,10 @@
             <td>{{item.maxLevel}}</td>
           </tr>
           <tr>
+            <th>Star</th>
+            <td>{{item.digitalStock}}</td>
+          </tr>
+          <tr>
             <th>Skill</th>
             <td>{{item.skillInfo ? item.skillInfo.name : 'ID:' + item.skillId}}</td>
           </tr>
@@ -51,6 +62,17 @@
       </div>
     </div>
   </mat-card-content>
+  <mat-card-actions>
+    <div fxFlex></div>
+    <button (click)="kaika(item.cardId, 'kaika')" [disabled]="item.kaikaDate != '0000-00-00 00:00:00.0'"
+            mat-button>
+      Kaika
+    </button>
+    <button (click)="kaika(item.cardId, 'choKaika')" [disabled]="item.choKaikaDate != '0000-00-00 00:00:00.0'"
+            mat-button>
+      ChoKaika
+    </button>
+  </mat-card-actions>
 </mat-card>
 <div class="pagination">
   <pagination-controls (pageChange)="load($event)" id="server"></pagination-controls>

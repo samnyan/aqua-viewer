@@ -40,4 +40,15 @@ export class OngekiCardListComponent implements OnInit {
     );
   }
 
+  insertCard(cardId: number) {
+    const aimeId = this.auth.currentUserValue.extId;
+    this.api.post('api/game/ongeki/card', {
+      aimeId,
+      cardId
+    }).subscribe(
+      data => this.messageService.notice('Successful, go to check your card list'),
+      error => this.messageService.notice(error)
+    );
+  }
+
 }
