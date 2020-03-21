@@ -134,6 +134,8 @@ THE SOFTWARE.
 
 @angular/material/paginator
 
+@angular/material/progress-bar
+
 @angular/material/select
 
 @angular/material/sidenav
