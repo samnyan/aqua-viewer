@@ -3,6 +3,8 @@ import {AuthenticationService, User} from './auth/authentication.service';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 import {PreloadService} from './database/preload.service';
+import {Subscription} from 'rxjs';
+import {ApiService} from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +16,75 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   user: User;
 
+  loading = false;
+  ongekiMenu: Menu[] = [
+    {
+      id: 0,
+      name: 'Profile',
+      url: 'ongeki/profile'
+    },
+    {
+      id: 1,
+      name: 'Recent Play',
+      url: 'ongeki/recent'
+    },
+    {
+      id: 2,
+      name: 'Song List',
+      url: 'ongeki/song'
+    },
+    {
+      id: 3,
+      name: 'Card Maker',
+      url: 'ongeki/card'
+    },
+    {
+      id: 4,
+      name: 'Item',
+      url: 'ongeki/item'
+    },
+    {
+      id: 5,
+      name: 'Setting',
+      url: 'ongeki/setting'
+    }
+  ];
+
   mobileQuery: MediaQueryList;
 
   dark = 'dark';
+  amazonMenus: Menu[] = [
+    {
+      id: 0,
+      name: 'Profile',
+      url: 'amazon/profile'
+    },
+    {
+      id: 1,
+      name: 'Rating',
+      url: 'amazon/rating'
+    },
+    {
+      id: 2,
+      name: 'Recent Play',
+      url: 'amazon/recent'
+    },
+    {
+      id: 3,
+      name: 'Song List',
+      url: 'amazon/song'
+    },
+    {
+      id: 4,
+      name: 'Character',
+      url: 'amazon/character'
+    },
+    {
+      id: 5,
+      name: 'Setting',
+      url: 'amazon/setting'
+    }
+  ];
 
   divaMenus: Menu[] = [
     {
@@ -60,29 +128,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
       url: 'diva/customizes'
     },
   ];
-
-  amazonMenus: Menu[] = [
-    {
-      id: 0,
-      name: 'Profile',
-      url: 'amazon/profile'
-    },
-    {
-      id: 1,
-      name: 'Rating',
-      url: 'amazon/rating'
-    },
-    {
-      id: 2,
-      name: 'Recent Play',
-      url: 'amazon/recent'
-    },
-    {
-      id: 3,
-      name: 'Setting',
-      url: 'amazon/setting'
-    }
-  ];
+  private subscription: Subscription;
 
   private _mobileQueryListener: () => void;
 
@@ -91,6 +137,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     media: MediaMatcher,
     private authenticationService: AuthenticationService,
     private route: Router,
+    private api: ApiService,
     private preLoad: PreloadService
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -101,6 +148,9 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit(): void {
     this.preLoad.load();
+    this.subscription = this.api.loadingState.subscribe(
+      state => this.loading = state.show
+    );
   }
 
   ngOnChanges(): void {

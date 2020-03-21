@@ -1,0 +1,134 @@
+<mat-card>
+  <mat-card-title>
+    Recent Play
+  </mat-card-title>
+</mat-card>
+<div *ngIf="recent" class="record">
+  <mat-card
+    *ngFor="let item of recent | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: currentPage, totalItems: totalElements }"
+    routerLink="/ongeki/song/{{item.musicId}}">
+    <mat-card-title>{{item.userPlayDate}}</mat-card-title>
+    <mat-card-content>
+      <div class="song-header">
+        <img src="{{host}}ongeki/jacket/UI_Jacket_{{item.musicId|formatNumber:4}}.png">
+        <div class="song-info">
+          <span class="title">{{item.songInfo != null ? item.songInfo.name : 'musicId:' + item.musicId}}</span><br>
+          <span
+            class="info">{{item.songInfo != null ? item.songInfo.artistName : ''}}</span>
+        </div>
+        <div class="level">
+          {{difficulty[item.level]}}
+        </div>
+      </div>
+
+      <div class="result-content">
+        <div class="left">
+          <div class="score-area">
+            <div class="score-left">
+              <span class="score-label">BATTLE SCORE</span><br>
+              <span class="score-value">{{item.battleScore}}</span><br>
+              <span *ngIf="item.battleNewRecord">NEW RECORD<br></span>
+              <span class="score-label">OVER DAMAGE</span><br>
+              <span class="score-value">{{item.overDamage / 100}}%</span><br>
+              <span *ngIf="item.overDamageNewRecord">NEW RECORD<br></span>
+            </div>
+            <div class="score-right">
+              <span class="achievement-value">{{battleRank[item.battleScoreRank]}}</span><br>
+            </div>
+          </div>
+          <div class="score-area">
+            <div class="score-left">
+              <span class="score-label">TECHNICAL SCORE</span><br>
+              <span class="score-value">{{item.techScore}}</span><br>
+              <span *ngIf="item.techNewRecord">NEW RECORD<br></span>
+            </div>
+            <div class="score-right">
+              <span class="achievement-value">{{technicalRank[item.techScoreRank]}}</span><br>
+            </div>
+          </div>
+          <div class="score-area">
+            <span *ngIf="item.fullBell">FULL BELL</span>
+            <span *ngIf="item.fullCombo">FULL COMBO</span>
+          </div>
+        </div>
+        <table class="zebra">
+          <tr>
+            <th>Combo</th>
+            <td>{{item.maxCombo}}</td>
+            <td>TAP</td>
+            <td>{{item.rateTap}}%</td>
+          </tr>
+          <tr>
+            <th>C. BREAK</th>
+            <td>{{item.judgeCriticalBreak}}</td>
+            <td>HOLD</td>
+            <td>{{item.rateHold}}%</td>
+          </tr>
+          <tr>
+            <th>BREAK</th>
+            <td>{{item.judgeBreak}}</td>
+            <td>FLICK</td>
+            <td>{{item.rateFlick}}%</td>
+          </tr>
+          <tr>
+            <th>HIT</th>
+            <td>{{item.judgeHit}}</td>
+            <td>SLIDE TAP</td>
+            <td>{{item.rateSideTap}}%</td>
+          </tr>
+          <tr>
+            <th>MISS</th>
+            <td>{{item.judgeMiss}}</td>
+            <td>SLIDE HOLE</td>
+            <td>{{item.rateSideHold}}%</td>
+          </tr>
+          <tr>
+            <th>BELL</th>
+            <td>{{item.bellCount}} / {{item.totalBellCount}}</td>
+            <td>DAMAGE</td>
+            <td>{{item.damageCount}}%</td>
+          </tr>
+        </table>
+      </div>
+      <div class="battle-info">
+        <div class="rival-info">
+          Rival: <span
+          class="{{item.bossAttribute | toAttributeClass}}">█</span> {{item.bossCharaInfo ? item.bossCharaInfo.name : 'ID: ' + item.bossCharaId}}
+          Lv.{{item.bossLevel}}
+        </div>
+        <div class="card-deck">
+          <div class="player-card">
+            <div class="player-card-header">
+              <div class="level">Lv.{{item.cardLevel1}}</div>
+              <div class="attack">ATK {{item.cardAttack1}}</div>
+            </div>
+            <div class="player-card-image">
+              <img src="{{host}}ongeki/card/UI_Card_{{item.cardId1|formatNumber:6}}_S.png">
+            </div>
+          </div>
+          <div class="player-card">
+            <div class="player-card-header">
+              <div class="level">Lv.{{item.cardLevel2}}</div>
+              <div class="attack">ATK {{item.cardAttack2}}</div>
+            </div>
+            <div class="player-card-image">
+              <img src="{{host}}ongeki/card/UI_Card_{{item.cardId2|formatNumber:6}}_S.png">
+            </div>
+          </div>
+          <div class="player-card">
+            <div class="player-card-header">
+              <div class="level">Lv.{{item.cardLevel3}}</div>
+              <div class="attack">ATK {{item.cardAttack3}}</div>
+            </div>
+            <div class="player-card-image">
+              <img src="{{host}}ongeki/card/UI_Card_{{item.cardId3|formatNumber:6}}_S.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="pagination">
+    <pagination-controls (pageChange)="load($event)" id="server"></pagination-controls>
+  </div>
+</div>

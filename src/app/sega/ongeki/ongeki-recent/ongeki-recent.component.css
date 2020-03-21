@@ -1,0 +1,93 @@
+.record mat-card-title {
+  font-size: 1.2em;
+  text-align: right;
+}
+
+.song-header {
+  display: flex;
+}
+
+.song-header img {
+  width: 42px;
+  height: 42px;
+}
+
+.song-header .level {
+  margin-left: auto;
+  font-size: 1.2em;
+}
+
+.song-info {
+  margin-left: 4px;
+}
+
+.song-info .title {
+  font-size: 1.2em;
+}
+
+.song-info .info {
+  opacity: 70%;
+}
+
+.result-content {
+  display: flex;
+}
+
+.result-content .left {
+  min-width: 40%;
+  text-align: center;
+  margin: auto;
+}
+
+.score-area {
+  display: flex;
+  width: 100%;
+  text-align: right;
+}
+
+.score-area .score-left {
+  width: 55%;
+}
+
+.score-area .score-right {
+  margin: auto;
+}
+
+.score-label {
+  font-size: 0.8em;
+  opacity: 80%;
+}
+
+.achievement-value {
+  font-size: 1.5rem;
+}
+
+.score-value {
+  font-size: 1.4rem;
+}
+
+.battle-info {
+  font-size: 0.8em;
+  opacity: 80%;
+}
+
+.card-deck {
+  display: flex;
+}
+
+.rival-info {
+  margin-bottom: 10px;
+}
+
+.player-card .player-card-header {
+  display: flex;
+  padding: 0 10px;
+}
+
+.player-card-header .attack {
+  margin-left: auto;
+}
+
+.player-card-image img {
+  width: 100%;
+}

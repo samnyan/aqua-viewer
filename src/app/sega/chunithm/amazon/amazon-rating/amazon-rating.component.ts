@@ -3,6 +3,7 @@ import {MessageService} from '../../../../message.service';
 import {ApiService} from '../../../../api.service';
 import {HttpParams} from '@angular/common/http';
 import {AuthenticationService} from '../../../../auth/authentication.service';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-amazon-rating',
@@ -10,6 +11,8 @@ import {AuthenticationService} from '../../../../auth/authentication.service';
   styleUrls: ['./amazon-rating.component.css']
 })
 export class AmazonRatingComponent implements OnInit {
+
+  host = environment.assetsHost;
 
   topRating: RatingItem[] = [];
   recentRating: RatingItem[] = [];

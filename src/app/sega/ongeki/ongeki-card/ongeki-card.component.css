@@ -1,0 +1,20 @@
+.action {
+  text-align: right;
+}
+
+.card-display {
+  display: flex;
+}
+
+.card-display .image {
+  max-width: 30%;
+}
+
+.card-display .image img {
+  width: 100%;
+}
+
+.card-display .content {
+  margin: 0 auto;
+  width: 65%;
+}

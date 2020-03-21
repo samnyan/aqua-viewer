@@ -1,11 +1,15 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from './auth/authentication.service';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
+  private loadingSubject = new Subject<LoadingState>();
+  loadingState = this.loadingSubject.asObservable();
 
   constructor(private http: HttpClient,
               private authenticationService: AuthenticationService) {
@@ -31,9 +35,21 @@ export class ApiService {
     return this.authenticationService.currentUserValue.apiServer + '/';
   }
 
+  show() {
+    this.loadingSubject.next({show: true});
+  }
+
+  hide() {
+    this.loadingSubject.next({show: false});
+  }
+
 }
 
 export class Resp {
   status: string;
   data: object;
+}
+
+export interface LoadingState {
+  show: boolean;
 }

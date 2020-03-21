@@ -1,7 +1,7 @@
-<mat-card *ngIf="profile">
+<mat-card>
   <mat-card-title>Player Profile</mat-card-title>
   <mat-card-content>
-    <table class="zebra">
+    <table *ngIf="profile" class="zebra">
       <tr>
         <th>Player Name</th>
         <td>{{profile.userName}}</td>

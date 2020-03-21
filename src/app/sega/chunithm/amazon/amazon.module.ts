@@ -21,13 +21,18 @@ import {AmazonRoutes} from './amazon.routing';
 import {AmazonProfileComponent} from './amazon-profile/amazon-profile.component';
 import {AmazonRatingComponent} from './amazon-rating/amazon-rating.component';
 import {ToRatingPipe} from './util/to-rating.pipe';
-import {FormatnumberPipe} from './util/formatnumber.pipe';
 import {RatingClass} from './util/rating-class.pipe';
 import {CourceIdToClassPipe} from './util/cource-id-to-class.pipe';
 import {AmazonRecentComponent} from './amazon-recent/amazon-recent.component';
 import {ToRankPipe} from './util/to-rank.pipe';
-import { AmazonSettingComponent } from './amazon-setting/amazon-setting.component';
+import {AmazonSettingComponent} from './amazon-setting/amazon-setting.component';
 import {AmazonNameSettingDialog} from './amazon-setting/amazon-name-setting/amazon-name-setting.dialog';
+import {AmazonCharacterComponent} from './amazon-character/amazon-character.component';
+import {AmazonSonglistComponent} from './amazon-songlist/amazon-songlist.component';
+import {AmazonSongDetailComponent} from './amazon-song-detail/amazon-song-detail.component';
+import {AmazonSongPlaylogComponent} from './amazon-song-playlog/amazon-song-playlog.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {ToolsModule} from '../../../util/tools.module';
 
 @NgModule({
   imports: [
@@ -52,24 +57,28 @@ import {AmazonNameSettingDialog} from './amazon-setting/amazon-name-setting/amaz
     MatSortModule,
     MatDialogModule,
     MatSnackBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxPaginationModule,
+    ToolsModule
   ],
   declarations: [
     AmazonProfileComponent,
     AmazonRatingComponent,
     ToRatingPipe,
-    FormatnumberPipe,
     RatingClass,
     CourceIdToClassPipe,
     AmazonRecentComponent,
     ToRankPipe,
     AmazonSettingComponent,
-    AmazonNameSettingDialog
+    AmazonNameSettingDialog,
+    AmazonCharacterComponent,
+    AmazonSonglistComponent,
+    AmazonSongDetailComponent,
+    AmazonSongPlaylogComponent
   ],
   entryComponents: [
     AmazonNameSettingDialog
-  ],
-  exports: []
+  ]
 })
 export class AmazonModule {
 }

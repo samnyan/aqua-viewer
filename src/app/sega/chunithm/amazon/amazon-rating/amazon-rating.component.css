@@ -12,6 +12,7 @@
 .skill-card img {
   width: 18px;
   height: 18px;
+  padding: 0;
 }
 
 td {
@@ -31,10 +32,4 @@ tr * {
     width: 100%;
     font-size: 12px;
   }
-
-  .skill-card img {
-    width: 18px;
-    height: 18px;
-  }
-
 }

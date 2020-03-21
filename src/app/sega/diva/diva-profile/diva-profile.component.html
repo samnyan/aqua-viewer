@@ -1,7 +1,7 @@
-<mat-card *ngIf="profile">
+<mat-card>
   <mat-card-title>Player Profile</mat-card-title>
   <mat-card-content>
-    <table class="zebra">
+    <table *ngIf="profile" class="zebra">
       <tr>
         <th>Project DIVA ID</th>
         <td>{{profile.pdId}}</td>

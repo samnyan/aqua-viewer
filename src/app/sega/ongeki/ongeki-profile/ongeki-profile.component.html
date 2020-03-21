@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-title>Player Profile</mat-card-title>
+  <mat-card-content>
+    <table *ngIf="profile" class="zebra">
+      <tr>
+        <th>Player Name</th>
+        <td>{{profile.userName}}</td>
+      </tr>
+      <tr>
+        <th>Player Rating</th>
+        <td>{{profile.playerRating / 100}}</td>
+      </tr>
+      <tr>
+        <th>Player Highest Rating</th>
+        <td>{{profile.highestRating / 100}}</td>
+      </tr>
+      <tr>
+        <th>Battle Point</th>
+        <td>{{profile.battlePoint}}</td>
+      </tr>
+      <tr>
+        <th>Player Level</th>
+        <td>{{profile.level}}</td>
+      </tr>
+      <tr>
+        <th>Total Play Count</th>
+        <td>{{profile.playCount}}</td>
+      </tr>
+      <tr>
+        <th>Name Plate Id</th>
+        <td>{{profile.nameplateId}}</td>
+      </tr>
+      <tr>
+        <th>Card</th>
+        <td>{{profile.card ? profile.card.name : 'ID:' + profile.cardId}}</td>
+      </tr>
+      <tr>
+        <th>Character</th>
+        <td>{{profile.character ? profile.character.name : 'ID:' + profile.characterId}}</td>
+      </tr>
+      <tr>
+        <th>Total Tech High Score</th>
+        <td>{{profile.sumTechHighScore}}</td>
+      </tr>
+      <tr>
+        <th>Total Battle High Score</th>
+        <td>{{profile.sumBattleHighScore}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

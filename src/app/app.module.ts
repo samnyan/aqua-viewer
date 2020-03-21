@@ -11,6 +11,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
+  MatProgressBarModule,
   MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
@@ -18,11 +19,14 @@ import {
 import {MessageModule} from './message/message.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {LoginModule} from './login/login.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DivaModule} from './sega/diva/diva.module';
 import {AmazonModule} from './sega/chunithm/amazon/amazon.module';
 import {DatabaseModule} from './database/database.module';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {OngekiModule} from './sega/ongeki/ongeki.module';
+import {ErrorInterceptorService} from './auth/error-interceptor.service';
+import {LoadingInterceptorService} from './auth/loading-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     LoginModule,
     DivaModule,
     AmazonModule,
+    OngekiModule,
 
     ReactiveFormsModule,
     MatButtonModule,
@@ -51,9 +56,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatListModule,
     MatSelectModule,
     MatMenuModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -37,6 +37,10 @@ mat-toolbar {
   margin: auto;
 }
 
+.content .padding {
+  padding-top: 4px;
+}
+
 .bg {
   transition-duration: .218s;
   transition-property: background;
@@ -45,6 +49,10 @@ mat-toolbar {
 
 .dark {
   background-color: #202124;
+}
+
+.hide {
+  display: none;
 }
 
 @media only screen and (max-width: 599px) {

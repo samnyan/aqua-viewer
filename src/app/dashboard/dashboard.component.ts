@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PreloadService} from '../database/preload.service';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 
@@ -13,6 +13,10 @@ export class DashboardComponent implements OnInit {
   divaModule = 'Initialize';
   divaCustomize = 'Initialize';
   chuniMusic = 'Initialize';
+  ongekiCard = 'Initialize';
+  ongekiCharacter = 'Initialize';
+  ongekiMusic = 'Initialize';
+  ongekiSkill = 'Initialize';
 
   constructor(
     private dbService: NgxIndexedDBService,
@@ -25,6 +29,10 @@ export class DashboardComponent implements OnInit {
     this.preload.divaModuleState.subscribe(data => this.divaModule = data);
     this.preload.divaCustomizeState.subscribe(data => this.divaCustomize = data);
     this.preload.chuniMusicState.subscribe(data => this.chuniMusic = data);
+    this.preload.ongekiCardState.subscribe(data => this.ongekiCard = data);
+    this.preload.ongekiCharacterState.subscribe(data => this.ongekiCharacter = data);
+    this.preload.ongekiMusicState.subscribe(data => this.ongekiMusic = data);
+    this.preload.ongekiSkillState.subscribe(data => this.ongekiSkill = data);
   }
 
   reload() {

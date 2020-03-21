@@ -6,6 +6,10 @@ import {DivaPv} from '../sega/diva/model/DivaPv';
 import {ChuniMusic} from '../sega/chunithm/amazon/model/ChuniMusic';
 import {DivaModule} from '../sega/diva/model/DivaModule';
 import {DivaCustomize} from '../sega/diva/model/DivaCustomize';
+import {OngekiCard} from '../sega/ongeki/model/OngekiCard';
+import {OngekiCharacter} from '../sega/ongeki/model/OngekiCharacter';
+import {OngekiMusic} from '../sega/ongeki/model/OngekiMusic';
+import {OngekiSkill} from '../sega/ongeki/model/OngekiSkill';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +26,15 @@ export class PreloadService {
   private chuniMusic = new ReplaySubject<string>();
   chuniMusicState = this.chuniMusic.asObservable();
 
+  private ongekiCard = new ReplaySubject<string>();
+  ongekiCardState = this.ongekiCard.asObservable();
+  private ongekiCharacter = new ReplaySubject<string>();
+  ongekiCharacterState = this.ongekiCharacter.asObservable();
+  private ongekiMusic = new ReplaySubject<string>();
+  ongekiMusicState = this.ongekiMusic.asObservable();
+  private ongekiSkill = new ReplaySubject<string>();
+  ongekiSkillState = this.ongekiSkill.asObservable();
+
   constructor(
     private dbService: NgxIndexedDBService,
     private api: ApiService
@@ -29,28 +42,32 @@ export class PreloadService {
   }
 
   load() {
-    this.loadDivaPv();
-    this.loadChuniMusic();
-    this.loadDivaModule();
-    this.loadDivaCustomize();
+    this.loader<DivaPv>('divaPv', 'api/game/diva/data/musicList', this.divaPv);
+    this.loader<DivaModule>('divaModule', 'api/game/diva/data/moduleList', this.divaModule);
+    this.loader<DivaCustomize>('divaCustomize', 'api/game/diva/data/customizeList', this.divaCustomize);
+    this.loader<ChuniMusic>('chuniMusic', 'api/game/chuni/amazon/music', this.chuniMusic);
+    this.loader<OngekiCard>('ongekiCard', 'api/game/ongeki/data/cardList', this.ongekiCard);
+    this.loader<OngekiCharacter>('ongekiCharacter', 'api/game/ongeki/data/charaList', this.ongekiCharacter);
+    this.loader<OngekiMusic>('ongekiMusic', 'api/game/ongeki/data/musicList', this.ongekiMusic);
+    this.loader<OngekiSkill>('ongekiSkill', 'api/game/ongeki/data/skillList', this.ongekiSkill);
   }
 
   reload() {
 
   }
 
-  loadDivaPv() {
-    this.dbService.count('divaPv').then(
+  loader<T>(storeName: string, url: string, status: ReplaySubject<string>) {
+    this.dbService.count(storeName).then(
       pageCount => {
         if (pageCount > 0) {
-          this.divaPv.next('OK');
+          status.next('OK');
         } else {
-          this.divaPv.next('Downloading');
-          this.api.get('api/game/diva/data/musicList').subscribe(
+          status.next('Downloading');
+          this.api.get(url).subscribe(
             data => {
               let errorFlag = false;
               data.forEach(x => {
-                this.dbService.add<DivaPv>('divaPv', x).then(
+                this.dbService.add<T>(storeName, x).then(
                   () => '', error => {
                     console.error(error);
                     errorFlag = true;
@@ -58,120 +75,16 @@ export class PreloadService {
                 );
               });
               if (errorFlag) {
-                this.divaPv.next('Error');
+                status.next('Error');
               } else {
-                this.divaPv.next('OK');
+                status.next('OK');
               }
-              this.divaPv.complete();
+              status.complete();
             },
             error => {
               console.error(error);
-              this.divaPv.next('Error');
-              this.divaPv.complete();
-            }
-          );
-        }
-      });
-  }
-
-  loadDivaModule() {
-    this.dbService.count('divaModule').then(
-      pageCount => {
-        if (pageCount > 0) {
-          this.divaModule.next('OK');
-        } else {
-          this.divaModule.next('Downloading');
-          this.api.get('api/game/diva/data/moduleList').subscribe(
-            data => {
-              let errorFlag = false;
-              data.forEach(x => {
-                this.dbService.add<DivaModule>('divaModule', x).then(
-                  () => '', error => {
-                    console.error(error);
-                    errorFlag = true;
-                  }
-                );
-              });
-              if (errorFlag) {
-                this.divaModule.next('Error');
-              } else {
-                this.divaModule.next('OK');
-              }
-              this.divaModule.complete();
-            },
-            error => {
-              console.error(error);
-              this.divaModule.next('Error');
-              this.divaModule.complete();
-            }
-          );
-        }
-      });
-  }
-
-  loadDivaCustomize() {
-    this.dbService.count('divaCustomize').then(
-      pageCount => {
-        if (pageCount > 0) {
-          this.divaCustomize.next('OK');
-        } else {
-          this.divaCustomize.next('Downloading');
-          this.api.get('api/game/diva/data/customizeList').subscribe(
-            data => {
-              let errorFlag = false;
-              data.forEach(x => {
-                this.dbService.add<DivaCustomize>('divaCustomize', x).then(
-                  () => '', error => {
-                    console.error(error);
-                    errorFlag = true;
-                  }
-                );
-              });
-              if (errorFlag) {
-                this.divaCustomize.next('Error');
-              } else {
-                this.divaCustomize.next('OK');
-              }
-              this.divaCustomize.complete();
-            },
-            error => {
-              console.error(error);
-              this.divaCustomize.next('Error');
-              this.divaCustomize.complete();
-            }
-          );
-        }
-      });
-  }
-
-
-  loadChuniMusic() {
-    this.dbService.count('chuniMusic').then(
-      pageCount => {
-        if (pageCount > 0) {
-          this.chuniMusic.next('OK');
-        } else {
-          this.chuniMusic.next('Downloading');
-          this.api.get('api/game/chuni/amazon/music').subscribe(
-            data => {
-              let errorFlag = false;
-              data.forEach(x => {
-                this.dbService.add<ChuniMusic>('chuniMusic', x).then(
-                  () => '', error => {
-                    console.error(error);
-                    errorFlag = true;
-                  }
-                );
-              });
-              if (errorFlag) {
-                this.chuniMusic.next('Error');
-              } else {
-                this.chuniMusic.next('OK');
-              }
-            },
-            error => {
-              console.error(error);
-              this.chuniMusic.next('Error');
+              status.next('Error');
+              status.complete();
             }
           );
         }

@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-card-title>All Card List</mat-card-title>
+</mat-card>
+
+<mat-card *ngFor="let item of cardList | paginate: { id: 'card', itemsPerPage: 10, currentPage: p }">
+  <mat-card-title>
+    {{item.name}}
+  </mat-card-title>
+  <mat-card-content>
+    <div class="card-display">
+      <div class="image">
+        <a href="{{host}}ongeki/card/UI_Card_{{item.id|formatNumber:6}}.png" target="_blank">
+          <img src="{{host}}ongeki/card/UI_Card_{{item.id|formatNumber:6}}_S.png">
+        </a>
+        <div *ngIf="item.characterInfo">
+          {{item.characterInfo.name}}<br>
+          {{item.characterInfo.cv ? '(CV: ' + item.characterInfo.cv + ')' : ''}}
+        </div>
+      </div>
+      <div class="content">
+        <table class="zebra">
+          <tr>
+            <th>Card ID</th>
+            <td>{{item.id}}</td>
+          </tr>
+          <tr>
+            <th>Rarity</th>
+            <td>{{item.rarity}}</td>
+          </tr>
+          <tr>
+            <th>Card Name</th>
+            <td>{{item.nickName}}</td>
+          </tr>
+          <tr>
+            <th>Attribute</th>
+            <td>{{item.attribute}}</td>
+          </tr>
+          <tr>
+            <th>School</th>
+            <td>{{item.school}}</td>
+          </tr>
+          <tr>
+            <th>Gakunen</th>
+            <td>{{item.gakunen}}</td>
+          </tr>
+          <tr>
+            <th>Skill</th>
+            <td>{{item.skillInfo ? item.skillInfo.name : 'ID:' + item.skillId}}</td>
+          </tr>
+          <tr>
+            <th>ChoKaika Skill</th>
+            <td>{{item.choKaikaSkillInfo ? item.choKaikaSkillInfo.name : 'ID:' + item.choKaikaSkillId}}</td>
+          </tr>
+          <tr>
+            <th>CardNumber</th>
+            <td>{{item.cardNumber}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event" id="card"></pagination-controls>
+</div>

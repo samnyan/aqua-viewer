@@ -33,8 +33,4 @@ export class DivaPvlistComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  toPv(id) {
-    console.log(id);
-  }
-
 }
