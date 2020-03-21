@@ -51,44 +51,46 @@
             <span *ngIf="item.fullCombo">FULL COMBO</span>
           </div>
         </div>
-        <table class="zebra">
-          <tr>
-            <th>Combo</th>
-            <td>{{item.maxCombo}}</td>
-            <td>TAP</td>
-            <td>{{item.rateTap}}%</td>
-          </tr>
-          <tr>
-            <th>C. BREAK</th>
-            <td>{{item.judgeCriticalBreak}}</td>
-            <td>HOLD</td>
-            <td>{{item.rateHold}}%</td>
-          </tr>
-          <tr>
-            <th>BREAK</th>
-            <td>{{item.judgeBreak}}</td>
-            <td>FLICK</td>
-            <td>{{item.rateFlick}}%</td>
-          </tr>
-          <tr>
-            <th>HIT</th>
-            <td>{{item.judgeHit}}</td>
-            <td>SLIDE TAP</td>
-            <td>{{item.rateSideTap}}%</td>
-          </tr>
-          <tr>
-            <th>MISS</th>
-            <td>{{item.judgeMiss}}</td>
-            <td>SLIDE HOLE</td>
-            <td>{{item.rateSideHold}}%</td>
-          </tr>
-          <tr>
-            <th>BELL</th>
-            <td>{{item.bellCount}} / {{item.totalBellCount}}</td>
-            <td>DAMAGE</td>
-            <td>{{item.damageCount}}%</td>
-          </tr>
-        </table>
+        <div class="right">
+          <table class="zebra">
+            <tr>
+              <th>Combo</th>
+              <td>{{item.maxCombo}}</td>
+              <td>TAP</td>
+              <td>{{item.rateTap}}%</td>
+            </tr>
+            <tr>
+              <th>C. BREAK</th>
+              <td>{{item.judgeCriticalBreak}}</td>
+              <td>HOLD</td>
+              <td>{{item.rateHold}}%</td>
+            </tr>
+            <tr>
+              <th>BREAK</th>
+              <td>{{item.judgeBreak}}</td>
+              <td>FLICK</td>
+              <td>{{item.rateFlick}}%</td>
+            </tr>
+            <tr>
+              <th>HIT</th>
+              <td>{{item.judgeHit}}</td>
+              <td>SLIDE TAP</td>
+              <td>{{item.rateSideTap}}%</td>
+            </tr>
+            <tr>
+              <th>MISS</th>
+              <td>{{item.judgeMiss}}</td>
+              <td>SLIDE HOLE</td>
+              <td>{{item.rateSideHold}}%</td>
+            </tr>
+            <tr>
+              <th>BELL</th>
+              <td>{{item.bellCount}} / {{item.totalBellCount}}</td>
+              <td>DAMAGE</td>
+              <td>{{item.damageCount}}%</td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="battle-info">
         <div class="rival-info">

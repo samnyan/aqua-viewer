@@ -39,6 +39,10 @@
   margin: auto;
 }
 
+.result-content .right {
+  width: 100%;
+}
+
 .achievement-value {
   font-size: 1.5rem;
 }

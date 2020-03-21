@@ -10,10 +10,11 @@ import {OngekiCardListComponent} from './ongeki-card-list/ongeki-card-list.compo
 import {OngekiRecentComponent} from './ongeki-recent/ongeki-recent.component';
 import {ToolsModule} from '../../util/tools.module';
 import {ToAttributeClassPipe} from './util/to-attribute-class.pipe';
+import {OngekiSongListComponent} from './ongeki-song-list/ongeki-song-list.component';
 
 
 @NgModule({
-  declarations: [OngekiProfileComponent, OngekiCardComponent, OngekiCardListComponent, OngekiRecentComponent, ToAttributeClassPipe],
+  declarations: [OngekiProfileComponent, OngekiCardComponent, OngekiCardListComponent, OngekiRecentComponent, ToAttributeClassPipe, OngekiSongListComponent],
   imports: [
     CommonModule,
     FormsModule,

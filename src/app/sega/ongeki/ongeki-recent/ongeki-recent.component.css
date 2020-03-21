@@ -35,8 +35,11 @@
 
 .result-content .left {
   min-width: 40%;
-  text-align: center;
   margin: auto;
+}
+
+.result-content .right {
+  width: 100%;
 }
 
 .score-area {

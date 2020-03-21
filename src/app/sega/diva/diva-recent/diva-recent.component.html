@@ -44,45 +44,47 @@
             </tr>
           </table>
         </div>
-        <table class="zebra result-table">
-          <tr>
-            <th>Cool</th>
-            <td>{{item.coolCount}}</td>
-            <td>{{item.coolPercent|divaDecimal}}%</td>
-          </tr>
-          <tr>
-            <th>Fine</th>
-            <td>{{item.fineCount}}</td>
-            <td>{{item.finePercent|divaDecimal}}%</td>
-          </tr>
-          <tr>
-            <th>Safe</th>
-            <td>{{item.safeCount}}</td>
-            <td>{{item.safePercent|divaDecimal}}%</td>
-          </tr>
-          <tr>
-            <th>Sad</th>
-            <td>{{item.sadCount}}</td>
-            <td>{{item.sadPercent|divaDecimal}}%</td>
-          </tr>
-          <tr>
-            <th class="result-head">Worst / Wrong</th>
-            <td>{{item.wrongCount}}</td>
-            <td>{{item.wrongPercent|divaDecimal}}%</td>
-          </tr>
-          <tr>
-            <th>Combo</th>
-            <td colspan="2">{{item.maxCombo}}</td>
-          </tr>
-          <tr>
-            <th class="result-head">Challenge Time</th>
-            <td colspan="2">{{item.chanceTime}}</td>
-          </tr>
-          <tr>
-            <th>Hold</th>
-            <td colspan="2">{{item.holdScore}}</td>
-          </tr>
-        </table>
+        <div class="right">
+          <table class="zebra result-table">
+            <tr>
+              <th>Cool</th>
+              <td>{{item.coolCount}}</td>
+              <td>{{item.coolPercent|divaDecimal}}%</td>
+            </tr>
+            <tr>
+              <th>Fine</th>
+              <td>{{item.fineCount}}</td>
+              <td>{{item.finePercent|divaDecimal}}%</td>
+            </tr>
+            <tr>
+              <th>Safe</th>
+              <td>{{item.safeCount}}</td>
+              <td>{{item.safePercent|divaDecimal}}%</td>
+            </tr>
+            <tr>
+              <th>Sad</th>
+              <td>{{item.sadCount}}</td>
+              <td>{{item.sadPercent|divaDecimal}}%</td>
+            </tr>
+            <tr>
+              <th class="result-head">Worst / Wrong</th>
+              <td>{{item.wrongCount}}</td>
+              <td>{{item.wrongPercent|divaDecimal}}%</td>
+            </tr>
+            <tr>
+              <th>Combo</th>
+              <td colspan="2">{{item.maxCombo}}</td>
+            </tr>
+            <tr>
+              <th class="result-head">Challenge Time</th>
+              <td colspan="2">{{item.chanceTime}}</td>
+            </tr>
+            <tr>
+              <th>Hold</th>
+              <td colspan="2">{{item.holdScore}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>
