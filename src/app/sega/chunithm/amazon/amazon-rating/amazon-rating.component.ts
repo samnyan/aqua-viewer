@@ -37,7 +37,7 @@ export class AmazonRatingComponent implements OnInit {
         }
         this.topRating.forEach(item => this.topTotal += item.rating);
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
 
     this.api.get('api/game/chuni/amazon/rating/recent', param).subscribe(
@@ -48,7 +48,7 @@ export class AmazonRatingComponent implements OnInit {
         }
         this.recentRating.forEach(item => this.recentTotal += item.rating);
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 

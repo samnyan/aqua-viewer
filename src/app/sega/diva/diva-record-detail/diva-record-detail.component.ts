@@ -148,7 +148,7 @@ export class DivaRecordDetailComponent implements OnInit {
       recordId
     }).subscribe(
       data => this.messageService.notice('OK'),
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 
@@ -215,7 +215,7 @@ export class DivaRecordDetailComponent implements OnInit {
               break;
           }
         }
-      }, error => this.messageService.notice(error.statusText)
+      }, error => this.messageService.notice(error)
     );
   }
 }

@@ -53,7 +53,7 @@ export class DivaFestaEditComponent implements OnInit {
         console.log(data);
         this.router.navigateByUrl('/diva/management/festa');
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 

@@ -43,7 +43,7 @@ export class DivaFestaComponent implements OnInit {
         this.load();
       },
       error => {
-        this.messageService.notice(error.statusText);
+        this.messageService.notice(error);
         this.load();
       }
     );

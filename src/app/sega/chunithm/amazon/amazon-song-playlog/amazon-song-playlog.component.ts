@@ -44,7 +44,7 @@ export class AmazonSongPlaylogComponent implements OnInit {
           this.records.push(x);
         });
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
     this.dbService.getByID<ChuniMusic>('chuniMusic', this.id).then(
       m => this.songInfo = m

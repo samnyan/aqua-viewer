@@ -40,7 +40,7 @@ export class DivaSettingComponent implements OnInit {
     const param = new HttpParams().set('pdId', String(this.pdId));
     this.api.get('api/game/diva/playerInfo', param).subscribe(
       data => this.profile = data,
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
     this.loadRival();
   }
@@ -49,7 +49,7 @@ export class DivaSettingComponent implements OnInit {
     const param = new HttpParams().set('pdId', String(this.pdId));
     this.api.get('api/game/diva/playerInfo/rival', param).subscribe(
       data => this.rival = data.rival,
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 
@@ -65,7 +65,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -83,7 +83,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -108,7 +108,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -131,7 +131,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -158,7 +158,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -187,7 +187,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -220,7 +220,7 @@ export class DivaSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });
@@ -244,7 +244,7 @@ export class DivaSettingComponent implements OnInit {
             this.profile = x;
             this.loadRival();
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });

@@ -57,7 +57,7 @@ export class DivaPvRecordComponent implements OnInit {
           }
         });
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 

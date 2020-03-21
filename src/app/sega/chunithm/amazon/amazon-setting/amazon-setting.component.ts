@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../../../api.service';
 import {AuthenticationService} from '../../../../auth/authentication.service';
 import {MessageService} from '../../../../message.service';
@@ -31,7 +31,7 @@ export class AmazonSettingComponent implements OnInit {
       data => {
         this.profile = data;
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
     this.aimeId = String(this.auth.currentUserValue.extId);
   }
@@ -48,7 +48,7 @@ export class AmazonSettingComponent implements OnInit {
           x => {
             this.profile = x;
             this.messageService.notice('OK');
-          }, error => this.messageService.notice(error.statusText)
+          }, error => this.messageService.notice(error)
         );
       }
     });

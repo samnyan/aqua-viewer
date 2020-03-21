@@ -76,7 +76,7 @@ export class OngekiRecentComponent implements OnInit {
           });
           return data.content;
         },
-        error => this.messageService.notice(error.statusText)
+        error => this.messageService.notice(error)
       )
     );
   }

@@ -28,7 +28,7 @@ export class AmazonProfileComponent implements OnInit {
       data => {
         this.profile = data;
       },
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 

@@ -23,11 +23,11 @@ export class DivaNewsComponent implements OnInit {
   ngOnInit() {
     this.api.get('api/manage/diva/news').subscribe(
       data => this.createNews(data),
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
     this.api.get('api/manage/diva/warning').subscribe(
       data => this.createWarning(data),
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 
@@ -48,14 +48,14 @@ export class DivaNewsComponent implements OnInit {
   submitNews() {
     this.api.put('api/manage/diva/news', this.newsForm.value).subscribe(
       data => this.createNews(data),
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 
   submitWarning() {
     this.api.put('api/manage/diva/warning', this.newsForm.value).subscribe(
       data => this.createWarning(data),
-      error => this.messageService.notice(error.statusText)
+      error => this.messageService.notice(error)
     );
   }
 
