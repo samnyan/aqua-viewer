@@ -30,16 +30,20 @@
 }
 
 .result-content {
-  display: flex;
+  display: grid;
+  grid-template-areas: "left right" "bottom right";
+  grid-template-columns: 30% 70%;
 }
 
 .result-content .left {
-  min-width: 30%;
-  margin: auto 10px auto auto;
+  grid-area: left;
+  min-width: 100%;
+  margin: auto 15px auto auto;
 }
 
 .result-content .right {
-  width: 100%;
+  margin-left: 15px;
+  grid-area: right;
 }
 
 .score-area {
@@ -58,17 +62,33 @@
   opacity: 80%;
 }
 
-.achievement-value {
+.score-rank-icon {
   font-size: 1.5rem;
 }
 
-.achievement-value img {
+.score-rank-icon img {
   max-width: 60px;
   max-height: 60px;
 }
 
 .score-value {
   font-size: 1.4rem;
+}
+
+.result-content .bottom {
+  grid-area: bottom;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.bottom .bottom-achievement-icon {
+  margin: auto;
+}
+
+.bottom .bottom-achievement-icon img {
+  width: 100%;
+  max-width: 100px;
 }
 
 .battle-info {
@@ -102,6 +122,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .result-content {
+    grid-template-areas: "left right" "left bottom";
+  }
+
   .score-area {
     text-align: center;
     grid-template-columns: 1fr;
@@ -112,7 +136,7 @@
     margin-bottom: 5px;
   }
 
-  .achievement-value img {
+  .score-rank-icon img {
     max-width: 42px;
     max-height: 42px;
   }

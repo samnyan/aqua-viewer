@@ -61,10 +61,10 @@ export interface PlayerPlaylog {
   overDamage: number;
   playerRating: number;
   battlePoint: number;
-  fullCombo: boolean;
-  overDamageNewRecord: boolean;
-  fullBell: boolean;
-  techNewRecord: boolean;
-  allBreak: boolean;
-  battleNewRecord: boolean;
+  isFullCombo: boolean;
+  isOverDamageNewRecord: boolean;
+  isFullBell: boolean;
+  isTechNewRecord: boolean;
+  isAllBreak: boolean;
+  isBattleNewRecord: boolean;
 }

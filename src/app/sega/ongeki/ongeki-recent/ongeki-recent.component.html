@@ -27,13 +27,13 @@
             <div class="score-element">
               <span class="score-label">BATTLE SCORE</span><br>
               <span class="score-value">{{item.battleScore}}</span><br>
-              <span *ngIf="item.battleNewRecord">NEW RECORD<br></span>
+              <span *ngIf="item.isBattleNewRecord">NEW RECORD<br></span>
               <span class="score-label">OVER DAMAGE</span><br>
               <span class="score-value">{{item.overDamage / 100}}%</span><br>
-              <span *ngIf="item.overDamageNewRecord">NEW RECORD<br></span>
+              <span *ngIf="item.isOverDamageNewRecord">NEW RECORD<br></span>
             </div>
             <div class="score-element">
-              <div class="achievement-value">
+              <div class="score-rank-icon">
                 <img [alt]="battleRank[item.battleScoreRank]"
                      src="{{host}}ongeki/gameUi/{{item.battleScoreRank | toBattleSprite}}">
               </div>
@@ -43,18 +43,18 @@
             <div class="score-element">
               <span class="score-label">TECHNICAL SCORE</span><br>
               <span class="score-value">{{item.techScore}}</span><br>
-              <span *ngIf="item.techNewRecord">NEW RECORD<br></span>
+              <span *ngIf="item.isTechNewRecord">NEW RECORD<br></span>
             </div>
             <div class="score-element">
-              <div class="achievement-value">
+              <div class="score-rank-icon">
                 <img [alt]="technicalRank[item.techScoreRank]"
                      src="{{host}}ongeki/gameUi/{{item.techScoreRank | toTechSprite}}">
               </div>
             </div>
           </div>
           <div class="score-area">
-            <span *ngIf="item.fullBell">FULL BELL</span>
-            <span *ngIf="item.fullCombo">FULL COMBO</span>
+            <span *ngIf="item.isFullBell">FULL BELL</span>
+            <span *ngIf="item.isFullCombo">FULL COMBO</span>
           </div>
         </div>
         <div class="right">
@@ -96,6 +96,19 @@
               <td>{{item.damageCount}}</td>
             </tr>
           </table>
+        </div>
+        <div class="bottom">
+          <div class="bottom-achievement-icon">
+            <img
+              src="{{host}}/ongeki/gameUi/{{item.isFullBell ? 'UI_RES_Score_FB_Badge.png' : 'UI_RES_Score_FB_Base.png'}}">
+          </div>
+          <div class="bottom-achievement-icon">
+            <img
+              src="{{host}}/ongeki/gameUi/{{item.isFullCombo ? 'UI_RES_Score_FC_Badge.png' : 'UI_RES_Score_FC_Base.png'}}">
+          </div>
+          <div *ngIf="item.isAllBreak" class="bottom-achievement-icon">
+            <img src="{{host}}/ongeki/gameUi/UI_RES_Score_AB_Badge.png">
+          </div>
         </div>
       </div>
       <div class="battle-info">

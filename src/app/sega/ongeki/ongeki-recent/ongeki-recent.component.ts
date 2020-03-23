@@ -58,6 +58,12 @@ export class OngekiRecentComponent implements OnInit {
       map(
         data => {
           data.content.forEach(x => {
+            x.isTechNewRecord = x.techNewRecord ? x.techNewRecord : x.isTechNewRecord;
+            x.isBattleNewRecord = x.battleNewRecord ? x.battleNewRecord : x.isBattleNewRecord;
+            x.isOverDamageNewRecord = x.overDamageNewRecord ? x.overDamageNewRecord : x.isOverDamageNewRecord;
+            x.isFullCombo = x.fullCombo ? x.fullCombo : x.isFullCombo;
+            x.isAllBreak = x.allBreak ? x.allBreak : x.isAllBreak;
+            x.isFullBell = x.fullBell ? x.fullBell : x.isFullBell;
             this.dbService.getByID<OngekiMusic>('ongekiMusic', x.musicId).then(
               m => x.songInfo = m
             );
