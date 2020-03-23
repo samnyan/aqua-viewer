@@ -1,0 +1,43 @@
+.battle-point-table {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.battle-point-table th {
+  text-align: center;
+}
+
+.battle-point-table h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.battle-point-table img {
+  width: 24px;
+  height: 24px;
+  padding: 0 0 0 6px;
+}
+
+.battle-point-table td {
+  max-width: 130px;
+}
+
+.left {
+  text-align: left;
+}
+
+tr * {
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 599px) {
+  .battle-point-table table {
+    font-size: 12px;
+  }
+
+  .battle-point-table img {
+    width: 18px;
+    height: 18px;
+  }
+}

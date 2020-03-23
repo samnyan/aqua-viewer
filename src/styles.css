@@ -117,13 +117,13 @@ pagination-template {
 }
 
 .lv8 {
-  background: -webkit-linear-gradient(#3366FF, #3366FF);
+  background: -webkit-linear-gradient(#217cff, #217cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .lv9 {
-  background: -webkit-linear-gradient(#3366FF, #FFFFFF);
+  background: -webkit-linear-gradient(#217cff, #FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

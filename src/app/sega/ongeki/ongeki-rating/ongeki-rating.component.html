@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-title>Rating (TECHNICAL Score)</mat-card-title>
+  <mat-card-content>
+    ONGEKI rating is calculate from 55 songs avg.<br>
+    Including :<br>
+    1. Best 30 chart in all old song.<br>
+    2. Best 15 chart in new song.<br>
+    3. Best 10 chart in recent 30 plays. (Can be same chart, but not include LUNATIC chart)
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <div class="rating-info">
+      Current Rating: {{profile ? (profile.playerRating / 100 | number: '1.2-2') : ''}}<br>
+      Highest Rating: {{profile ? (profile.highestRating / 100 | number: '1.2-2') : ''}}
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngFor="let index of [0,2,4]">
+  <h3>{{index == 0 ? 'Total Best 30' : index == 2 ? 'New Song Best 15' : 'Recent Best 10' }}</h3>
+  <table class="zebra battle-point-table">
+    <thead>
+    <th>Music</th>
+    <th>Level</th>
+    <th>Score</th>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let item of allArray[index]; index as i">
+      <ng-container *ngTemplateOutlet="recordRow; context: {item: item, i: i}"></ng-container>
+    </ng-container>
+    <tr>
+      <td colspan="4">
+        ===== Next 10 =====
+      </td>
+    </tr>
+    <ng-container *ngFor="let item of allArray[index + 1]; index as i">
+      <ng-container *ngTemplateOutlet="recordRow; context: {item: item, i: i}"></ng-container>
+    </ng-container>
+    </tbody>
+  </table>
+</mat-card>
+
+<ng-template #recordRow let-i="i" let-item="item">
+  <tr *ngIf="item.musicId > 0">
+    <td class="left">
+      <img src="{{host}}ongeki/jacket/UI_Jacket_{{item.musicId|formatNumber:4}}.png">
+      {{i + 1}}: {{item.musicInfo ? item.musicInfo.name : 'MusicID:' + item.musicId}}
+    </td>
+    <td>
+      {{difficulty[item.level]}}
+      <ng-container *ngIf="item.musicInfo" [ngSwitch]="item.level">
+        Lv.
+        <ng-container *ngSwitchCase="0">{{item.musicInfo.level0 | toLevelDecimal}}</ng-container>
+        <ng-container *ngSwitchCase="1">{{item.musicInfo.level1 | toLevelDecimal}}</ng-container>
+        <ng-container *ngSwitchCase="2">{{item.musicInfo.level2 | toLevelDecimal}}</ng-container>
+        <ng-container *ngSwitchCase="3">{{item.musicInfo.level3 | toLevelDecimal}}</ng-container>
+        <ng-container *ngSwitchCase="4">{{item.musicInfo.level4 | toLevelDecimal}}</ng-container>
+      </ng-container>
+    </td>
+    <td>
+      {{item.value}}
+    </td>
+  </tr>
+</ng-template>

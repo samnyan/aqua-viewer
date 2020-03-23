@@ -95,7 +95,8 @@
       <div class="battle-info">
         <div class="rival-info">
           Rival: <span
-          class="{{item.bossAttribute | toAttributeClass}}">█</span> {{item.bossCharaInfo ? item.bossCharaInfo.name : 'ID: ' + item.bossCharaId}}
+          class="{{item.bossAttribute | toAttributeClass}}">{{attributeType[item.bossAttribute]}}
+          █</span> {{item.bossCharaInfo ? item.bossCharaInfo.name : 'ID: ' + item.bossCharaId}}
           Lv.{{item.bossLevel}}
         </div>
         <div class="card-deck">
