@@ -33,7 +33,10 @@
               <span *ngIf="item.overDamageNewRecord">NEW RECORD<br></span>
             </div>
             <div class="score-element">
-              <span class="achievement-value">{{battleRank[item.battleScoreRank]}}</span><br>
+              <div class="achievement-value">
+                <img [alt]="battleRank[item.battleScoreRank]"
+                     src="{{host}}ongeki/gameUi/{{item.battleScoreRank | toBattleSprite}}">
+              </div>
             </div>
           </div>
           <div class="score-area">
@@ -43,7 +46,10 @@
               <span *ngIf="item.techNewRecord">NEW RECORD<br></span>
             </div>
             <div class="score-element">
-              <span class="achievement-value">{{technicalRank[item.techScoreRank]}}</span><br>
+              <div class="achievement-value">
+                <img [alt]="technicalRank[item.techScoreRank]"
+                     src="{{host}}ongeki/gameUi/{{item.techScoreRank | toTechSprite}}">
+              </div>
             </div>
           </div>
           <div class="score-area">

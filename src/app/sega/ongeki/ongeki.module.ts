@@ -15,6 +15,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {OngekiBattlePointComponent} from './ongeki-battle-point/ongeki-battle-point.component';
 import {OngekiRatingComponent} from './ongeki-rating/ongeki-rating.component';
 import {ToLevelDecimalPipe} from './util/to-level-decimal.pipe';
+import {ToBattleSpritePipe} from './util/to-battle-sprite.pipe';
+import {ToTechSpritePipe} from './util/to-tech-sprite.pipe';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {ToLevelDecimalPipe} from './util/to-level-decimal.pipe';
     OngekiSongListComponent,
     OngekiBattlePointComponent,
     OngekiRatingComponent,
-    ToLevelDecimalPipe
+    ToLevelDecimalPipe,
+    ToBattleSpritePipe,
+    ToTechSpritePipe
   ],
   imports: [
     CommonModule,

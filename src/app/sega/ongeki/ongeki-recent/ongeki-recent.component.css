@@ -62,6 +62,11 @@
   font-size: 1.5rem;
 }
 
+.achievement-value img {
+  max-width: 60px;
+  max-height: 60px;
+}
+
 .score-value {
   font-size: 1.4rem;
 }
@@ -105,5 +110,10 @@
 
   .score-area .score-element {
     margin-bottom: 10px;
+  }
+
+  .achievement-value img {
+    max-width: 42px;
+    max-height: 42px;
   }
 }
