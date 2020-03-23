@@ -51,6 +51,20 @@ table {
   font-weight: normal;
 }
 
+@media screen and (max-width: 600px) {
+  table {
+    font-size: 0.8em;
+  }
+
+  .zebra tr th {
+    padding: 8px;
+  }
+
+  .zebra tr td {
+    padding: 8px 2px;
+  }
+}
+
 pagination-template {
   display: flex !important;
 }

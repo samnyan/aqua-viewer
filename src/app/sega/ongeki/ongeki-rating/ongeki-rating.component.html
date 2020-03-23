@@ -44,7 +44,7 @@
 
 <ng-template #recordRow let-i="i" let-item="item">
   <tr *ngIf="item.musicId > 0">
-    <td class="left">
+    <td class="music-title">
       <img src="{{host}}ongeki/jacket/UI_Jacket_{{item.musicId|formatNumber:4}}.png">
       {{i + 1}}: {{item.musicInfo ? item.musicInfo.name : 'MusicID:' + item.musicId}}
     </td>

@@ -1,6 +1,5 @@
 .battle-point-table {
   width: 100%;
-  font-size: 16px;
   text-align: center;
 }
 
@@ -23,12 +22,8 @@
   max-width: 130px;
 }
 
-.left {
+.music-title {
   text-align: left;
-}
-
-tr * {
-  padding: 10px 0;
 }
 
 @media only screen and (max-width: 599px) {

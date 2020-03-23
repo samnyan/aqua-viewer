@@ -105,11 +105,11 @@
   .score-area {
     text-align: center;
     grid-template-columns: 1fr;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   .score-area .score-element {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .achievement-value img {
