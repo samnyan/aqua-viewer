@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule,
+  MatCardModule,
   MatIconModule,
   MatListModule,
   MatMenuModule,
@@ -27,10 +28,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {OngekiModule} from './sega/ongeki/ongeki.module';
 import {ErrorInterceptorService} from './auth/error-interceptor.service';
 import {LoadingInterceptorService} from './auth/loading-interceptor.service';
+import {ChangelogComponent} from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {LoadingInterceptorService} from './auth/loading-interceptor.service';
     MatSelectModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
