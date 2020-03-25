@@ -4,7 +4,7 @@ import {ApiService} from '../../../api.service';
 import {AuthenticationService} from '../../../auth/authentication.service';
 import {MessageService} from '../../../message.service';
 import {HttpParams} from '@angular/common/http';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 import {DivaNameSettingDialog} from './diva-name-setting/diva-name-setting.dialog';
 import {DivaTitleSettingDialog} from './diva-title-setting/diva-title-setting.dialog';
 import {DivaPlateSettingDialog} from './diva-plate-setting/diva-plate-setting.dialog';

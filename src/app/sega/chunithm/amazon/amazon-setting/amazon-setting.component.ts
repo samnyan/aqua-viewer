@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../../../api.service';
 import {AuthenticationService} from '../../../../auth/authentication.service';
 import {MessageService} from '../../../../message.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 import {AmazonProfile} from '../model/AmazonProfile';
 import {HttpParams} from '@angular/common/http';
 import {AmazonNameSettingDialog} from './amazon-name-setting/amazon-name-setting.dialog';

@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import {ChuniMusic} from '../model/ChuniMusic';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 

@@ -27,7 +27,8 @@ import {DivaPlateSettingDialog} from './diva-setting/diva-plate-setting/diva-pla
 import {DivaMylistSettingDialog} from './diva-setting/diva-mylist-setting/diva-mylist-setting.dialog';
 import {DivaSeSettingDialog} from './diva-setting/diva-se-setting/diva-se-setting.dialog';
 import {DivaDisplaySettingDialog} from './diva-setting/diva-display-setting/diva-display-setting.dialog';
-import {MatCheckboxModule, MatDatepickerModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {DivaSkinSettingDialog} from './diva-setting/diva-skin-setting/diva-skin-setting.dialog';
 import {DivaPvRecordComponent} from './diva-pv-record/diva-pv-record.component';
 import {DivaRecordDetailComponent} from './diva-record-detail/diva-record-detail.component';
@@ -41,7 +42,7 @@ import {DivaNewsComponent} from './diva-management/diva-news/diva-news.component
 import {DivaCustomizeComponent} from './diva-customize/diva-customize.component';
 import {DivaRivalSettingDialog} from './diva-setting/diva-rival-setting/diva-rival-setting.dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { DivaPvlistComponent } from './diva-pvlist/diva-pvlist.component';
+import {DivaPvlistComponent} from './diva-pvlist/diva-pvlist.component';
 
 
 @NgModule({
