@@ -3,9 +3,9 @@
     <h2>Regular Gacha</h2>
     <p>This is still work in progress. Animation isn't implemented.</p>
     <div class="gacha-button-group">
-      <button (click)="start(1)" mat-raised-button>Gacha<br>1x</button>
-      <button (click)="start(5)" mat-raised-button>Gacha<br>5x</button>
-      <button (click)="start(11)" mat-raised-button>Gacha<br>11x</button>
+      <button (click)="gacha(1)" mat-raised-button>Gacha<br>1x</button>
+      <button (click)="gacha(5)" mat-raised-button>Gacha<br>5x</button>
+      <button (click)="gacha(11)" mat-raised-button>Gacha<br>11x</button>
     </div>
     <p>Detail:<br>
       R: 70%<br>
@@ -19,7 +19,7 @@
 </mat-card>
 
 <div class="full-screen">
-  <div (click)="open()" *ngIf="isStarted" [@control] class="card-container">
+  <div (click)="clickHandler()" *ngIf="isStarted" [@control] class="card-container">
     <div *ngFor="let item of cardResultList" class="result-card" style>
       <div [class.flip]="item.show" class="card-image">
         <div class="image-front">
@@ -42,8 +42,12 @@
   </div>
 </div>
 
-<div (click)="open()" class="card-animation-full-screen">
-  <canvas #card_animation height="1920" id="card_animation" width="1080"></canvas>
+<div #card_rarity_animation_container (click)="clickHandler()" class="card-animation-full-screen">
+  <canvas #card_rarity_animation height="1920" id="card-rarity-animation" width="1080"></canvas>
+</div>
+
+<div class="card-animation-full-screen" style="display: none">
+  <canvas #card_animation height="1920" id="card-detail-animation" width="1080"></canvas>
 </div>
 
 <div id="image_loader">

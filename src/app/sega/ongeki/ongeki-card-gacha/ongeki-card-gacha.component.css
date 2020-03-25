@@ -1,5 +1,9 @@
 .control {
-  z-index: 1500;
+  z-index: 1000;
+}
+
+.hide {
+  display: none !important;
 }
 
 .gacha-button-group {
@@ -15,7 +19,7 @@
 }
 
 .full-screen {
-  z-index: 1000;
+  z-index: 100;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -185,7 +189,7 @@ Card animation part
  */
 
 .card-animation-full-screen {
-  z-index: 1200;
+  z-index: 700;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -193,13 +197,29 @@ Card animation part
   right: 0;
   height: 100%;
   width: 100%;
-  display: none;
+  display: flex;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-#card_animation {
+#full-screen-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+}
+
+#card-rarity-animation {
   margin: auto;
   max-height: 100%;
   max-width: 100%;
+}
+
+#card-detail-animation {
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  display: none;
 }
 
 #image_loader {
