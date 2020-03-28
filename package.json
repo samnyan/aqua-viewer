@@ -26,6 +26,7 @@
     "@createjs/easeljs": "^2.0.0-beta.4",
     "@createjs/tweenjs": "^2.0.0-beta.4",
     "angular-cli-ghpages": "^0.6.2",
+    "minimist": "^1.2.5",
     "ngx-indexed-db": "^4.0.14",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
