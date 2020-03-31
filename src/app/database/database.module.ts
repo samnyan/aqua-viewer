@@ -6,7 +6,7 @@ export function migrationFactory() {
 }
 const dbConfig: DBConfig = {
   name: 'Aqua',
-  version: 1,
+  version: 2,
   objectStoresMeta: [
     {
       store: 'divaPv',
@@ -98,6 +98,25 @@ const dbConfig: DBConfig = {
         {name: 'sortName', keypath: 'sortName', options: {unique: false}},
         {name: 'category', keypath: 'category', options: {unique: false}},
         {name: 'info', keypath: 'info', options: {unique: false}}
+      ]
+    }, {
+      store: 'chuniCharacter',
+      storeConfig: {keyPath: 'id', autoIncrement: false},
+      storeSchema: [
+        {name: 'name', keypath: 'name', options: {unique: false}},
+        {name: 'releaseTag', keypath: 'releaseTag', options: {unique: false}},
+        {name: 'worksName', keypath: 'worksName', options: {unique: false}},
+        {name: 'illustratorName', keypath: 'illustratorName', options: {unique: false}},
+        {name: 'firstSkillId', keypath: 'firstSkillId', options: {unique: false}},
+        {name: 'skills', keypath: 'skills', options: {unique: false}},
+        {name: 'addImages', keypath: 'addImages', options: {unique: false}}
+      ]
+    }, {
+      store: 'chuniSkill',
+      storeConfig: {keyPath: 'id', autoIncrement: false},
+      storeSchema: [
+        {name: 'name', keypath: 'name', options: {unique: false}},
+        {name: 'category', keypath: 'category', options: {unique: false}}
       ]
     },
   ],

@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
   ongekiCharacter = 'Initialize';
   ongekiMusic = 'Initialize';
   ongekiSkill = 'Initialize';
+  chuniCharacter = 'Initialize';
+  chuniSkill = 'Initialize';
 
   constructor(
     private dbService: NgxIndexedDBService,
@@ -33,6 +35,8 @@ export class DashboardComponent implements OnInit {
     this.preload.ongekiCharacterState.subscribe(data => this.ongekiCharacter = data);
     this.preload.ongekiMusicState.subscribe(data => this.ongekiMusic = data);
     this.preload.ongekiSkillState.subscribe(data => this.ongekiSkill = data);
+    this.preload.chuniCharacterState.subscribe(data => this.chuniCharacter = data);
+    this.preload.chuniSkillState.subscribe(data => this.chuniSkill = data);
   }
 
   reload() {

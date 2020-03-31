@@ -10,6 +10,8 @@ import {OngekiCard} from '../sega/ongeki/model/OngekiCard';
 import {OngekiCharacter} from '../sega/ongeki/model/OngekiCharacter';
 import {OngekiMusic} from '../sega/ongeki/model/OngekiMusic';
 import {OngekiSkill} from '../sega/ongeki/model/OngekiSkill';
+import {ChuniCharacter} from '../sega/chunithm/amazon/model/ChuniCharacter';
+import {ChuniSkill} from '../sega/chunithm/amazon/model/ChuniSkill';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +37,11 @@ export class PreloadService {
   private ongekiSkill = new ReplaySubject<string>();
   ongekiSkillState = this.ongekiSkill.asObservable();
 
+  private chuniCharacter = new ReplaySubject<string>();
+  chuniCharacterState = this.chuniCharacter.asObservable();
+  private chuniSkill = new ReplaySubject<string>();
+  chuniSkillState = this.chuniSkill.asObservable();
+
   constructor(
     private dbService: NgxIndexedDBService,
     private api: ApiService
@@ -50,6 +57,8 @@ export class PreloadService {
     this.loader<OngekiCharacter>('ongekiCharacter', 'api/game/ongeki/data/charaList', this.ongekiCharacter);
     this.loader<OngekiMusic>('ongekiMusic', 'api/game/ongeki/data/musicList', this.ongekiMusic);
     this.loader<OngekiSkill>('ongekiSkill', 'api/game/ongeki/data/skillList', this.ongekiSkill);
+    this.loader<ChuniCharacter>('chuniCharacter', 'api/game/chuni/amazon/data/character', this.chuniCharacter);
+    this.loader<ChuniSkill>('chuniSkill', 'api/game/chuni/amazon/data/skill', this.chuniSkill);
   }
 
   reload() {
