@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>
+    Import Data
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <mat-label>API Server</mat-label>
+      <input [(ngModel)]="apiServer" matInput placeholder="">
+    </mat-form-field>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>
+    CHUNITHM
+  </mat-card-title>
+  <mat-card-content>
+    <input (change)="chunithm($event)" accept=".json" class="upload-button" type='file'>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>
+    ONGEKI
+  </mat-card-title>
+  <mat-card-content>
+    <input (change)="ongeki($event)" accept=".json" class="upload-button" type='file'>
+  </mat-card-content>
+</mat-card>

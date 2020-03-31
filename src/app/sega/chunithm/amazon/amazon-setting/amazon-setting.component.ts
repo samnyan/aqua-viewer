@@ -16,6 +16,7 @@ export class AmazonSettingComponent implements OnInit {
 
   profile: AmazonProfile;
   aimeId: string;
+  apiServer: string;
 
   constructor(
     private api: ApiService,
@@ -25,15 +26,15 @@ export class AmazonSettingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const aimeId = String(this.auth.currentUserValue.extId);
-    const param = new HttpParams().set('aimeId', aimeId);
+    this.aimeId = String(this.auth.currentUserValue.extId);
+    this.apiServer = this.auth.currentUserValue.apiServer;
+    const param = new HttpParams().set('aimeId', this.aimeId);
     this.api.get('api/game/chuni/amazon/profile', param).subscribe(
       data => {
         this.profile = data;
       },
       error => this.messageService.notice(error)
     );
-    this.aimeId = String(this.auth.currentUserValue.extId);
   }
 
   userName() {

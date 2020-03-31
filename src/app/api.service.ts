@@ -32,7 +32,10 @@ export class ApiService {
   }
 
   getHost(): string {
-    return this.authenticationService.currentUserValue.apiServer + '/';
+    if (this.authenticationService.currentUserValue) {
+      return this.authenticationService.currentUserValue.apiServer + '/';
+    }
+    return 'http://localhost:80' + '/';
   }
 
   show() {

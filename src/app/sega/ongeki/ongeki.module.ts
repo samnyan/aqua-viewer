@@ -23,6 +23,7 @@ import {ToLevelDecimalPipe} from './util/to-level-decimal.pipe';
 import {ToBattleSpritePipe} from './util/to-battle-sprite.pipe';
 import {ToTechSpritePipe} from './util/to-tech-sprite.pipe';
 import {OngekiCardGachaComponent} from './ongeki-card-gacha/ongeki-card-gacha.component';
+import {OngekiSettingComponent} from './ongeki-setting/ongeki-setting.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {OngekiCardGachaComponent} from './ongeki-card-gacha/ongeki-card-gacha.co
     ToLevelDecimalPipe,
     ToBattleSpritePipe,
     ToTechSpritePipe,
-    OngekiCardGachaComponent
+    OngekiCardGachaComponent,
+    OngekiSettingComponent
   ],
   imports: [
     CommonModule,

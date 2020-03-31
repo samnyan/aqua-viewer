@@ -7,6 +7,7 @@ import {OngekiSongListComponent} from './ongeki-song-list/ongeki-song-list.compo
 import {OngekiBattlePointComponent} from './ongeki-battle-point/ongeki-battle-point.component';
 import {OngekiRatingComponent} from './ongeki-rating/ongeki-rating.component';
 import {OngekiCardGachaComponent} from './ongeki-card-gacha/ongeki-card-gacha.component';
+import {OngekiSettingComponent} from './ongeki-setting/ongeki-setting.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'card', component: OngekiCardComponent},
   {path: 'card/all', component: OngekiCardListComponent},
   {path: 'card/gacha', component: OngekiCardGachaComponent},
+  {path: 'setting', component: OngekiSettingComponent},
 ];
 
 export const OngekiRoutes = RouterModule.forChild(routes);

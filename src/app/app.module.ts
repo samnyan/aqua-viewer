@@ -27,6 +27,7 @@ import {OngekiModule} from './sega/ongeki/ongeki.module';
 import {ErrorInterceptorService} from './auth/error-interceptor.service';
 import {LoadingInterceptorService} from './auth/loading-interceptor.service';
 import {ChangelogComponent} from './changelog/changelog.component';
+import {ImporterModule} from './importer/importer.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {ChangelogComponent} from './changelog/changelog.component';
     AppRoutingModule,
     DashboardModule,
     LoginModule,
+    ImporterModule,
     DivaModule,
     AmazonModule,
     OngekiModule,

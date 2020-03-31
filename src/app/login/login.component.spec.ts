@@ -8,10 +8,7 @@ import {LoginComponent} from './login.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {LayoutModule} from '@angular/cdk/layout';
 import {DashboardModule} from '../dashboard/dashboard.module';
-import {ContainerModule} from '../container/container.module';
-import {RegisterModule} from '../register/register.module';
 import {HttpClientModule} from '@angular/common/http';
-import {PlayerboardListModule} from '../playerboard-list/playerboard-list.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -27,13 +24,10 @@ describe('LoginComponent', () => {
 
         HttpClientModule,
         DashboardModule,
-        ContainerModule,
-        RegisterModule,
         ReactiveFormsModule,
         MatButtonModule,
         MatInputModule,
         MatCardModule,
-        PlayerboardListModule
       ]
     }).compileComponents();
   }));
