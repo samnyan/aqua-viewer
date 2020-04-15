@@ -9,16 +9,16 @@ import {NgxIndexedDBService} from 'ngx-indexed-db';
 })
 export class DashboardComponent implements OnInit {
 
-  divaPv = 'Initialize';
-  divaModule = 'Initialize';
-  divaCustomize = 'Initialize';
-  chuniMusic = 'Initialize';
-  ongekiCard = 'Initialize';
-  ongekiCharacter = 'Initialize';
-  ongekiMusic = 'Initialize';
-  ongekiSkill = 'Initialize';
-  chuniCharacter = 'Initialize';
-  chuniSkill = 'Initialize';
+  divaPv = '读取数据中';
+  divaModule = '读取数据中';
+  divaCustomize = '读取数据中';
+  chuniMusic = '读取数据中';
+  ongekiCard = '读取数据中';
+  ongekiCharacter = '读取数据中';
+  ongekiMusic = '读取数据中';
+  ongekiSkill = '读取数据中';
+  chuniCharacter = '读取数据中';
+  chuniSkill = '读取数据中';
 
   constructor(
     private dbService: NgxIndexedDBService,

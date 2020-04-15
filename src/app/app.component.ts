@@ -20,32 +20,32 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   ongekiMenu: Menu[] = [
     {
       id: 0,
-      name: 'Profile',
+      name: '玩家档案',
       url: 'ongeki/profile'
     },
     {
       id: 1,
-      name: 'Battle Point',
+      name: '对战点数',
       url: 'ongeki/battle'
     },
     {
       id: 2,
-      name: 'Rating',
+      name: '熟练度',
       url: 'ongeki/rating'
     },
     {
       id: 3,
-      name: 'Recent Play',
+      name: '最近游玩',
       url: 'ongeki/recent'
     },
     {
       id: 4,
-      name: 'Song List',
+      name: '歌曲列表',
       url: 'ongeki/song'
     },
     {
       id: 5,
-      name: 'Card Maker',
+      name: '卡牌查看',
       url: 'ongeki/card'
     },
     {
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     },
     {
       id: 7,
-      name: 'Setting',
+      name: '游戏设定',
       url: 'ongeki/setting'
     }
   ];
@@ -66,32 +66,32 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   amazonMenus: Menu[] = [
     {
       id: 0,
-      name: 'Profile',
+      name: '玩家档案',
       url: 'amazon/profile'
     },
     {
       id: 1,
-      name: 'Rating',
+      name: '熟练度',
       url: 'amazon/rating'
     },
     {
       id: 2,
-      name: 'Recent Play',
+      name: '最近游玩',
       url: 'amazon/recent'
     },
     {
       id: 3,
-      name: 'Song List',
+      name: '歌曲列表',
       url: 'amazon/song'
     },
     {
       id: 4,
-      name: 'Character',
+      name: '角色设定',
       url: 'amazon/character'
     },
     {
       id: 5,
-      name: 'Setting',
+      name: '游戏设定',
       url: 'amazon/setting'
     }
   ];
@@ -99,42 +99,42 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   divaMenus: Menu[] = [
     {
       id: 0,
-      name: 'Profile',
+      name: '玩家档案',
       url: 'diva/profile'
     },
     {
       id: 1,
-      name: 'Pv Record',
+      name: 'PV记录',
       url: 'diva/record'
     },
     {
       id: 2,
-      name: 'Pv List',
+      name: 'PV列表',
       url: 'diva/pv'
     },
     {
       id: 3,
-      name: 'Recent Play',
+      name: '最近游玩',
       url: 'diva/recent'
     },
     {
       id: 4,
-      name: 'Setting',
+      name: '游戏设定',
       url: 'diva/setting'
     },
     {
       id: 5,
-      name: 'Management',
+      name: '服务器管理',
       url: 'diva/management'
     },
     {
       id: 6,
-      name: 'Modules',
+      name: '模型列表',
       url: 'diva/modules'
     },
     {
       id: 7,
-      name: 'Customizes',
+      name: '饰品列表',
       url: 'diva/customizes'
     },
   ];

@@ -1,10 +1,10 @@
 <p>
-  欢迎来到Aqua Server网页端<br>
-  这个版本是和Aqua server v0.0.13一起工作的
+  欢迎来到Aqua Server Web查看器<br>
+  这个版本的Aqua Viewer与Aqua Server 0.013一同工作
 </p>
 
 <mat-card>
-  <mat-card-title>Data Info</mat-card-title>
+  <mat-card-title>服务器运行状态</mat-card-title>
   <mat-card-content>
     Diva歌曲列表状态 : {{divaPv}}<br>
     Diva服装模组状态 : {{divaPv}}<br>
@@ -18,6 +18,6 @@
     Ongeki角色技能状态 : {{ongekiSkill}}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="reload()">Clean Cache</button>
+    <button mat-button (click)="reload()">清理本地缓存</button>
   </mat-card-actions>
 </mat-card>
