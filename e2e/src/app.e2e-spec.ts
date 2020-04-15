@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('aqua-viewer app is running!');
+    expect(page.getTitleText()).toEqual('aqua-viewer正在运行!');
   });
 
   afterEach(async () => {
