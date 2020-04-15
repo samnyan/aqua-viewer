@@ -71,7 +71,7 @@ export class PreloadService {
         if (pageCount > 0) {
           status.next('OK');
         } else {
-          status.next('Downloading');
+          status.next('下载数据中');
           this.api.get(url).subscribe(
             data => {
               let errorFlag = false;
@@ -84,15 +84,15 @@ export class PreloadService {
                 );
               });
               if (errorFlag) {
-                status.next('Error');
+                status.next('错误');
               } else {
-                status.next('OK');
+                status.next('正常');
               }
               status.complete();
             },
             error => {
               console.error(error);
-              status.next('Error');
+              status.next('错误');
               status.complete();
             }
           );

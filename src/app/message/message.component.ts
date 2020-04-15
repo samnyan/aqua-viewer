@@ -19,7 +19,7 @@ export class MessageComponent implements OnInit {
 
 
   ngOnInit() {
-    this.openSnackBar('Initialized');
+    this.openSnackBar('数据初始化完成');
   }
 
   public openSnackBar(message: string) {
