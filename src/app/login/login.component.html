@@ -1,6 +1,6 @@
 <mat-card class="login-card">
   <mat-card-title>
-    Login
+    登录
   </mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
@@ -11,9 +11,9 @@
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>ApiServer</mat-label>
-        <input formControlName="apiServer" matInput required type="text">
+        <input formControlName="游戏服务器地址" matInput required type="text">
       </mat-form-field>
-      <button [disabled]="!loginForm.valid" mat-raised-button type="submit">Login</button>
+      <button [disabled]="!loginForm.valid" mat-raised-button type="submit">登录</button>
     </form>
   </mat-card-content>
 </mat-card>
