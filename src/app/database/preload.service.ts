@@ -69,7 +69,7 @@ export class PreloadService {
     this.dbService.count(storeName).then(
       pageCount => {
         if (pageCount > 0) {
-          status.next('OK');
+          status.next('正常');
         } else {
           status.next('下载数据中');
           this.api.get(url).subscribe(
