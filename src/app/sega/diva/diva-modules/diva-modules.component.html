@@ -1,9 +1,9 @@
 <div *ngIf="modules">
   <mat-card *ngFor="let item of modules | paginate: {itemsPerPage: 15, currentPage: p}">
     <mat-card-content>
-      <span>Module ID: {{item.id}}</span><br><br>
-      <span>Name: {{item.name}}</span><br>
-      <span>Price: {{item.price}} VP</span>
+      <span>模型ID: {{item.id}}</span><br><br>
+      <span>模型名: {{item.name}}</span><br>
+      <span>价格: {{item.price}} VP</span>
     </mat-card-content>
   </mat-card>
 </div>
@@ -12,9 +12,9 @@
                      directionLinks="true"
                      autoHide="true"
                      responsive="true"
-                     previousLabel="Previous"
-                     nextLabel="Next"
+                     previousLabel="上一页"
+                     nextLabel="下一页"
                      screenReaderPaginationLabel="Pagination"
                      screenReaderPageLabel="page"
-                     screenReaderCurrentLabel="You're on page">
+                     screenReaderCurrentLabel="你已经在这一页了">
 </pagination-controls>

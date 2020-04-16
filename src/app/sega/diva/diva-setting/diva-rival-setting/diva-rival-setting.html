@@ -1,12 +1,12 @@
 <h1 mat-dialog-title>Set Rival</h1>
 <div mat-dialog-content>
-  <p>Ask your friend's Project DIVA ID or add rival at ranking page</p>
+  <p>向你的朋友询问他的Project DIVA ID 或者在排名列表中将他设为对手</p>
   <mat-form-field>
-    <mat-label>Rival PdId:</mat-label>
+    <mat-label>对手的PD ID:</mat-label>
     <input type="number" [(ngModel)]="data.rivalId" matInput>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>No Thanks</button>
-  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+  <button (click)="onNoClick()" mat-button>取消</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>保存</button>
 </div>

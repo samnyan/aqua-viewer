@@ -1,16 +1,16 @@
-<h1 mat-dialog-title>Change Display Setting</h1>
+<h1 mat-dialog-title>更改游戏内设定</h1>
 <mat-dialog-content>
   <div>
-    <mat-checkbox [(ngModel)]="data.showInterimRanking">Show Ranking</mat-checkbox>
-    <mat-checkbox [(ngModel)]="data.showClearStatus">Show Clear Status</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showInterimRanking">显示排名</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showClearStatus">Clear最低达成率显示</mat-checkbox>
 
-    <mat-checkbox [(ngModel)]="data.showGreatBorder">Show Great Border</mat-checkbox>
-    <mat-checkbox [(ngModel)]="data.showExcellentBorder">Show Excellent Border</mat-checkbox>
-    <mat-checkbox [(ngModel)]="data.showRivalBorder">Show Rival Border</mat-checkbox>
-    <mat-checkbox [(ngModel)]="data.showRgoSetting">Show Rhythm Game Option</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showGreatBorder">Great最低达成率显示</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showExcellentBorder">Excellent最低达成率显示</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showRivalBorder">击败对手的最低达成率显示</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.showRgoSetting">显示游戏选项</mat-checkbox>
   </div>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>No Thanks</button>
-  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+  <button (click)="onNoClick()" mat-button>取消</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>保存</button>
 </div>

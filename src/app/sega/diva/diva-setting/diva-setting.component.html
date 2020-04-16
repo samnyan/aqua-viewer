@@ -1,110 +1,110 @@
 <mat-card>
-  Please notice that malformed input will break profile loading<br>
-  Leave it empty if you don't know the correct format for some string value
+  请注意：错误的设定将会导致玩家信息无法正确加载<br>
+  请在更改默认数据前再三确认数值是否正确
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Player Name</mat-card-title>
+  <mat-card-title>玩家昵称</mat-card-title>
   <mat-card-content>
     <div class="content">{{profile.playerName}}</div>
     <div class="action">
-      <button (click)="playerName()" mat-button>Edit</button>
+      <button (click)="playerName()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Player Title</mat-card-title>
+  <mat-card-title>签名</mat-card-title>
   <mat-card-content>
     <div class="content">{{profile.levelTitle}}</div>
     <div class="action">
-      <button (click)="playerTitle()" mat-button>Edit</button>
+      <button (click)="playerTitle()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Player Plate</mat-card-title>
+  <mat-card-title>签名栏设置</mat-card-title>
   <mat-card-content>
     <div class="content">
-      Plate ID: {{profile.plateId}}<br>
-      Plate Effect ID: {{profile.plateEffectId}}
+      签名栏ID: {{profile.plateId}}<br>
+      签名栏效果ID: {{profile.plateEffectId}}
     </div>
     <div class="action">
-      <button (click)="playerPlate()" mat-button>Edit</button>
+      <button (click)="playerPlate()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Common Skin</mat-card-title>
+  <mat-card-title>游戏主题</mat-card-title>
   <mat-card-content>
     <div class="content">
-      Skin ID:
+      主题ID:
       {{profile.commonSkin}}
     </div>
     <div class="action">
-      <button (click)="skin()" mat-button>Edit</button>
+      <button (click)="skin()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>MyList</mat-card-title>
+  <mat-card-title>收藏夹</mat-card-title>
   <mat-card-content>
     <div class="content">
-      MyList 1:<br>
+      收藏夹1:<br>
       {{profile.myList0}}<br>
-      MyList 2:<br>
+      收藏夹2:<br>
       {{profile.myList1}}<br>
-      MyList 3:<br>
+      收藏夹3:<br>
       {{profile.myList2}}
     </div>
     <div class="action">
-      <button (click)="myList()" mat-button>Edit</button>
+      <button (click)="myList()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Common Se</mat-card-title>
+  <mat-card-title>按键音效</mat-card-title>
   <mat-card-content>
     <div class="content">
-      Button Se ID: {{profile.buttonSe == -1 ? 'Disabled' : profile.buttonSe}}<br>
-      Chain Slide Se ID: {{profile.chainSlideSe == -1 ? 'Disabled' : profile.chainSlideSe}}<br>
-      Slide Se ID: {{profile.slideSe == -1 ? 'Disabled' : profile.slideSe}}<br>
-      Slider Touch Se ID: {{profile.sliderTouchSe == -1 ? 'Disabled' : profile.sliderTouchSe}}<br>
+      按键音效: {{profile.buttonSe == -1 ? '默认设定' : profile.buttonSe}}<br>
+      拖拽音效: {{profile.chainSlideSe == -1 ? '默认设定' : profile.chainSlideSe}}<br>
+      连续拖拽音效: {{profile.slideSe == -1 ? '默认设定' : profile.slideSe}}<br>
+      拖拽条操作音效: {{profile.sliderTouchSe == -1 ? '默认设定' : profile.sliderTouchSe}}<br>
     </div>
     <div class="action">
-      <button (click)="commonSe()" mat-button>Edit</button>
+      <button (click)="commonSe()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>Display Setting</mat-card-title>
+  <mat-card-title>游戏内设定</mat-card-title>
   <mat-card-content>
     <div class="content">
-      Show Ranking: {{profile.showInterimRanking}}<br>
-      Show Clear Status: {{profile.showClearStatus}}<br>
-      Show Great Border: {{profile.showGreatBorder}}<br>
-      Show Rival Border: {{profile.showRivalBorder}}<br>
-      Show Rhythm Game Option: {{profile.showRgoSetting}}<br>
+      显示排名: {{profile.showInterimRanking}}<br>
+      Clear最低达成率显示: {{profile.showClearStatus}}<br>
+      Great最低达成率显示: {{profile.showGreatBorder}}<br>
+      击败对手的最低达成率显示: {{profile.showRivalBorder}}<br>
+      显示游戏选项: {{profile.showRgoSetting}}<br>
     </div>
     <div class="action">
-      <button (click)="display()" mat-button>Edit</button>
+      <button (click)="display()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="rival">
-  <mat-card-title>Rival</mat-card-title>
+  <mat-card-title>对手设定</mat-card-title>
   <mat-card-content>
     <div class="content">
-      Rival Name: {{rival}}<br>
+      对手昵称: {{rival}}<br>
     </div>
     <div class="action">
-      <button (click)="setRival()" mat-button>Edit</button>
+      <button (click)="setRival()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>

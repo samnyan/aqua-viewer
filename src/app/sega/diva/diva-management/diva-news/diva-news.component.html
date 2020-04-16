@@ -1,29 +1,29 @@
 <mat-card>
   <mat-card-title>
-    <div class="title">News</div>
+    <div class="title">消息</div>
   </mat-card-title>
   <mat-card-content *ngIf="newsForm">
     <form (ngSubmit)="submitNews()" [formGroup]="newsForm">
       <mat-form-field class="full-width">
-        <mat-label>Content</mat-label>
+        <mat-label>消息内容</mat-label>
         <textarea formControlName="propertyValue" matInput required type="text"></textarea>
       </mat-form-field>
-      <button [disabled]="!newsForm.valid" mat-flat-button type="submit">Submit</button>
+      <button [disabled]="!newsForm.valid" mat-flat-button type="submit">推送</button>
     </form>
   </mat-card-content>
 </mat-card>
 
 <mat-card>
   <mat-card-title>
-    <div class="title">Warning</div>
+    <div class="title">警告</div>
   </mat-card-title>
   <mat-card-content *ngIf="warningForm">
     <form (ngSubmit)="submitWarning()" [formGroup]="warningForm">
       <mat-form-field class="full-width">
-        <mat-label>Content</mat-label>
+        <mat-label>警告内容</mat-label>
         <textarea formControlName="propertyValue" matInput required type="text"></textarea>
       </mat-form-field>
-      <button [disabled]="!warningForm.valid" mat-flat-button type="submit">Submit</button>
+      <button [disabled]="!warningForm.valid" mat-flat-button type="submit">推送</button>
     </form>
   </mat-card-content>
 </mat-card>

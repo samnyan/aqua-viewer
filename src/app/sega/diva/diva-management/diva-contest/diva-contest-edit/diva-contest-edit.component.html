@@ -1,37 +1,37 @@
 <mat-card>
   <mat-card-title>
-    <div class="title">Contest ID: {{f.id.value}}</div>
+    <div class="title">课题ID: {{f.id.value}}</div>
   </mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" [formGroup]="contestForm">
       <mat-form-field class="full-width">
-        <mat-label>Name</mat-label>
+        <mat-label>课题名</mat-label>
         <input formControlName="name" matInput required type="text">
       </mat-form-field>
 
-      <mat-checkbox class="full-width" formControlName="enable">Enabled</mat-checkbox>
+      <mat-checkbox class="full-width" formControlName="enable">课题状态</mat-checkbox>
 
       <mat-form-field class="full-width">
-        <mat-label>Description</mat-label>
+        <mat-label>课题描述</mat-label>
         <textarea formControlName="description" matInput required type="text"></textarea>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Start Time</mat-label>
+        <mat-label>开始时间</mat-label>
         <input [matDatepicker]="startTime" formControlName="startTime" matInput placeholder="Choose a start date">
         <mat-datepicker-toggle [for]="startTime" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #startTime></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>End Time</mat-label>
+        <mat-label>结束时间</mat-label>
         <input [matDatepicker]="endTime" formControlName="endTime" matInput placeholder="Choose a end date">
         <mat-datepicker-toggle [for]="endTime" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #endTime></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>League</mat-label>
+        <mat-label>等级</mat-label>
         <mat-select formControlName="league">
           <mat-option value="0">Beginner</mat-option>
           <mat-option value="1">Intermediate</mat-option>
@@ -41,98 +41,98 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Stars</mat-label>
+        <mat-label>总星数</mat-label>
         <input formControlName="stars" matInput required type="number">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>minComplexity</mat-label>
+        <mat-label>最低难度</mat-label>
         <input formControlName="minComplexity" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>maxComplexity</mat-label>
+        <mat-label>最高难度</mat-label>
         <input formControlName="maxComplexity" matInput required type="number">
       </mat-form-field>
-      <p>Complexity: Chart Level(Stars) × 2. eg: 9.5 starts is 19. max:20, min:1. </p>
+      <p>复杂度= 星级 x 2 示例: 9.5星 = 复杂度19. 最高值:20, 最低值:1. </p>
 
       <mat-form-field class="full-width">
-        <mat-label>Stages</mat-label>
+        <mat-label>游玩次数</mat-label>
         <input formControlName="stages" matInput required type="number">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Stage Limit</mat-label>
+        <mat-label>游玩次数限制</mat-label>
         <mat-select formControlName="stageLimit">
-          <mat-option value="0">Unlimited</mat-option>
-          <mat-option value="1">Limited</mat-option>
+          <mat-option value="0">无限制</mat-option>
+          <mat-option value="1">限制</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Norma Type</mat-label>
+        <mat-label>评定标准</mat-label>
         <mat-select formControlName="normaType">
-          <mat-option value="0">Score</mat-option>
-          <mat-option value="1">Percentage</mat-option>
-          <mat-option value="2">Cool Percentage</mat-option>
+          <mat-option value="0">分数</mat-option>
+          <mat-option value="1">达成率</mat-option>
+          <mat-option value="2">Cool达成率</mat-option>
         </mat-select>
       </mat-form-field>
 
 
       <mat-form-field class="full-width">
-        <mat-label>bronzeBorders</mat-label>
+        <mat-label>青铜分数要求</mat-label>
         <input formControlName="bronzeBorders" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>sliverBorders</mat-label>
+        <mat-label>白银分数要求</mat-label>
         <input formControlName="sliverBorders" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>goldBorders</mat-label>
+        <mat-label>黄金分数要求</mat-label>
         <input formControlName="goldBorders" matInput required type="number">
       </mat-form-field>
 
-      <p>Please set the value below carefully, or it will break contest loading and stage saving. Leave it empty if you
-        doesn't know what that means.</p>
+      <p>在修改下面这些值之前，请再三确认：因为不正确的值可能会导致课题无法加载，分数无法保存
+        如果不知道如何填写里面的值，请留空</p>
 
       <mat-form-field class="full-width">
-        <mat-label>Pv List</mat-label>
+        <mat-label>PV列表</mat-label>
         <input formControlName="pvList" matInput placeholder="pv_id_start:pv_id_end..." type="text">
       </mat-form-field>
-      <p>Pv List Format: "pv_id_start:pv_id_end,pv_id_start:pv_id_end,pv_id_start:pv_id_end". <br>
-        Max allowed length is 20. Use -1 as range end if you only need a single PV.</p>
+      <p>PV列表格式: "pv_id_start:pv_id_end,pv_id_start:pv_id_end,pv_id_start:pv_id_end". <br>
+        最高长度为 20 。如果您只需要一个PV，请使用-1作为pv_id_end.</p>
 
       <mat-form-field class="full-width">
-        <mat-label>Pv Difficulty List</mat-label>
+        <mat-label>PV难度列表</mat-label>
         <input formControlName="pvDiffList" matInput type="text"
                placeholder="pv_difficulty:min_complexity:max_complexity...">
       </mat-form-field>
-      <p>Pv Difficulty List Format: "pv_difficulty:min_complexity:max_complexity,...". Use it to control the difficulty
-        of Pv List. <br>
-        pv_difficulty: -1 is unrestricted, 0 is easy, 1 is normal. But it seems not work with 2 and 3 so leave it -1 and
-        set the complexity. <br>
-        complexity: format same as above. </p>
+      <p>PV难度列表格式: "pv_difficulty:min_complexity:max_complexity,...". 
+        请使用他来控制PV列表的难度Pv <br>
+        PV难度: -1：无限制, 0：Easy, 1：Normal 但是2和3无法生效，所以请设置为-1
+        然后设置复杂度. <br>
+        复杂度设置：同上. </p>
       <mat-form-field class="full-width">
-        <mat-label>Bronze Contest Reward</mat-label>
+        <mat-label>青铜课题奖励</mat-label>
         <input formControlName="bronzeContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Silver Contest Reward</mat-label>
+        <mat-label>白银课题奖励</mat-label>
         <input formControlName="sliverContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Gold Contest Reward</mat-label>
+        <mat-label>黄金课题奖励</mat-label>
         <input formControlName="goldContestReward" matInput type="text" placeholder="rewardType:rewardId:string1:string2">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Contest Entry Reward</mat-label>
+        <mat-label>参加课题奖励</mat-label>
         <input formControlName="contestEntryReward" matInput type="text">
       </mat-form-field>
 
-      <p>Contest Reward Format: "rewardType:rewardId:string1:string2" string1 and 2 should be urlencoded and must exist. use *** aka %2A%2A%2A as placeholder <br>
-        Reward Type: (-1 None, 0 VP, 1 Skin, 2 Callsign, 3 Customize)</p>
+      <p>课题奖励格式: "rewardType:rewardId:string1:string2" string1 和 2 必须存在. 使用 *** 或者是 %2A%2A%2A 作为占位符 <br>
+        奖励类型: (-1 无, 0 VP, 1 皮肤, 2 称号, 3 饰品)</p>
       <button [disabled]="!contestForm.valid" mat-flat-button type="submit">Submit</button>
     </form>
   </mat-card-content>

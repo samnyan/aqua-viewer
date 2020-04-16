@@ -1,25 +1,25 @@
 <mat-card>
-  <mat-card-title>Player Profile</mat-card-title>
+  <mat-card-title>玩家信息</mat-card-title>
   <mat-card-content>
     <table *ngIf="profile" class="zebra">
       <tr>
-        <th>Project DIVA ID</th>
+        <th>游戏ID</th>
         <td>{{profile.pdId}}</td>
       </tr>
       <tr>
-        <th>Player Name</th>
+        <th>玩家昵称</th>
         <td>{{profile.playerName}}</td>
       </tr>
       <tr>
-        <th>Player Level</th>
+        <th>玩家级别</th>
         <td>{{profile.level}}</td>
       </tr>
       <tr>
-        <th>Level Exp</th>
+        <th>经验值</th>
         <td>{{profile.levelExp}}%</td>
       </tr>
       <tr>
-        <th>Player Title</th>
+        <th>签名</th>
         <td>{{profile.levelTitle}}</td>
       </tr>
     </table>

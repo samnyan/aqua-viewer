@@ -43,7 +43,7 @@ export class DivaRecentComponent implements OnInit {
     this.api.get('api/game/diva/playLog', param).subscribe(
       data => {
         if (data.content.length === 0) {
-          this.messageService.notice('No more record');
+          this.messageService.notice('没有更多数据了');
           return;
         }
         this.currentPage = data.page + 1;

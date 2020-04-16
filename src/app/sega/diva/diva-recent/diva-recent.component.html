@@ -4,9 +4,9 @@
     <mat-card-content>
       <div class="song-header">
         <div class="song-info">
-          <span class="title">{{item.songInfo != null ? item.songInfo.songName : 'pvId:' + item.pvId}}</span><br>
+          <span class="title">{{item.songInfo != null ? item.songInfo.songName : 'PV编号:' + item.pvId}}</span><br>
           <span
-            class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+            class="info">{{item.songInfo != null ? '作词: ' + item.songInfo.lyrics + ' 作曲: ' + item.songInfo.music : ''}}</span>
         </div>
         <div class="level">
           {{item.edition === 1 ? edition[item.edition] : ''}}
@@ -15,17 +15,17 @@
       </div>
       <div class="result-content">
         <div class="left">
-          Rank:<br>
+          评级:<br>
           <span class="rank">{{result[item.clearResult]}}</span>
           <br>
-          <br>Achievement:<br>
+          <br>达成率:<br>
           <span class="achievement-value">{{item.attainPoint|divaDecimal}}%</span>
           <br>
-          <br>Score:<br>
+          <br>分数:<br>
           <span class="score-value">{{item.score}}</span><br><br>
           <table *ngIf="item.modulesInfo">
             <tr>
-              <th>Module</th>
+              <th>模型</th>
             </tr>
             <tr>
               <td *ngIf="item.modulesInfo[0]">
@@ -89,6 +89,6 @@
     </mat-card-content>
   </mat-card>
 
-  <button (click)="load()" mat-flat-button>Load More</button>
+  <button (click)="load()" mat-flat-button>显示更多记录</button>
 
 </div>

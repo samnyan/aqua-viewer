@@ -1,28 +1,28 @@
-<h1 mat-dialog-title>Change MyList</h1>
+<h1 mat-dialog-title>收藏夹设定</h1>
 <div mat-dialog-content>
-  <span>Length is 40, so make sure there is 39 comma</span><br>
+  <span>歌曲的编号共有有40位，所以请确保其中有39个逗号</span><br>
   <mat-form-field>
     <mat-label>myList</mat-label>
     <mat-select [(ngModel)]="data.selector">
-      <mat-option value="0">myList1</mat-option>
-      <mat-option value="1">myList2</mat-option>
-      <mat-option value="2">myList3</mat-option>
+      <mat-option value="0">收藏夹1</mat-option>
+      <mat-option value="1">收藏夹2</mat-option>
+      <mat-option value="2">收藏夹3</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field *ngIf="data.selector === '0'">
-    <mat-label>myList1</mat-label>
+    <mat-label>收藏夹1</mat-label>
     <textarea [(ngModel)]="data.myList0" matInput></textarea>
   </mat-form-field>
   <mat-form-field *ngIf="data.selector === '1'">
-    <mat-label>myList2</mat-label>
+    <mat-label>收藏夹2</mat-label>
     <textarea [(ngModel)]="data.myList1" matInput></textarea>
   </mat-form-field>
   <mat-form-field *ngIf="data.selector === '2'">
-    <mat-label>myList3</mat-label>
+    <mat-label>收藏夹3</mat-label>
     <textarea [(ngModel)]="data.myList2" matInput></textarea>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>No Thanks</button>
-  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Ok</button>
+  <button (click)="onNoClick()" mat-button>取消</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>保存</button>
 </div>

@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>
-    <div>Contest List, Length: {{contests ? contests.length : 0}}</div>
-    <button (click)="edit(undefined)" mat-flat-button>Add</button>
+    <div>课题列表, 总数: {{contests ? contests.length : 0}}</div>
+    <button (click)="edit(undefined)" mat-flat-button>添加课题</button>
   </mat-card-title>
 </mat-card>
 <div *ngIf="contests">
@@ -9,98 +9,98 @@
     <mat-card-content>
       <table class="zebra">
         <tr>
-          <th>ID</th>
+          <th>课题ID</th>
           <td>{{contest.id}}</td>
         </tr>
         <tr>
-          <th>Enabled</th>
+          <th>课题状态</th>
           <td>{{contest.enable}}</td>
         </tr>
         <tr>
-          <th>Name</th>
+          <th>课题名</th>
           <td>{{contest.name}}</td>
         </tr>
         <tr>
-          <th>Description</th>
+          <th>课题描述</th>
           <td>{{contest.description}}</td>
         </tr>
         <tr>
-          <th>Start Time</th>
+          <th>开始时间</th>
           <td>{{contest.startTime}}</td>
         </tr>
         <tr>
-          <th>End Time</th>
+          <th>结束时间</th>
           <td>{{contest.endTime}}</td>
         </tr>
         <tr>
-          <th>League</th>
+          <th>等级</th>
           <td>{{contestLeague[contest.league]}}</td>
         </tr>
         <tr>
-          <th>Star</th>
+          <th>总星数</th>
           <td>{{contest.stars}}</td>
         </tr>
         <tr>
-          <th>Min Complexity</th>
+          <th>最低难度</th>
           <td>{{contest.minComplexity}}</td>
         </tr>
         <tr>
-          <th>Max Complexity</th>
+          <th>最高难度</th>
           <td>{{contest.maxComplexity}}</td>
         </tr>
         <tr>
-          <th>Stages</th>
+          <th>游玩次数</th>
           <td>{{contest.stages}}</td>
         </tr>
         <tr>
-          <th>Stage Limit</th>
+          <th>游玩次数限制</th>
           <td>{{contestStageLimit[contest.stageLimit]}}</td>
         </tr>
         <tr>
-          <th>Norma Type</th>
+          <th>评定标准</th>
           <td>{{contestNormaType[contest.normaType]}}</td>
         </tr>
         <tr>
-          <th>Bronze borders</th>
+          <th>青铜分数要求</th>
           <td>{{contest.bronzeBorders}}</td>
         </tr>
         <tr>
-          <th>Sliver borders</th>
+          <th>白银分数要求</th>
           <td>{{contest.sliverBorders}}</td>
         </tr>
         <tr>
-          <th>Gold borders</th>
+          <th>黄金分数要求</th>
           <td>{{contest.goldBorders}}</td>
         </tr>
         <tr>
-          <th>Pv List</th>
+          <th>PV列表</th>
           <td>{{contest.pvList}}</td>
         </tr>
         <tr>
-          <th>Pv Difficulty List</th>
+          <th>PV难度列表</th>
           <td>{{contest.pvDiffList}}</td>
         </tr>
         <tr>
-          <th>Bronze Contest Reward</th>
+          <th>青铜课题奖励</th>
           <td>{{contest.bronzeContestReward}}</td>
         </tr>
         <tr>
-          <th>Silver Contest Reward</th>
+          <th>白银课题奖励</th>
           <td>{{contest.sliverContestReward}}</td>
         </tr>
         <tr>
-          <th>Gold Contest Reward</th>
+          <th>黄金课题奖励</th>
           <td>{{contest.goldContestReward}}</td>
         </tr>
         <tr>
-          <th>Contest Entry Reward</th>
+          <th>参与课题奖励</th>
           <td>{{contest.contestEntryReward}}</td>
         </tr>
       </table>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="edit(contest)" mat-flat-button>Edit</button>
-      <button (click)="delete(contest.id)" mat-flat-button>Delete</button>
+      <button (click)="edit(contest)" mat-flat-button>编辑课题</button>
+      <button (click)="delete(contest.id)" mat-flat-button>删除课题</button>
     </mat-card-actions>
   </mat-card>
 </div>

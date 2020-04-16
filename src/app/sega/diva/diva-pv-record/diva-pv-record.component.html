@@ -1,7 +1,7 @@
 <div *ngIf="pvRecords">
   <mat-card *ngFor="let item of pvRecords" routerLink="{{item.pvId}}">
     <mat-card-title>
-      <div class="title">{{item.songInfo != null ? item.songInfo.songName : 'pvId:' + item.pvId}}</div>
+      <div class="title">{{item.songInfo != null ? item.songInfo.songName : 'PV编号:' + item.pvId}}</div>
       <div class="level">
         {{item.edition === 1 ? edition[item.edition] : ''}}
         {{difficulty[item.difficulty]}}
@@ -10,7 +10,7 @@
     <mat-card-content>
       <div class="song-info">
         <span
-          class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+          class="info">{{item.songInfo != null ? '作词: ' + item.songInfo.lyrics + ' 作曲: ' + item.songInfo.music : ''}}</span>
       </div>
       <div class="result-content">
         <div class="left">
@@ -18,17 +18,17 @@
           <span class="rank-value">{{result[item.result]}}</span>
         </div>
         <div class="left">
-          Achievement:<br>
+          达成率:<br>
           <span class="achievement-value">{{item.maxAttain|divaDecimal}}%</span>
         </div>
         <div class="left">
-          Score:<br>
+          得分:<br>
           <span class="score-value">{{item.maxScore}}</span>
         </div>
       </div>
     </mat-card-content>
   </mat-card>
 
-  <button (click)="load()" mat-flat-button>Load More</button>
+  <button (click)="load()" mat-flat-button>更多内容</button>
 
 </div>

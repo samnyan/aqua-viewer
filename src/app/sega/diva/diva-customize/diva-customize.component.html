@@ -1,9 +1,9 @@
 <div *ngIf="customizes">
   <mat-card *ngFor="let item of customizes | paginate: {itemsPerPage: 15, currentPage: p}">
     <mat-card-content>
-      <span>Module ID: {{item.id}}</span><br><br>
-      <span>Name: {{item.name}}</span><br>
-      <span>Price: {{item.price}} VP</span>
+      <span>饰品ID: {{item.id}}</span><br><br>
+      <span>饰品名: {{item.name}}</span><br>
+      <span>价格: {{item.price}} VP</span>
     </mat-card-content>
   </mat-card>
 </div>

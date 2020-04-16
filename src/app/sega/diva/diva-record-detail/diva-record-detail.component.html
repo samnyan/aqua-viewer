@@ -3,12 +3,12 @@
   <mat-card>
     <mat-card-title>
       <div
-        class="title">{{record.songInfo != null ? record.songInfo.songName : 'pvId:' + pvId}}</div>
+        class="title">{{record.songInfo != null ? record.songInfo.songName : 'PV编号:' + pvId}}</div>
     </mat-card-title>
     <mat-card-content>
       <div class="song-info">
         <span
-          class="info">{{record.songInfo != null ? 'Lyric: ' + record.songInfo.lyrics + ' Song: ' + record.songInfo.music : ''}}</span>
+          class="info">{{record.songInfo != null ? '作词: ' + record.songInfo.lyrics + ' 作曲: ' + record.songInfo.music : ''}}</span>
       </div>
     </mat-card-content>
   </mat-card>
@@ -23,15 +23,15 @@
     <mat-card-content>
       <div class="song-info">
         <span
-          class="info">{{item.songInfo != null ? 'Lyric: ' + item.songInfo.lyrics + ' Song: ' + item.songInfo.music : ''}}</span>
+          class="info">{{item.songInfo != null ? '作词: ' + item.songInfo.lyrics + ' 作曲: ' + item.songInfo.music : ''}}</span>
       </div>
       <div class="result-content">
         <div class="left">
-          Achievement:<br>
+          达成率:<br>
           <span class="achievement-value">{{item.maxAttain|divaDecimal}}%</span>
         </div>
         <div class="left">
-          Score:<br>
+          分数:<br>
           <span class="score-value">{{item.maxScore}}</span>
         </div>
       </div>
@@ -40,13 +40,13 @@
 
   <mat-card *ngIf="!isEdit">
     <mat-card-title>
-      <div class="title">Per PV Customize</div>
-      <button (click)="isEdit = true" mat-flat-button>Edit</button>
+      <div class="title">自定义PV信息</div>
+      <button (click)="isEdit = true" mat-flat-button>编辑</button>
     </mat-card-title>
     <mat-card-content>
       <table class="zebra">
         <tr>
-          <th>Module:</th>
+          <th>模型:</th>
           <td *ngIf="moduleLoadFlag == 3; else moduleString">
             {{record.customize.modulesInfo[0].name}} ,
             {{record.customize.modulesInfo[1].name}} ,
@@ -60,31 +60,31 @@
 
         </tr>
         <tr>
-          <th>Customize:</th>
+          <th>自定义:</th>
           <td>{{record.customize.customize}}</td>
         </tr>
         <tr>
-          <th>Customize Flag:</th>
+          <th>自定义饰品:</th>
           <td>{{record.customize.customizeFlag}}</td>
         </tr>
         <tr>
-          <th>Skin ID:</th>
+          <th>游戏主题:</th>
           <td>{{record.customize.skin}}</td>
         </tr>
         <tr>
-          <th>Button SE ID:</th>
+          <th>按键音效:</th>
           <td>{{record.customize.buttonSe}}</td>
         </tr>
         <tr>
-          <th>Chain Slide SE ID:</th>
+          <th>拖拽音效:</th>
           <td>{{record.customize.chainSlideSe}}</td>
         </tr>
         <tr>
-          <th>Slide SE ID:</th>
+          <th>连续拖拽音效:</th>
           <td>{{record.customize.slideSe}}</td>
         </tr>
         <tr>
-          <th>Slider Touch SE ID:</th>
+          <th>拖拽条操作音效:</th>
           <td>{{record.customize.sliderTouchSe}}</td>
         </tr>
       </table>
@@ -93,49 +93,49 @@
 
   <mat-card *ngIf="isEdit">
     <mat-card-title>
-      <div class="title">Per PV Customize Edit</div>
+      <div class="title">自定义PV信息</div>
     </mat-card-title>
     <mat-card-content>
       <form (ngSubmit)="onSubmit()" [formGroup]="customizeForm">
         <mat-form-field class="full-width">
-          <mat-label>Module</mat-label>
+          <mat-label>模型:</mat-label>
           <input formControlName="module" matInput required type="text">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Customize</mat-label>
+          <mat-label>自定义:</mat-label>
           <input formControlName="customize" matInput required type="text">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Customize Flag</mat-label>
+          <mat-label>自定义饰品</mat-label>
           <input formControlName="customizeFlag" matInput required type="text">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Skin ID</mat-label>
+          <mat-label>游戏主题</mat-label>
           <input formControlName="skin" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Button SE ID</mat-label>
+          <mat-label>按键音效</mat-label>
           <input formControlName="buttonSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Chain Slide SE ID</mat-label>
+          <mat-label>拖拽音效</mat-label>
           <input formControlName="chainSlideSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Slide SE ID</mat-label>
+          <mat-label>连续拖拽音效</mat-label>
           <input formControlName="slideSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Slider Touch SE ID</mat-label>
+          <mat-label>拖拽条操作音效</mat-label>
           <input formControlName="sliderTouchSe" matInput required type="number">
         </mat-form-field>
-        <button [disabled]="!customizeForm.valid" mat-flat-button type="submit">Submit</button>
+        <button [disabled]="!customizeForm.valid" mat-flat-button type="submit">应用</button>
       </form>
     </mat-card-content>
   </mat-card>
 
   <mat-card>
-    <mat-card-title>Ranking</mat-card-title>
+    <mat-card-title>排名</mat-card-title>
   </mat-card>
 
   <mat-card>
@@ -146,10 +146,10 @@
           <td>{{i+1}}. {{item.playerName}}</td>
           <td>{{item.score}}</td>
           <td>{{item.attain/100}}%</td>
-          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+          <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>Nobody play this.</ng-template>
+      <ng-template #empty_easy>还没有人打这个PV</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -160,10 +160,10 @@
           <td>{{i+1}}. {{item.playerName}}</td>
           <td>{{item.score}}</td>
           <td>{{item.attain/100}}%</td>
-          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+          <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>Nobody play this.</ng-template>
+      <ng-template #empty_easy>还没有人打这个PV</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -174,10 +174,10 @@
           <td>{{i+1}}. {{item.playerName}}</td>
           <td>{{item.score}}</td>
           <td>{{item.attain/100}}%</td>
-          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+          <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>Nobody play this.</ng-template>
+      <ng-template #empty_easy>还没有人打这个PV</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -188,10 +188,10 @@
           <td>{{i+1}}. {{item.playerName}}</td>
           <td>{{item.score}}</td>
           <td>{{item.attain/100}}%</td>
-          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+          <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>Nobody play this.</ng-template>
+      <ng-template #empty_easy>还没有人打这个PV</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -202,10 +202,10 @@
           <td>{{i+1}}. {{item.playerName}}</td>
           <td>{{item.score}}</td>
           <td>{{item.attain/100}}%</td>
-          <td><button mat-flat-button (click)="addRival(item.id)">Add Rival</button></td>
+          <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>Nobody play this.</ng-template>
+      <ng-template #empty_easy>还没有人打这个PV</ng-template>
     </mat-card-content>
   </mat-card>
 
