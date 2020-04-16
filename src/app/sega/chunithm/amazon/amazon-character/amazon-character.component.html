@@ -1,7 +1,7 @@
 <mat-card>
-  <mat-card-title>Characters</mat-card-title>
+  <mat-card-title>角色列表</mat-card-title>
   <mat-card-actions>
-    <button mat-button>Show All</button>
+    <button mat-button>展示全部</button>
   </mat-card-actions>
 </mat-card>
 
@@ -21,19 +21,19 @@
       <div class="content">
         <table class="zebra">
           <tr>
-            <th>Level</th>
+            <th>等级</th>
             <td>{{item.level}}</td>
           </tr>
           <tr>
-            <th>Friendship Exp</th>
+            <th>角色经验</th>
             <td>{{item.friendshipExp}}</td>
           </tr>
           <tr>
-            <th>Play Count</th>
+            <th>游玩次数</th>
             <td>{{item.playCount}}</td>
           </tr>
           <tr>
-            <th>Skill</th>
+            <th>技能</th>
             <td>{{item.skillInfo ? item.skillInfo.name : 'SkillId: ' + item.skillId}}<br>
               {{item.skillInfo ? item.skillInfo.category : ''}}</td>
           </tr>

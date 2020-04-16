@@ -1,32 +1,32 @@
 <mat-card>
-  <mat-card-title>CHUNITHM Settings</mat-card-title>
+  <mat-card-title>CHUNITHM 设置</mat-card-title>
 </mat-card>
 
 <mat-card>
-  <mat-card-title>Username</mat-card-title>
+  <mat-card-title>玩家名称</mat-card-title>
   <mat-card-content *ngIf="profile">
     <div class="content">{{profile.userName}}</div>
     <div class="action">
-      <button (click)="userName()" mat-button>Edit</button>
+      <button (click)="userName()" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card>
-  <mat-card-title>Privacy</mat-card-title>
+  <mat-card-title>隐私</mat-card-title>
   <mat-card-content *ngIf="profile">
-    <div class="content">Hide Rating Info:</div>
+    <div class="content">隐藏熟练度信息:</div>
     <div class="action">
-      <button (click)="null" mat-button>Edit</button>
+      <button (click)="null" mat-button>编辑</button>
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card>
-  <mat-card-title>Export data</mat-card-title>
+  <mat-card-title>导出数据</mat-card-title>
   <mat-card-content>
     <div class="action">
-      <a href="{{apiServer + '/api/game/chuni/amazon/export?aimeId=' + aimeId}}" mat-button target="_blank">Download</a>
+      <a href="{{apiServer + '/api/game/chuni/amazon/export?aimeId=' + aimeId}}" mat-button target="_blank">下载</a>
     </div>
   </mat-card-content>
 </mat-card>

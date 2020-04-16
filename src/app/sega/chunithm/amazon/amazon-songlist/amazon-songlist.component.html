@@ -7,11 +7,11 @@
     <td *matCellDef="let element" mat-cell> {{element.musicId}} </td>
   </ng-container>
   <ng-container matColumnDef="name">
-    <th *matHeaderCellDef mat-header-cell> Name</th>
+    <th *matHeaderCellDef mat-header-cell> 歌曲名</th>
     <td *matCellDef="let element" mat-cell> {{element.name}} </td>
   </ng-container>
   <ng-container matColumnDef="artistName">
-    <th *matHeaderCellDef mat-header-cell> Artist</th>
+    <th *matHeaderCellDef mat-header-cell> 作曲者</th>
     <td *matCellDef="let element" mat-cell> {{element.artistName}} </td>
   </ng-container>
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>

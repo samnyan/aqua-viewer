@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Change User Name</h1>
+<h1 mat-dialog-title>修改用户名称</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <input [(ngModel)]="data.userName" matInput>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>No Thanks</button>
-  <button [mat-dialog-close]="data.userName" cdkFocusInitial mat-button>Ok</button>
+  <button (click)="onNoClick()" mat-button>不用了 谢谢</button>
+  <button [mat-dialog-close]="data.userName" cdkFocusInitial mat-button>确定</button>
 </div>
