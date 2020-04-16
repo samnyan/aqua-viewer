@@ -1,61 +1,61 @@
 <mat-card>
   <mat-card-title>
-    <div class="title">Festa</div>
+    <div class="title">加成</div>
   </mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" [formGroup]="festaForm">
       <mat-form-field class="full-width">
-        <mat-label>Name</mat-label>
+        <mat-label>名称</mat-label>
         <input formControlName="name" matInput required type="text">
       </mat-form-field>
-      <mat-checkbox class="full-width" formControlName="enable">Enabled</mat-checkbox>
+      <mat-checkbox class="full-width" formControlName="enable">已启用</mat-checkbox>
       <mat-form-field class="full-width">
-        <mat-label>Kind</mat-label>
+        <mat-label>类型</mat-label>
         <mat-select formControlName="kind">
           <mat-option value="0">PinkFesta</mat-option>
           <mat-option value="1">GreenFesta</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>Difficulty Limit</mat-label>
+        <mat-label>难度限制</mat-label>
         <mat-select formControlName="difficulty">
-          <mat-option value="-1">Unset</mat-option>
-          <mat-option value="0">Easy</mat-option>
-          <mat-option value="1">Normal</mat-option>
-          <mat-option value="2">Hard</mat-option>
-          <mat-option value="3">Extreme</mat-option>
+          <mat-option value="-1">无限制</mat-option>
+          <mat-option value="0">简单</mat-option>
+          <mat-option value="1">普通</mat-option>
+          <mat-option value="2">困难</mat-option>
+          <mat-option value="3">专家</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>PV List</mat-label>
+        <mat-label>PV列表</mat-label>
         <input formControlName="pvList" matInput required type="text">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>Attributes</mat-label>
+        <mat-label>属性</mat-label>
         <input formControlName="attributes" matInput required type="text">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>Add VP</mat-label>
+        <mat-label>VP点数加成</mat-label>
         <input formControlName="addVP" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>VP Multiplier</mat-label>
+        <mat-label>加成倍率</mat-label>
         <input formControlName="vpMultiplier" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>Start Time</mat-label>
-        <input [matDatepicker]="start" formControlName="start" matInput placeholder="Choose a start date">
+        <mat-label>开始时间</mat-label>
+        <input [matDatepicker]="start" formControlName="start" matInput placeholder="选择一个开始日期">
         <mat-datepicker-toggle [for]="start" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #start></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>End Time</mat-label>
-        <input [matDatepicker]="end" formControlName="end" matInput placeholder="Choose a end date">
+        <mat-label>结束时间</mat-label>
+        <input [matDatepicker]="end" formControlName="end" matInput placeholder="选择一个结束日期">
         <mat-datepicker-toggle [for]="end" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #end></mat-datepicker>
       </mat-form-field>
-      <button [disabled]="!festaForm.valid" mat-flat-button type="submit">Submit</button>
+      <button [disabled]="!festaForm.valid" mat-flat-button type="submit">提交</button>
     </form>
   </mat-card-content>
 </mat-card>
