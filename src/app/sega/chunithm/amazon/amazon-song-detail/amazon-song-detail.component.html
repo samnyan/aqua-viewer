@@ -4,13 +4,13 @@
       <div class="song-info">
         <img *ngIf="music" src="{{host}}chuni/jacket/CHU_UI_Jacket_{{music.musicId|formatNumber:4}}.jpg">
         <div class="text-content">
-          <span class="title">{{music != null ? music.name : 'musicId:' + id}}</span><br>
+          <span class="title">{{music != null ? music.name : '歌曲Id:' + id}}</span><br>
           <span
-            class="info">{{music != null ? 'Artist: ' + music.artistName : ''}}</span><br>
+            class="info">{{music != null ? '作曲者: ' + music.artistName : ''}}</span><br>
           <span
-            class="info">{{music != null ? 'Genre: ' + music.genre : ''}}</span><br>
+            class="info">{{music != null ? '类型: ' + music.genre : ''}}</span><br>
           <span
-            class="info">{{music != null ? 'Release Version: ' + music.releaseVersion : ''}}</span>
+            class="info">{{music != null ? '发行版本: ' + music.releaseVersion : ''}}</span>
         </div>
 
       </div>
@@ -41,33 +41,33 @@
           </div>
           <table class="zebra">
             <tr>
-              <th>Is AJ?</th>
-              <td>{{record.isAllJustice}}</td>
-              <td>Play Count</td>
+              <th>是否收歌?</th>
+              <td>{{record.isAllJustice ? '是' : '否' }}</td>
+              <td>游玩次数</td>
               <td>{{record.playCount}}</td>
             </tr>
             <tr>
-              <th>Is FC?</th>
-              <td>{{record.isFullCombo}}</td>
-              <td>Max Combo</td>
+              <th>是否全连?</th>
+              <td>{{record.isFullCombo ? '是' : '否' }}</td>
+              <td>最高连击</td>
               <td>{{record.maxComboCount}}</td>
             </tr>
             <tr>
-              <th>Is Clear?</th>
-              <td>{{record.isSuccess}}</td>
-              <td>Miss Count</td>
+              <th>是否通关?</th>
+              <td>{{record.isSuccess ? '是' : '否' }}</td>
+              <td>Miss 数量</td>
               <td>{{record.missCount}}</td>
             </tr>
           </table>
         </div>
         <mat-card-actions>
-          <button mat-flat-button routerLink="{{item.diff}}">Show all play history</button>
+          <button mat-flat-button routerLink="{{item.diff}}">显示该难度所有成绩纪录</button>
         </mat-card-actions>
       </mat-card-content>
     </ng-container>
     <ng-template #no_record>
       <mat-card-content>
-        No play record
+        没有游玩纪录
       </mat-card-content>
     </ng-template>
   </mat-card>

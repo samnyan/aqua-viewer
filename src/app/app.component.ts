@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     },
     {
       id: 1,
-      name: 'PV记录',
+      name: 'PV纪录',
       url: 'diva/record'
     },
     {
