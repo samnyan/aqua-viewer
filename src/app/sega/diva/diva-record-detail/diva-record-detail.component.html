@@ -68,7 +68,7 @@
           <td>{{record.customize.customizeFlag}}</td>
         </tr>
         <tr>
-          <th>游戏主题:</th>
+          <th>面板:</th>
           <td>{{record.customize.skin}}</td>
         </tr>
         <tr>
@@ -76,11 +76,11 @@
           <td>{{record.customize.buttonSe}}</td>
         </tr>
         <tr>
-          <th>拖拽音效:</th>
+          <th>连续拖拽音效:</th>
           <td>{{record.customize.chainSlideSe}}</td>
         </tr>
         <tr>
-          <th>连续拖拽音效:</th>
+          <th>拖拽音效:</th>
           <td>{{record.customize.slideSe}}</td>
         </tr>
         <tr>
@@ -110,7 +110,7 @@
           <input formControlName="customizeFlag" matInput required type="text">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>游戏主题</mat-label>
+          <mat-label>面板</mat-label>
           <input formControlName="skin" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
@@ -118,11 +118,11 @@
           <input formControlName="buttonSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>拖拽音效</mat-label>
+          <mat-label>连续拖拽音效</mat-label>
           <input formControlName="chainSlideSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>连续拖拽音效</mat-label>
+          <mat-label>拖拽音效</mat-label>
           <input formControlName="slideSe" matInput required type="number">
         </mat-form-field>
         <mat-form-field class="full-width">
@@ -149,7 +149,7 @@
           <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>还没有人打这个PV</ng-template>
+      <ng-template #empty_easy>暂时还没有人打过这个难度</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -163,7 +163,7 @@
           <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>还没有人打这个PV</ng-template>
+      <ng-template #empty_easy>暂时还没有人打过这个难度</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -177,7 +177,7 @@
           <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>还没有人打这个PV</ng-template>
+      <ng-template #empty_easy>暂时还没有人打过这个难度</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -191,7 +191,7 @@
           <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>还没有人打这个PV</ng-template>
+      <ng-template #empty_easy>暂时还没有人打过这个难度</ng-template>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -205,7 +205,7 @@
           <td><button mat-flat-button (click)="addRival(item.id)">设为对手</button></td>
         </tr>
       </table>
-      <ng-template #empty_easy>还没有人打这个PV</ng-template>
+      <ng-template #empty_easy>暂时还没有人打过这个难度</ng-template>
     </mat-card-content>
   </mat-card>
 

@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-    <div>加成列表, 长度: {{festas ? festas.length : 0}}</div>
+    <div>节日加成列表, 长度: {{festas ? festas.length : 0}}</div>
     <button (click)="edit(undefined)" mat-flat-button>添加</button>
   </mat-card-title>
 </mat-card>
@@ -13,7 +13,7 @@
           <td>{{festa.id}}</td>
         </tr>
         <tr>
-          <th>名称</th>
+          <th>节日名称</th>
           <td>{{festa.name}}</td>
         </tr>
         <tr>

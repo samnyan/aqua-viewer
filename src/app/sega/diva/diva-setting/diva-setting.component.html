@@ -37,7 +37,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>游戏主题</mat-card-title>
+  <mat-card-title>打歌面板</mat-card-title>
   <mat-card-content>
     <div class="content">
       主题ID:
@@ -71,8 +71,8 @@
   <mat-card-content>
     <div class="content">
       按键音效: {{profile.buttonSe == -1 ? '默认设定' : profile.buttonSe}}<br>
-      拖拽音效: {{profile.chainSlideSe == -1 ? '默认设定' : profile.chainSlideSe}}<br>
-      连续拖拽音效: {{profile.slideSe == -1 ? '默认设定' : profile.slideSe}}<br>
+      连续拖拽音效: {{profile.chainSlideSe == -1 ? '默认设定' : profile.chainSlideSe}}<br>
+      拖拽音效: {{profile.slideSe == -1 ? '默认设定' : profile.slideSe}}<br>
       拖拽条操作音效: {{profile.sliderTouchSe == -1 ? '默认设定' : profile.sliderTouchSe}}<br>
     </div>
     <div class="action">
@@ -89,7 +89,7 @@
       Clear最低达成率显示: {{profile.showClearStatus}}<br>
       Great最低达成率显示: {{profile.showGreatBorder}}<br>
       击败对手的最低达成率显示: {{profile.showRivalBorder}}<br>
-      显示游戏选项: {{profile.showRgoSetting}}<br>
+      显示节奏游戏道具: {{profile.showRgoSetting}}<br>
     </div>
     <div class="action">
       <button (click)="display()" mat-button>编辑</button>

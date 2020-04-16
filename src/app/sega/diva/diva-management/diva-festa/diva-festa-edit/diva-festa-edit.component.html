@@ -1,16 +1,16 @@
 <mat-card>
   <mat-card-title>
-    <div class="title">加成</div>
+    <div class="title">节日加成</div>
   </mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" [formGroup]="festaForm">
       <mat-form-field class="full-width">
-        <mat-label>名称</mat-label>
+        <mat-label>节日名称</mat-label>
         <input formControlName="name" matInput required type="text">
       </mat-form-field>
       <mat-checkbox class="full-width" formControlName="enable">已启用</mat-checkbox>
       <mat-form-field class="full-width">
-        <mat-label>类型</mat-label>
+        <mat-label>加成类型</mat-label>
         <mat-select formControlName="kind">
           <mat-option value="0">PinkFesta</mat-option>
           <mat-option value="1">GreenFesta</mat-option>
@@ -20,10 +20,10 @@
         <mat-label>难度限制</mat-label>
         <mat-select formControlName="difficulty">
           <mat-option value="-1">无限制</mat-option>
-          <mat-option value="0">简单</mat-option>
-          <mat-option value="1">普通</mat-option>
-          <mat-option value="2">困难</mat-option>
-          <mat-option value="3">专家</mat-option>
+          <mat-option value="0">Easy</mat-option>
+          <mat-option value="1">Normal</mat-option>
+          <mat-option value="2">Hard</mat-option>
+          <mat-option value="3">Extreme</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">

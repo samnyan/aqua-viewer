@@ -31,32 +31,32 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>等级</mat-label>
+        <mat-label>级别</mat-label>
         <mat-select formControlName="league">
-          <mat-option value="0">Beginner</mat-option>
-          <mat-option value="1">Intermediate</mat-option>
-          <mat-option value="2">Advanced</mat-option>
-          <mat-option value="3">Professional</mat-option>
+          <mat-option value="0">下级</mat-option>
+          <mat-option value="1">中级</mat-option>
+          <mat-option value="2">上级</mat-option>
+          <mat-option value="3">超上级</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>总星数</mat-label>
+        <mat-label>最低总星数要求</mat-label>
         <input formControlName="stars" matInput required type="number">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>最低难度</mat-label>
+        <mat-label>最低复杂度</mat-label>
         <input formControlName="minComplexity" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>最高难度</mat-label>
+        <mat-label>最高复杂度</mat-label>
         <input formControlName="maxComplexity" matInput required type="number">
       </mat-form-field>
       <p>复杂度= 星级 x 2 示例: 9.5星 = 复杂度19. 最高值:20, 最低值:1. </p>
 
       <mat-form-field class="full-width">
-        <mat-label>游玩次数</mat-label>
+        <mat-label>最多游玩次数</mat-label>
         <input formControlName="stages" matInput required type="number">
       </mat-form-field>
 
@@ -108,8 +108,8 @@
       </mat-form-field>
       <p>PV难度列表格式: "pv_difficulty:min_complexity:max_complexity,...". 
         请使用他来控制PV列表的难度Pv <br>
-        PV难度: -1：无限制, 0：Easy, 1：Normal 但是2和3无法生效，所以请设置为-1
-        然后设置复杂度. <br>
+        PV难度: -1：无限制, 0：Easy, 1：Normal。但是设置为2和3似乎没有任何效果，所以请设置为-1
+        然后手动设置复杂度. <br>
         复杂度设置：同上. </p>
       <mat-form-field class="full-width">
         <mat-label>青铜课题奖励</mat-label>
@@ -132,7 +132,7 @@
       </mat-form-field>
 
       <p>课题奖励格式: "rewardType:rewardId:string1:string2" string1 和 2 必须存在. 使用 *** 或者是 %2A%2A%2A 作为占位符 <br>
-        奖励类型: (-1 无, 0 VP, 1 皮肤, 2 称号, 3 饰品)</p>
+        奖励类型: (-1 无, 0 VP, 1 打歌面板, 2 称号, 3 饰品)</p>
       <button [disabled]="!contestForm.valid" mat-flat-button type="submit">Submit</button>
     </form>
   </mat-card-content>
