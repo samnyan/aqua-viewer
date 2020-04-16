@@ -1,17 +1,16 @@
 <mat-card>
-  <mat-card-title>My Card List</mat-card-title>
+  <mat-card-title>我的卡片列表</mat-card-title>
   <mat-card-content>
     <p class="hint">
-      Hint: <br>
-      Every card has base Lv.10 Max. After Kaika, max level will plus 40. (Means 10 + 40)<br>
-      Every Star larger than 1 will add 5 levels to max level. And R,SR,SSR card can get max 5 stars, N card can get max
-      10 stars.<br>
-      Means max level for N card is 100, for R,SR,SSR card is 70.<br>
-      Star level can be increase by getting the same card or use item in game.
+      提示: <br>
+      每张卡的基础等级最高为10级。解花后，最高等级将加上40级。（指10+40）<br>
+      每增加一颗星可以让最高等级增加5级。R，SR，SSR卡最多可获得5颗星，N卡最多可获得10颗星。<br>
+      这就意味着N卡的最大等级为100，R、SR、SSR卡的最大等级为70<br>
+      在游戏中获得同一张牌或使用同一物品可以提高星级。
     </p>
     <div class="action">
-      <button mat-button routerLink="all">Show All Cards</button>
-      <button mat-button routerLink="gacha">Gacha(Work in progress)</button>
+      <button mat-button routerLink="all">展示所有卡片</button>
+      <button mat-button routerLink="gacha">抽卡(在进程中运行)</button>
     </div>
   </mat-card-content>
 </mat-card>
@@ -35,27 +34,27 @@
       <div class="content">
         <table class="zebra">
           <tr>
-            <th>Level</th>
+            <th>等级</th>
             <td>{{item.level}}</td>
           </tr>
           <tr>
-            <th>Current Max Level</th>
+            <th>当前可达到的最高等级</th>
             <td>{{item.maxLevel}}</td>
           </tr>
           <tr>
-            <th>Star</th>
+            <th>星级</th>
             <td>{{item.digitalStock}}</td>
           </tr>
           <tr>
-            <th>Skill</th>
+            <th>技能</th>
             <td>{{item.skillInfo ? item.skillInfo.name : 'ID:' + item.skillId}}</td>
           </tr>
           <tr>
-            <th>Kaika</th>
+            <th>解花</th>
             <td>{{item.kaikaDate == '0000-00-00 00:00:00.0' ? 'No' : 'Yes'}}</td>
           </tr>
           <tr>
-            <th>ChoKaika</th>
+            <th>超解花</th>
             <td>{{item.choKaikaDate == '0000-00-00 00:00:00.0' ? 'No' : 'Yes'}}</td>
           </tr>
         </table>
@@ -66,11 +65,11 @@
     <div fxFlex></div>
     <button (click)="kaika(item.cardId, 'kaika')" [disabled]="item.kaikaDate != '0000-00-00 00:00:00.0'"
             mat-button>
-      Kaika
+      解花
     </button>
     <button (click)="kaika(item.cardId, 'choKaika')" [disabled]="item.choKaikaDate != '0000-00-00 00:00:00.0'"
             mat-button>
-      ChoKaika
+      超解花
     </button>
   </mat-card-actions>
 </mat-card>

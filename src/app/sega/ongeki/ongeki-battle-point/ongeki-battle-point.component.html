@@ -1,21 +1,21 @@
 <mat-card>
-  <mat-card-title>Battle Point</mat-card-title>
+  <mat-card-title>对战点数</mat-card-title>
 </mat-card>
 
 <mat-card>
   <mat-card-content>
-    Current Battle Point: {{profile ? profile.battlePoint : ''}}
+    当前对战点数: {{profile ? profile.battlePoint : ''}}
   </mat-card-content>
 </mat-card>
 
 <mat-card>
-  <h3>Best Battle Points</h3>
+  <h3>对战点数排名</h3>
   <table class="zebra battle-point-table">
     <thead>
-    <th>Music</th>
-    <th>Level</th>
-    <th>Point</th>
-    <th>Attr.</th>
+    <th>歌曲</th>
+    <th>难度</th>
+    <th>点数</th>
+    <th>属性.</th>
     </thead>
     <tbody>
     <tr *ngFor="let item of bPList; index as i">

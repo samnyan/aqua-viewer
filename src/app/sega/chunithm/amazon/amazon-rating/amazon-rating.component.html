@@ -1,23 +1,23 @@
 <div>
   <mat-card>
-    <h3>总熟练度 <span
+    <h3>总评级 <span
       class="{{(topTotal + recentTotal) / 40 | toRating | ratingClass}}">{{(topTotal + recentTotal) / 40 | toRating }}</span>
     </h3>
-    <h3>Top <span class="{{topTotal / 30 | toRating | ratingClass}}">{{topTotal / 30 | toRating }}</span></h3>
-    <h3>近期 <span class="{{recentTotal / 10 | toRating | ratingClass}}">{{recentTotal / 10 | toRating }}</span></h3>
+    <h3>最高平均评级 <span class="{{topTotal / 30 | toRating | ratingClass}}">{{topTotal / 30 | toRating }}</span></h3>
+    <h3>近期平均评级 <span class="{{recentTotal / 10 | toRating | ratingClass}}">{{recentTotal / 10 | toRating }}</span></h3>
   </mat-card>
 </div>
 <div fxLayout="row wrap" fxLayout.sm="column" fxLayout.xs="column">
 
   <div class="skill-card" fxFlex="45">
     <mat-card>
-      <h3>Top</h3>
+      <h3>最高评级排名</h3>
       <table class="zebra">
         <thead>
         <th>歌曲</th>
         <th>难度</th>
         <th>分数</th>
-        <th>熟练度</th>
+        <th>评级</th>
         </thead>
         <tbody>
         <tr *ngFor="let item of topRating; index as i">
@@ -43,13 +43,13 @@
   </div>
   <div class="skill-card" fxFlex="45">
     <mat-card>
-      <h3>近期</h3>
+      <h3>近期评级排名</h3>
       <table class="zebra">
         <thead>
         <th>歌曲</th>
         <th>难度</th>
         <th>分数</th>
-        <th>熟练度</th>
+        <th>评级</th>
         </thead>
         <tbody>
         <tr *ngFor="let item of recentRating; index as i">

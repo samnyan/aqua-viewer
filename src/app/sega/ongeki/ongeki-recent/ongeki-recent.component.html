@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-    Recent Play
+    近期游玩
   </mat-card-title>
 </mat-card>
 <div *ngIf="recent" class="record">
@@ -25,12 +25,12 @@
         <div class="left">
           <div class="score-area">
             <div class="score-element">
-              <span class="score-label">BATTLE SCORE</span><br>
+              <span class="score-label">对战得分</span><br>
               <span class="score-value">{{item.battleScore}}</span><br>
-              <span *ngIf="item.isBattleNewRecord">NEW RECORD<br></span>
-              <span class="score-label">OVER DAMAGE</span><br>
+              <span *ngIf="item.isBattleNewRecord">新记录<br></span>
+              <span class="score-label">最终伤害</span><br>
               <span class="score-value">{{item.overDamage / 100}}%</span><br>
-              <span *ngIf="item.isOverDamageNewRecord">NEW RECORD<br></span>
+              <span *ngIf="item.isOverDamageNewRecord">新纪录<br></span>
             </div>
             <div class="score-element">
               <div class="score-rank-icon">
@@ -41,9 +41,9 @@
           </div>
           <div class="score-area">
             <div class="score-element">
-              <span class="score-label">TECHNICAL SCORE</span><br>
+              <span class="score-label">技术得分</span><br>
               <span class="score-value">{{item.techScore}}</span><br>
-              <span *ngIf="item.isTechNewRecord">NEW RECORD<br></span>
+              <span *ngIf="item.isTechNewRecord">新纪录<br></span>
             </div>
             <div class="score-element">
               <div class="score-rank-icon">
@@ -109,7 +109,7 @@
       </div>
       <div class="battle-info">
         <div class="rival-info">
-          Rival: <span
+          对手: <span
           class="{{item.bossAttribute | toAttributeClass}}">{{attributeType[item.bossAttribute]}}
           █</span> {{item.bossCharaInfo ? item.bossCharaInfo.name : 'ID: ' + item.bossCharaId}}
           Lv.{{item.bossLevel}}

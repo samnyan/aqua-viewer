@@ -15,7 +15,7 @@
 <mat-card>
   <mat-card-title>隐私</mat-card-title>
   <mat-card-content *ngIf="profile">
-    <div class="content">隐藏熟练度信息:</div>
+    <div class="content">隐藏评级信息:</div>
     <div class="action">
       <button (click)="null" mat-button>编辑</button>
     </div>
@@ -26,7 +26,7 @@
   <mat-card-title>导出数据</mat-card-title>
   <mat-card-content>
     <div class="action">
-      <a href="{{apiServer + '/api/game/chuni/amazon/export?aimeId=' + aimeId}}" mat-button target="_blank">下载</a>
+      <a href="{{apiServer + '/api/game/chuni/amazon/export?aimeId=' + aimeId}}" mat-button target="_blank">下载到本地</a>
     </div>
   </mat-card-content>
 </mat-card>

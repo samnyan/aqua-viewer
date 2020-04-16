@@ -1,49 +1,49 @@
 <mat-card>
-  <mat-card-title>Player Profile</mat-card-title>
+  <mat-card-title>玩家资料</mat-card-title>
   <mat-card-content>
     <table *ngIf="profile" class="zebra">
       <tr>
-        <th>Player Name</th>
+        <th>玩家名称</th>
         <td>{{profile.userName}}</td>
       </tr>
       <tr>
-        <th>Player Rating</th>
+        <th>玩家评级</th>
         <td>{{profile.playerRating / 100 | number: '1.2-2'}}</td>
       </tr>
       <tr>
-        <th>Player Highest Rating</th>
+        <th>玩家最高评级</th>
         <td>{{profile.highestRating / 100 | number: '1.2-2'}}</td>
       </tr>
       <tr>
-        <th>Battle Point</th>
+        <th>对战点数</th>
         <td>{{profile.battlePoint}}</td>
       </tr>
       <tr>
-        <th>Player Level</th>
+        <th>玩家等级</th>
         <td>{{profile.level}}</td>
       </tr>
       <tr>
-        <th>Total Play Count</th>
+        <th>总游玩次数</th>
         <td>{{profile.playCount}}</td>
       </tr>
       <tr>
-        <th>Name Plate Id</th>
+        <th>称号栏id</th>
         <td>{{profile.nameplateId}}</td>
       </tr>
       <tr>
-        <th>Card</th>
+        <th>卡片</th>
         <td>{{profile.card ? profile.card.name : 'ID:' + profile.cardId}}</td>
       </tr>
       <tr>
-        <th>Character</th>
+        <th>角色</th>
         <td>{{profile.character ? profile.character.name : 'ID:' + profile.characterId}}</td>
       </tr>
       <tr>
-        <th>Total Tech High Score</th>
+        <th>总技术得分</th>
         <td>{{profile.sumTechHighScore}}</td>
       </tr>
       <tr>
-        <th>Total Battle High Score</th>
+        <th>总对战得分</th>
         <td>{{profile.sumBattleHighScore}}</td>
       </tr>
     </table>

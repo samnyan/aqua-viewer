@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>All Card List</mat-card-title>
+  <mat-card-title>所有卡片列表</mat-card-title>
 </mat-card>
 
 <mat-card *ngFor="let item of cardList | paginate: { id: 'card', itemsPerPage: 10, currentPage: p }">
@@ -20,39 +20,39 @@
       <div class="content">
         <table class="zebra">
           <tr>
-            <th>Card ID</th>
+            <th>卡片 ID</th>
             <td>{{item.id}}</td>
           </tr>
           <tr>
-            <th>Rarity</th>
+            <th>稀有度</th>
             <td>{{item.rarity}}</td>
           </tr>
           <tr>
-            <th>Card Name</th>
+            <th>卡片名字</th>
             <td>{{item.nickName}}</td>
           </tr>
           <tr>
-            <th>Attribute</th>
+            <th>属性</th>
             <td>{{item.attribute}}</td>
           </tr>
           <tr>
-            <th>School</th>
+            <th>学校</th>
             <td>{{item.school}}</td>
           </tr>
           <tr>
-            <th>Gakunen</th>
+            <th>年级</th>
             <td>{{item.gakunen}}</td>
           </tr>
           <tr>
-            <th>Skill</th>
+            <th>技能</th>
             <td>{{item.skillInfo ? item.skillInfo.name : 'ID:' + item.skillId}}</td>
           </tr>
           <tr>
-            <th>ChoKaika Skill</th>
+            <th>超解花 技能</th>
             <td>{{item.choKaikaSkillInfo ? item.choKaikaSkillInfo.name : 'ID:' + item.choKaikaSkillId}}</td>
           </tr>
           <tr>
-            <th>CardNumber</th>
+            <th>卡牌编号</th>
             <td>{{item.cardNumber}}</td>
           </tr>
         </table>
@@ -61,7 +61,7 @@
   </mat-card-content>
   <mat-card-actions>
     <div fxFlex></div>
-    <button (click)="insertCard(item.id)" mat-button>I want it!!</button>
+    <button (click)="insertCard(item.id)" mat-button>我想要它!!</button>
   </mat-card-actions>
 </mat-card>
 <div class="pagination">

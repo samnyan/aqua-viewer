@@ -1,30 +1,30 @@
 <mat-card>
-  <mat-card-title>Rating (TECHNICAL Score)</mat-card-title>
+  <mat-card-title>评级 (技术得分)</mat-card-title>
   <mat-card-content>
-    ONGEKI rating is calculate from 55 songs avg.<br>
-    Including :<br>
-    1. Best 30 chart in all old song.<br>
-    2. Best 15 chart in new song.<br>
-    3. Best 10 chart in recent 30 plays. (Can be same chart, but not include LUNATIC chart)
+    ONGEKI 评级是根据平均55首歌曲计算出来的.<br>
+    包括 :<br>
+    1. 在所有游玩中最好的30次成绩.<br>
+    2. 在新游玩中最高的15次成绩.<br>
+    3. 最近30次游玩中的最好的10次成绩. (可以是同一个曲目, 但不包括 LUNATIC 曲目)
   </mat-card-content>
 </mat-card>
 
 <mat-card>
   <mat-card-content>
     <div class="rating-info">
-      Current Rating: {{profile ? (profile.playerRating / 100 | number: '1.2-2') : ''}}<br>
-      Highest Rating: {{profile ? (profile.highestRating / 100 | number: '1.2-2') : ''}}
+      当前评级: {{profile ? (profile.playerRating / 100 | number: '1.2-2') : ''}}<br>
+      最高评级: {{profile ? (profile.highestRating / 100 | number: '1.2-2') : ''}}
     </div>
   </mat-card-content>
 </mat-card>
 
 <mat-card *ngFor="let index of [0,2,4]">
-  <h3>{{index == 0 ? 'Total Best 30' : index == 2 ? 'New Song Best 15' : 'Recent Best 10' }}</h3>
+  <h3>{{index == 0 ? '总游玩前 30排名' : index == 2 ? '新游玩列表' : '近期前 10' }}</h3>
   <table class="zebra battle-point-table">
     <thead>
-    <th>Music</th>
-    <th>Level</th>
-    <th>Score</th>
+    <th>歌曲</th>
+    <th>难度</th>
+    <th>分数</th>
     </thead>
     <tbody>
     <ng-container *ngFor="let item of allArray[index]; index as i">
@@ -32,7 +32,7 @@
     </ng-container>
     <tr>
       <td colspan="4">
-        ===== Next 10 =====
+        ===== 接下来 10 条 =====
       </td>
     </tr>
     <ng-container *ngFor="let item of allArray[index + 1]; index as i">

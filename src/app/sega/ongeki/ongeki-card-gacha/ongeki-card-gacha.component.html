@@ -1,19 +1,19 @@
 <mat-card *ngIf="!isStarted" [@control] class="control">
   <mat-card-content>
-    <h2>Regular Gacha</h2>
-    <p>This is still work in progress. Animation isn't implemented.</p>
+    <h2>常规抽卡</h2>
+    <p>这项工作仍在进行中。动画未实现。</p>
     <div class="gacha-button-group">
-      <button (click)="gacha(1)" mat-raised-button>Gacha<br>1x</button>
-      <button (click)="gacha(5)" mat-raised-button>Gacha<br>5x</button>
-      <button (click)="gacha(11)" mat-raised-button>Gacha<br>11x</button>
+      <button (click)="gacha(1)" mat-raised-button>抽卡<br>1连</button>
+      <button (click)="gacha(5)" mat-raised-button>抽卡<br>5连</button>
+      <button (click)="gacha(11)" mat-raised-button>抽卡<br>11连</button>
     </div>
-    <p>Detail:<br>
+    <p>具体概率:<br>
       R: 70%<br>
       SR: 25%<br>
       SSR: 5%
     </p>
     <p *ngIf="cardResultList.length > 0">
-      Card data saved in server: {{submitSuccessful}} , failed {{cardResultList.length - submitSuccessful}}
+      成功存储在服务器中的卡数据: {{submitSuccessful}} , 失败 {{cardResultList.length - submitSuccessful}}
     </p>
   </mat-card-content>
 </mat-card>
