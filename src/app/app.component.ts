@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     },
     {
       id: 2,
-      name: '熟练度',
+      name: '评级',
       url: 'ongeki/rating'
     },
     {
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     },
     {
       id: 1,
-      name: '熟练度',
+      name: '评级',
       url: 'amazon/rating'
     },
     {

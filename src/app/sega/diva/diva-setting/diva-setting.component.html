@@ -4,7 +4,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>玩家昵称</mat-card-title>
+  <mat-card-title>玩家名称</mat-card-title>
   <mat-card-content>
     <div class="content">{{profile.playerName}}</div>
     <div class="action">
@@ -101,7 +101,7 @@
   <mat-card-title>对手设定</mat-card-title>
   <mat-card-content>
     <div class="content">
-      对手昵称: {{rival}}<br>
+      对手名称: {{rival}}<br>
     </div>
     <div class="action">
       <button (click)="setRival()" mat-button>编辑</button>
