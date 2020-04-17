@@ -3,7 +3,7 @@
 }
 
 .upload-button::before {
-  content: 'Select File';
+  content: '浏览';
   cursor: pointer;
   outline: none;
   border: none;
@@ -14,7 +14,7 @@
   vertical-align: baseline;
   text-align: center;
   margin: 0;
-  min-width: 64px;
+  min-width: 36px;
   line-height: 36px;
   padding: 0 16px;
   border-radius: 4px;

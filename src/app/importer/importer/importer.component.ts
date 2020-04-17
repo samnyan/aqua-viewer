@@ -46,10 +46,10 @@ export class ImporterComponent implements OnInit {
           error => this.messageService.notice(error)
         );
       } else {
-        this.messageService.notice('Wrong Game ID, please check you have select the correct file.');
+        this.messageService.notice('错误的游戏ID，请检查您是否选择了正确的文件.');
       }
     };
     fileReader.readAsText(file);
-    this.messageService.notice('Uploading...');
+    this.messageService.notice('上传中...');
   }
 }
