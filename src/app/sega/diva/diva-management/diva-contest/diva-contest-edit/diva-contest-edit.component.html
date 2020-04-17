@@ -18,14 +18,14 @@
 
       <mat-form-field class="full-width">
         <mat-label>开始时间</mat-label>
-        <input [matDatepicker]="startTime" formControlName="startTime" matInput placeholder="Choose a start date">
+        <input [matDatepicker]="startTime" formControlName="startTime" matInput placeholder="选择一个开始日期">
         <mat-datepicker-toggle [for]="startTime" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #startTime></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>结束时间</mat-label>
-        <input [matDatepicker]="endTime" formControlName="endTime" matInput placeholder="Choose a end date">
+        <input [matDatepicker]="endTime" formControlName="endTime" matInput placeholder="选择一个结束日期">
         <mat-datepicker-toggle [for]="endTime" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #endTime></mat-datepicker>
       </mat-form-field>
@@ -79,19 +79,19 @@
 
 
       <mat-form-field class="full-width">
-        <mat-label>青铜分数要求</mat-label>
+        <mat-label>青铜边框要求</mat-label>
         <input formControlName="bronzeBorders" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>白银分数要求</mat-label>
+        <mat-label>白银边框要求</mat-label>
         <input formControlName="sliverBorders" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>黄金分数要求</mat-label>
+        <mat-label>黄金边框要求</mat-label>
         <input formControlName="goldBorders" matInput required type="number">
       </mat-form-field>
 
-      <p>在修改下面这些值之前，请再三确认：因为不正确的值可能会导致课题无法加载，分数无法保存
+      <p>在修改下面这些值的时候，请再三确认：错误的值可能会导致课题无法加载，分数无法保存
         如果不知道如何填写里面的值，请留空</p>
 
       <mat-form-field class="full-width">
@@ -99,7 +99,7 @@
         <input formControlName="pvList" matInput placeholder="pv_id_start:pv_id_end..." type="text">
       </mat-form-field>
       <p>PV列表格式: "pv_id_start:pv_id_end,pv_id_start:pv_id_end,pv_id_start:pv_id_end". <br>
-        最高长度为 20 。如果您只需要一个PV，请使用-1作为pv_id_end.</p>
+        最多允许写入 20 个PV列表。如果您只需要一个PV，请使用-1作为pv_id_end.</p>
 
       <mat-form-field class="full-width">
         <mat-label>PV难度列表</mat-label>
@@ -107,7 +107,7 @@
                placeholder="pv_difficulty:min_complexity:max_complexity...">
       </mat-form-field>
       <p>PV难度列表格式: "pv_difficulty:min_complexity:max_complexity,...". 
-        请使用他来控制PV列表的难度Pv <br>
+        请使用它来控制PV列表的难度范围 <br>
         PV难度: -1：无限制, 0：Easy, 1：Normal。但是设置为2和3似乎没有任何效果，所以请设置为-1
         然后手动设置复杂度. <br>
         复杂度设置：同上. </p>
@@ -132,7 +132,7 @@
       </mat-form-field>
 
       <p>课题奖励格式: "rewardType:rewardId:string1:string2" string1 和 2 必须存在. 使用 *** 或者是 %2A%2A%2A 作为占位符 <br>
-        奖励类型: (-1 无, 0 VP, 1 打歌面板, 2 称号, 3 饰品)</p>
+        奖励类型（rewardType）: (-1 无, 0 VP, 1 打歌面板, 2 称号, 3 饰品)</p>
       <button [disabled]="!contestForm.valid" mat-flat-button type="submit">Submit</button>
     </form>
   </mat-card-content>

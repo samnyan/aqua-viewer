@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>签名设置</h1>
+<h1 mat-dialog-title>更改玩家签名</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <input [(ngModel)]="data.title" matInput>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>取消</button>
+  <button (click)="onNoClick()" mat-button>不用了，谢谢</button>
   <button [mat-dialog-close]="data.title" cdkFocusInitial mat-button>保存</button>
 </div>

@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>按键音效设定</h1>
+<h1 mat-dialog-title>更改按键音效设定</h1>
 <div mat-dialog-content>
-  <span>-1为默认声音</span>
+  <span>-1为游戏默认音效</span>
   <mat-form-field>
     <mat-label>按键音效</mat-label>
     <input [(ngModel)]="data.buttonSe" matInput type="number">
@@ -19,6 +19,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button (click)="onNoClick()" mat-button>取消</button>
+  <button (click)="onNoClick()" mat-button>不用了，谢谢</button>
   <button [mat-dialog-close]="data" cdkFocusInitial mat-button>保存</button>
 </div>

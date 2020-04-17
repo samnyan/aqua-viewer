@@ -14,7 +14,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>签名</mat-card-title>
+  <mat-card-title>玩家签名</mat-card-title>
   <mat-card-content>
     <div class="content">{{profile.levelTitle}}</div>
     <div class="action">
@@ -24,7 +24,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>签名栏设置</mat-card-title>
+  <mat-card-title>签名栏</mat-card-title>
   <mat-card-content>
     <div class="content">
       签名栏ID: {{profile.plateId}}<br>
@@ -40,7 +40,7 @@
   <mat-card-title>打歌面板</mat-card-title>
   <mat-card-content>
     <div class="content">
-      主题ID:
+      面板ID:
       {{profile.commonSkin}}
     </div>
     <div class="action">
@@ -67,7 +67,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>按键音效</mat-card-title>
+  <mat-card-title>设置按键音效</mat-card-title>
   <mat-card-content>
     <div class="content">
       按键音效: {{profile.buttonSe == -1 ? '默认设定' : profile.buttonSe}}<br>
@@ -82,7 +82,7 @@
 </mat-card>
 
 <mat-card *ngIf="profile">
-  <mat-card-title>游戏内设定</mat-card-title>
+  <mat-card-title>游戏内其他设定</mat-card-title>
   <mat-card-content>
     <div class="content">
       显示排名: {{profile.showInterimRanking}}<br>

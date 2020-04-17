@@ -8,7 +8,7 @@
         <mat-label>节日名称</mat-label>
         <input formControlName="name" matInput required type="text">
       </mat-form-field>
-      <mat-checkbox class="full-width" formControlName="enable">已启用</mat-checkbox>
+      <mat-checkbox class="full-width" formControlName="enable">节日加成状态</mat-checkbox>
       <mat-form-field class="full-width">
         <mat-label>加成类型</mat-label>
         <mat-select formControlName="kind">
@@ -17,9 +17,9 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>难度限制</mat-label>
+        <mat-label>限定难度</mat-label>
         <mat-select formControlName="difficulty">
-          <mat-option value="-1">无限制</mat-option>
+          <mat-option value="-1">无限定难度</mat-option>
           <mat-option value="0">Easy</mat-option>
           <mat-option value="1">Normal</mat-option>
           <mat-option value="2">Hard</mat-option>
@@ -35,11 +35,11 @@
         <input formControlName="attributes" matInput required type="text">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>VP点数加成</mat-label>
+        <mat-label>VP点数奖励</mat-label>
         <input formControlName="addVP" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <mat-label>加成倍率</mat-label>
+        <mat-label>VP加成倍率</mat-label>
         <input formControlName="vpMultiplier" matInput required type="number">
       </mat-form-field>
       <mat-form-field class="full-width">
