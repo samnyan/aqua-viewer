@@ -1,18 +1,15 @@
 # AquaViewer
 
-A WebUI for AQUA Server
+Aqua Viewer是Aqua Server的网页UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+这个项目基于 [Angular CLI](https://github.com/angular/angular-cli) 8.3.20版本生成.
 
-## Live Version
-Go http://aqua.samnyan.icu/
+## 最新版本
+请访问 http://reraser.cn/aqua
 
-Please notice that if you are using HTTPS, your browser may block HTTP connect to the game server.
+请注意您如果使用HTTPS，浏览器可能会阻止至游戏服务器的HTTP连接
 
-## Self Host
-Go to [gh-pages branch](https://github.com/samnyan/aqua-viewer/tree/gh-pages), then clone all the file or download as zip. This build is up to date with the source.
+###从源代码生成
+你必须安装Angular-cli然后运行 `ng build --prod`.
 
-###Build From Source
-You need to have Angular-cli installed and run `ng build --prod`.
-
-Please follow the [deployment guide](https://angular.io/guide/deployment) if you are new to angular.
+如果你是Angular的新手，请跟随[开发文档](https://angular.io/guide/deployment) .
