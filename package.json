@@ -28,7 +28,7 @@
     "@createjs/tweenjs": "^2.0.0-beta.4",
     "angular-cli-ghpages": "^0.6.2",
     "minimist": "^1.2.5",
-    "ngx-indexed-db": "^4.0.14",
+    "ngx-indexed-db": "^5.0.5",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
