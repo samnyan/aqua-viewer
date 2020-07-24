@@ -28,6 +28,8 @@ import {ErrorInterceptorService} from './auth/error-interceptor.service';
 import {LoadingInterceptorService} from './auth/loading-interceptor.service';
 import {ChangelogComponent} from './changelog/changelog.component';
 import {ImporterModule} from './importer/importer.module';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import {ImporterModule} from './importer/importer.module';
     MatMenuModule,
     MatNativeDateModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
