@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AuthGuardService} from './auth/auth-guard.service';
@@ -22,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 
