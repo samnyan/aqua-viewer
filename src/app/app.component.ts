@@ -157,7 +157,9 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.preLoad.load();
+    if (this.user !== null) {
+      this.preLoad.load();
+    }
     this.subscription = this.api.loadingState.subscribe(
       state => this.loading = state.show
     );
