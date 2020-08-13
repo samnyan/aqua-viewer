@@ -116,6 +116,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @createjs/core
 MIT
 The MIT License (MIT)
